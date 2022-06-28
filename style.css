@@ -1,0 +1,29 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    background-color: #B5AA93;
+}
+
+.container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align:center;
+}
+
+p{
+    padding: 4.5px;
+    color: #536E63;
+    background: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    font-size: 18px;
+}
+
+.behance{
+    margin: 9px;
+    width: 65px;
+}
