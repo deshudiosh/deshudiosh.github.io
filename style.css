@@ -23,6 +23,11 @@ p{
     font-size: 18px;
 }
 
+.logo {
+    width: 256px;
+    height: auto;
+}
+
 .behance{
     margin: 9px;
     width: 65px;
