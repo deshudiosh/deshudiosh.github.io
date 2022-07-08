@@ -88,15 +88,15 @@ class Background{
 
         this.stars = [];
 
-        for (let i = 0; i < 500; i++) {
-            let p = createVector(r(1), r(1));
-            let s = r(0.002, 0.004);
-            // s *= r(1) > .95 ? 3 : 1;
-            let imgIdx = fr(STARS_COUNT);
-            let rot = r(360);
+        // for (let i = 0; i < 500; i++) {
+        //     let p = createVector(r(1), r(1));
+        //     let s = r(0.002, 0.004);
+        //     // s *= r(1) > .95 ? 3 : 1;
+        //     let imgIdx = fr(STARS_COUNT);
+        //     let rot = r(360);
 
-            this.stars.push({p, s, imgIdx, rot});
-        }
+        //     this.stars.push({p, s, imgIdx, rot});
+        // }
 
 
         this.streaks = [];
