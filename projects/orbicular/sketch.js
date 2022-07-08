@@ -46,7 +46,7 @@ function setup() {
 function init(){
     units();
 
-    RES = 600; // TEST
+    // RES = 600; // TEST
 
     CANVAS = createCanvas(RES, RES);
     CANVAS.parent('drawing'); 
