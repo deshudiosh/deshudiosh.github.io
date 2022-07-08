@@ -32,7 +32,10 @@ function preload(){
     console.log('pre planets');
 
     for (let i = 0; i < PLANETS_COUNT; i++) {
-        PLANETS[i] = loadImage(`${texPath}/planets/t_${String(i+1).padStart(2, '0')}.jpg`);
+        let img = loadImage(`${texPath}/planets/t_${String(i+1).padStart(2, '0')}.jpg`);
+        
+        PLANETS[i] = img;
+        // console.log(PLANETS[i]);
     }
 
     console.log('pre shaped');
@@ -62,8 +65,6 @@ function init(){
     console.log('pre canvas');
     CANVAS = createCanvas(RES, RES);
     CANVAS.parent('drawing'); 
-    console.log(Object.getPrototypeOf(CANVAS));
-    console.log('post canvas');
 
     console.log('pre orbs init');
     ORB_ARR.forEach(orb => {

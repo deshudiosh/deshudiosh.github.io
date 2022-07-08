@@ -28,13 +28,22 @@ class Orb{
         let i = this.imgIdx;
         console.log(`   > ${i}`);
 
-        console.log(`   > pre is shaped`);
-        if(this.isShaped){    
+        console.log(`   > pre isShaped`);
+        if(this.isShaped){
+            console.log("   > shaped");
+            console.log(`   > ${SHAPED.length}`);        
             this.img = SHAPED[i].get();
+            console.log(`   > ${this.img}`);        
+            console.log("   > shaped mask");    
+            console.log(`   > ${SHAPED_MASKS.length}`);        
             this.imgMask = SHAPED_MASKS[i].get();
+            console.log(`   > ${this.img}`);       
         }
         else{
-            this.img = PLANETS[i].get();
+            console.log("   > not shaped");
+            console.log(`   > ${PLANETS.length}`);           
+            this.img = PLANETS[i];
+            console.log(PLANETS[i].width);      
         }
 
         console.log(`   > pre light`);

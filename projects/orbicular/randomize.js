@@ -35,7 +35,7 @@ function randomize(){
     R_ORBS_SPEC = [];
     let orbCount = r([1, 2, 3]);
 
-    // orbCount = 1; // TEST
+    orbCount = 1; // TEST
     
     let orb1, orb2, orb3;
     switch (orbCount) {

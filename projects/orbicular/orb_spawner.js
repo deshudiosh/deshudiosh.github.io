@@ -12,6 +12,8 @@ class Spec{
         this.size = .3;
         this.moon = rYesNo();
 
+        this.isShaped = false; // TEST TEST
+
         let i;
         for (let _ = 0; _ < 1000; _++) {
             if(this.isShaped){
