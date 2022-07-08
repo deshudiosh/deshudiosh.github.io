@@ -86,7 +86,6 @@ function draw(){
         if(autoSave) autoSaveImg();
 
         console.log("drawing post");
-        noLoop();
     }    
 }
 
