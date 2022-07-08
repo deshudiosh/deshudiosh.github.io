@@ -26,16 +26,16 @@ function preload(){
     randomize(); 
 
     for (let i = 0; i < PLANETS_COUNT; i++) {
-        PLANETS[i] = loadImage(`./tex/planets/t_${String(i+1).padStart(2, '0')}.jpg`);
+        PLANETS[i] = loadImage(`./projects/orbicular/tex/planets/t_${String(i+1).padStart(2, '0')}.jpg`);
     }
 
     for (let i = 0; i < SHAPED_COUNT; i++) {
-        SHAPED[i] = loadImage(`./tex/planets_shaped/shaped_${String(i+1).padStart(2, '0')}.jpg`);
-        SHAPED_MASKS[i] = loadImage(`./tex/planets_shaped/shaped_${String(i+1).padStart(2, '0')}_mask.jpg`);
+        SHAPED[i] = loadImage(`./projects/orbicular/tex/planets_shaped/shaped_${String(i+1).padStart(2, '0')}.jpg`);
+        SHAPED_MASKS[i] = loadImage(`./projects/orbicular/tex/planets_shaped/shaped_${String(i+1).padStart(2, '0')}_mask.jpg`);
     }
 
     for (let i = 0; i < STARS_COUNT; i++) {
-        STARS[i] = loadImage(`./tex/stars/star_${String(i+1).padStart(2, '0')}.png`);
+        STARS[i] = loadImage(`./projects/orbicular/tex/stars/star_${String(i+1).padStart(2, '0')}.png`);
     }
 }
 
