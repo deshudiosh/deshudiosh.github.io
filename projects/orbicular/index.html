@@ -65,7 +65,7 @@ permalink: /orbicular
           'grain',
           'sketch']){
           let newScript = document.createElement('script');
-          newScript.src = `${PROJECT_PATH}/${scriptName}.js`;
+          newScript.src = `${PROJECT_PATH}/${scriptName}.js?version=${Math.random()}`;
           drawingDiv.appendChild(newScript);
         }
       </script>
