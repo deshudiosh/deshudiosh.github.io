@@ -88,7 +88,7 @@ class Orb{
         let yOff = this.light.shadowOffset.y*RES;
         gShadowMask.image(this.mask.planet, xOff, yOff);
         if(this.city) gShadowMask.image(this.city.mask, xOff, yOff);
-        StackBlur.canvasRGBA(gShadowMask.canvas, 0, 0, RES, RES, this.size*RES/12);
+        // StackBlur.canvasRGBA(gShadowMask.canvas, 0, 0, RES, RES, this.size*RES/12);
         
         let gShadow = createGraphics(RES, RES);
         let shadowCol = color(0, 100);

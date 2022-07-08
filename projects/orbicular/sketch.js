@@ -27,36 +27,50 @@ function preload(){
 
     let texPath = `${PROJECT_PATH}/tex`;
 
+    console.log(texPath);
+
+    console.log('pre planets');
+
     for (let i = 0; i < PLANETS_COUNT; i++) {
         PLANETS[i] = loadImage(`${texPath}/planets/t_${String(i+1).padStart(2, '0')}.jpg`);
     }
 
+    console.log('pre shaped');
     for (let i = 0; i < SHAPED_COUNT; i++) {
         SHAPED[i] = loadImage(`${texPath}/planets_shaped/shaped_${String(i+1).padStart(2, '0')}.jpg`);
         SHAPED_MASKS[i] = loadImage(`${texPath}/planets_shaped/shaped_${String(i+1).padStart(2, '0')}_mask.jpg`);
     }
 
+    console.log('pre stars');
     for (let i = 0; i < STARS_COUNT; i++) {
         STARS[i] = loadImage(`${texPath}/stars/star_${String(i+1).padStart(2, '0')}.png`);
     }
 }
 
 function setup() {
+    console.log('setup');
     init();
 }
 
 function init(){
+    console.log('pre units');
     units();
+    console.log('post units');
 
     RES = 600; // TEST
 
+    console.log('pre canvas');
     CANVAS = createCanvas(RES, RES);
     CANVAS.parent('drawing'); 
+    console.log(CANVAS);
+    console.log('post canvas');
 
+    console.log('pre orbs init');
     ORBS.forEach(orb => {
         orb.initPostSpawn();
     });
 
+    console.log('pre background');
     BG = new Background();
     // GRAIN = new Grain();
     
@@ -64,10 +78,11 @@ function init(){
 
 function draw(){
     if(drawingDone == false){
+        console.log('pre bg draw');
         if(BG) BG.draw();
 
+        console.log('pre orbs draw');
         ORBS.forEach(orb => {
-            
             orb.draw();            
         });
 
@@ -86,6 +101,7 @@ function draw(){
         if(autoSave) autoSaveImg();
 
         console.log("drawing post");
+        noLoop();
     }    
 }
 

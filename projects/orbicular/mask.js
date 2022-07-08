@@ -87,8 +87,8 @@ class Mask{
         gCutter.beginShape();
         this.cutterCircle.points.forEach(p => gCutter.curveVertex(p.x * RES, p.y * RES));
         gCutter.endShape();
-        StackBlur.canvasRGBA(gCutter.canvas, 0, 0, gCutter.width, gCutter.width, 
-            this.orb.size*RES * R_LIGHT_MASK_SHARPNESS);
+        // StackBlur.canvasRGBA(gCutter.canvas, 0, 0, gCutter.width, gCutter.width, 
+            // this.orb.size*RES * R_LIGHT_MASK_SHARPNESS);
         let gCutterInverse = this.inverseMask(gCutter);
         // image(gCutter, 0, 0);
 
