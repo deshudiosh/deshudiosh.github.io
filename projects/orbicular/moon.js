@@ -78,7 +78,7 @@ class Moon{
         g.angleMode(DEGREES);
         g.rotate(this.rot);
         g.imageMode(CENTER);
-        g.tint(this.ellipse.color, 220);
+        g.tint(this.ellipse.color, 220); // FIX number as first parameter?
         g.image(gMoon, this.moonPos.x * RES, this.moonPos.y * RES);
 
         // mask cutting off "behind" the planete
