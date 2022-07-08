@@ -29,24 +29,14 @@ class Orb{
         console.log(`   > ${i}`);
 
         console.log(`   > pre isShaped`);
-        if(this.isShaped){
-            console.log("   > shaped");
-            console.log(`   > ${SHAPED.length}`);        
-            this.img = SHAPED[i].get();
-            console.log(`   > ${this.img}`);        
-            console.log("   > shaped mask");    
-            console.log(`   > ${SHAPED_MASKS.length}`);        
-            this.imgMask = SHAPED_MASKS[i].get();
-            console.log(`   > ${this.img}`);       
+        if(this.isShaped){    
+            this.img = SHAPED[i].get();   
+            this.imgMask = SHAPED_MASKS[i].get();     
         }
-        else{
-            console.log("   > not shaped");
-            console.log(`   > ${PLANETS.length}`);           
-            this.img = PLANETS[i];
-            console.log(PLANETS[i].width);      
+        else{     
+            this.img = PLANETS[i]; 
         }
 
-        console.log(`   > pre light`);
         this.light = new Light(this);    // TODO: zweryfikuj czy to potrzebne i czy w dobrym misjcy
 
         console.log(`   > pre mask`);

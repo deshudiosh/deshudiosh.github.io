@@ -68,9 +68,7 @@ function init(){
 
     console.log('pre orbs init');
     ORB_ARR.forEach(orb => {
-        console.log('   > pre init');
         orb.initPostSpawn();
-        console.log('   > post init');
     });
 
     console.log('pre background');
