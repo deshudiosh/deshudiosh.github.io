@@ -27,7 +27,7 @@ function preload(){
 
     let texPath = `./projects/orbicular/tex`;
 
-    console.log("VERSION >31<");
+    console.log("VERSION >32<");
 
     console.log('pre planets');
 
@@ -46,6 +46,7 @@ function preload(){
 
     console.log('pre stars');
     for (let i = 0; i < STARS_COUNT; i++) {
+        console.log(loadImage(`${texPath}/stars/star_${String(i+1).padStart(2, '0')}.png`));
         STARS[i] = loadImage(`${texPath}/stars/star_${String(i+1).padStart(2, '0')}.png`);
     }
 }
