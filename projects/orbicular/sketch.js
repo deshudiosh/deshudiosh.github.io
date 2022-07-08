@@ -27,7 +27,7 @@ function preload(){
 
     let texPath = `./projects/orbicular/tex`;
 
-    console.log("VERSION >29<");
+    console.log("VERSION >30<");
 
     console.log('pre planets');
 
@@ -56,13 +56,10 @@ function setup() {
 }
 
 function init(){
-    console.log('pre units');
     units();
-    console.log('post units');
 
     RES = 600; // TEST
 
-    console.log('pre canvas');
     CANVAS = createCanvas(RES, RES);
     CANVAS.parent('drawing'); 
 
@@ -71,10 +68,9 @@ function init(){
         orb.initPostSpawn();
     });
 
-    console.log('pre background');
+    console.log('pre bg');
     BG = new Background();
     // GRAIN = new Grain();
-    console.log('post background');
     
 }
 
@@ -126,14 +122,14 @@ function units(){
     // console.log(`res = ${RES}x${RES}`);
 }
 
-function windowResized() {
-    clearTimeout(resizeDelayTimer);
-    resizeDelayTimer = setTimeout(function() {
-        units();
-        resizeCanvas(RES, RES, true);
-        resetDrawing();
-    }, 200);
-}
+// function windowResized() {
+//     clearTimeout(resizeDelayTimer);
+//     resizeDelayTimer = setTimeout(function() {
+//         units();
+//         resizeCanvas(RES, RES, true);
+//         resetDrawing();
+//     }, 200);
+// }
 
 function saveHires(){
     let px = 2000;

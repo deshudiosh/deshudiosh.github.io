@@ -34,24 +34,17 @@ class Orb{
             this.imgMask = SHAPED_MASKS[i].get();     
         }
         else{       
-            this.img = PLANETS[i];
-            console.log(PLANETS[i].width);      
+            this.img = PLANETS[i];    
         }
 
-        console.log(`   > pre light`);
         this.light = new Light(this);    // TODO: zweryfikuj czy to potrzebne i czy w dobrym misjcy
 
-        console.log(`   > pre mask`);
         this.mask = new Mask(this);
 
-        console.log(`   > pre set colors`);
         this.setColorsFromImg(this.img);      
 
-        console.log(`   > pre ring`);
         if(this.ring) this.ring.assignColors();
-        console.log(`   > pre city`);
         if(this.city) this.city.initPostSpawn();
-        console.log(`   > pre moon`);
         if(this.moon) this.moon.assignColors();
     }
 
@@ -68,7 +61,6 @@ class Orb{
     draw(showOrb = true){
         let pxSize = round(this.size * this.safeScale * RES);
 
-        console.log(pxSize);
         this.mask.draw(pxSize);
 
         if(this.city) this.city.draw(); 
@@ -98,7 +90,7 @@ class Orb{
         let yOff = this.light.shadowOffset.y*RES;
         gShadowMask.image(this.mask.planet, xOff, yOff);
         if(this.city) gShadowMask.image(this.city.mask, xOff, yOff);
-        StackBlur.canvasRGBA(gShadowMask.canvas, 0, 0, RES, RES, this.size*RES/12);
+        // StackBlur.canvasRGBA(gShadowMask.canvas, 0, 0, RES, RES, this.size*RES/12);
         
         let gShadow = createGraphics(RES, RES);
         let shadowCol = color(0, 100);
