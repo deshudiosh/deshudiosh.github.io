@@ -1,0 +1,17 @@
+html,
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;  
+  /* touch-action: none; */
+  background-color: #808080;
+}
+
+canvas {
+  display: block;
+}
