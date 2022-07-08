@@ -62,7 +62,7 @@ function init(){
     console.log('pre canvas');
     CANVAS = createCanvas(RES, RES);
     CANVAS.parent('drawing'); 
-    console.log(CANVAS);
+    console.log(Object.getPrototypeOf(CANVAS));
     console.log('post canvas');
 
     console.log('pre orbs init');
@@ -75,6 +75,7 @@ function init(){
     console.log('pre background');
     BG = new Background();
     // GRAIN = new Grain();
+    console.log('post background');
     
 }
 
