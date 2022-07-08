@@ -93,7 +93,7 @@ class OrbSpawner{
     
                 let collides = false;
                 
-                for (const oldOrb of ORBS) {
+                for (const oldOrb of ORB_ARR) {
                     collides = newOrb.hitbox.collidesOrb(oldOrb.hitbox, .1);               
                     if(collides) break;
                 }
@@ -112,7 +112,7 @@ class OrbSpawner{
 
         if(newPosOk){
             console.log(`Spawn tries: ${count} \n   scale mult: ${scaleMul.toFixed(2)} \n   final size: ${newOrb.size}`);
-            ORBS.push(newOrb);
+            ORB_ARR.push(newOrb);
         }
         else{
             console.log(`Fail: ${count}`);

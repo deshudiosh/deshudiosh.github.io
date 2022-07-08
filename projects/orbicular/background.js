@@ -70,7 +70,7 @@ class Streak{
 
 class Background{
     constructor(){
-        this.getColorFromOrb(ORBS[0]);
+        this.getColorFromOrb(ORB_ARR[0]);
 
         // set html body bg color
         select('body').style(
@@ -110,7 +110,7 @@ class Background{
 
             let collides = false;
 
-            for (const orb of ORBS) {
+            for (const orb of ORB_ARR) {
                 collides = orb.hitbox.collidesStreak(s);
                 if(collides) break;
             }

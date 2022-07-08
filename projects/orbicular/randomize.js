@@ -4,7 +4,7 @@ let R_LIGHT_ROT, R_LIGHT_BIAS, R_LIGHT_INV, R_LIGHT_MASK_SHARPNESS;
 
 let R_BG_SAT, R_BG_LIGHT_MIN, R_BG_LIGHT_MAX, R_BG_STREAKS_COUNT;
 
-let ORBS, R_ORBS_SPEC;
+let R_ORBS_SPEC;
 
 function randomize(){
     SEED = floor(10000000+fxrand()*89999999);
@@ -84,24 +84,24 @@ function randomize(){
 
     // SPAWN ORBS
     let spawner = new OrbSpawner();
-    ORBS = [];
+    ORB_ARR = [];
     R_ORBS_SPEC.forEach(spec => spawner.add(spec));
 
     // POST SPAWN SMALL PLANETS ADJUSTMENTS
     let small = .1;
-    ORBS.forEach(orb => {
+    ORB_ARR.forEach(orb => {
         if(orb.size < small){
             orb.city = undefined; // 100% city remove chance
             if(orb.ring && rYesNo()) orb.ring = undefined; // 50% ring remove chance
         }
     });
 
-    ORBS.reverse();
+    ORB_ARR.reverse();
     
     
     // FEATURES
     let F_COMP;
-    switch (ORBS.length){
+    switch (ORB_ARR.length){
         case 1:
             F_COMP = "Alone";
             break;

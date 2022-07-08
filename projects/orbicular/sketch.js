@@ -1,4 +1,4 @@
-let CANVAS, RES;
+let CANVAS, RES, ORB_ARR;
 
 let resizeDelayTimer;
 let callPreview = true;
@@ -66,7 +66,7 @@ function init(){
     console.log('post canvas');
 
     console.log('pre orbs init');
-    ORBS.forEach(orb => {
+    ORB_ARR.forEach(orb => {
         orb.initPostSpawn();
     });
 
@@ -82,7 +82,7 @@ function draw(){
         if(BG) BG.draw();
 
         console.log('pre orbs draw');
-        ORBS.forEach(orb => {
+        ORB_ARR.forEach(orb => {
             orb.draw();            
         });
 
