@@ -27,7 +27,7 @@ function preload(){
 
     let texPath = `./projects/orbicular/tex`;
 
-    console.log("VERSION >27<");
+    console.log("VERSION >28<");
 
     console.log('pre planets');
 

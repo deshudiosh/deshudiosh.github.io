@@ -97,6 +97,7 @@ class Mask{
         let gShadow = createGraphics(RES, RES);
         gShadow.image(gPlanet, 0, 0);
         gShadow = gShadow.get()
+        console.log(gCutterInverse);
         gShadow.mask(gCutterInverse);
         
         let gLightTemp = gPlanet.get();
