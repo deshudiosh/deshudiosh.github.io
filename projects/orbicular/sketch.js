@@ -27,7 +27,7 @@ function preload(){
 
     let texPath = `./projects/orbicular/tex`;
 
-    console.log("VERSION >30<");
+    console.log("VERSION >31<");
 
     console.log('pre planets');
 
@@ -52,10 +52,10 @@ function preload(){
 
 function setup() {
     console.log('setup');
-    init();
+    initalize();
 }
 
-function init(){
+function initalize(){
     units();
 
     RES = 600; // TEST
@@ -109,7 +109,7 @@ function autoSaveImg(){
         
         resetDrawing();
         randomize();            
-        init();    
+        initalize();    
     }
 }
 
