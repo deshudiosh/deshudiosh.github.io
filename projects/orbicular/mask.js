@@ -81,6 +81,7 @@ class Mask{
 
         // cutter
         let gCutter = createGraphics(RES, RES);
+        console.log(gCutter.pixelDensity());
         // gShadow.image(gPlanet, 0, 0);
         gCutter.fill(255, 0, 0, 255);
         gCutter.noStroke();
@@ -118,7 +119,7 @@ class Mask{
     }
 
     inverseMask(maskImg, writeMaskToRGB = true){
-        let g = createGraphics(round(maskImg.width), round(maskImg.height));
+        let g = createGraphics(maskImg.width, maskImg.height);
         g.image(maskImg, 0, 0);
 
         let pxDenSq = sq(g.pixelDensity());

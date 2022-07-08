@@ -74,7 +74,7 @@ class Orb{
     }
 
     draw(showOrb = true){
-        let pxSize = this.size * this.safeScale * RES;
+        let pxSize = round(this.size * this.safeScale * RES);
 
         this.mask.draw(pxSize);
 
