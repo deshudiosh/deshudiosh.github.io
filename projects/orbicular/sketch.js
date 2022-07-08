@@ -25,17 +25,19 @@ function preload(){
 
     randomize(); 
 
+    let texPath = `${PROJECT_PATH}/tex`;
+
     for (let i = 0; i < PLANETS_COUNT; i++) {
-        PLANETS[i] = loadImage(`./projects/orbicular/tex/planets/t_${String(i+1).padStart(2, '0')}.jpg`);
+        PLANETS[i] = loadImage(`${texPath}/planets/t_${String(i+1).padStart(2, '0')}.jpg`);
     }
 
     for (let i = 0; i < SHAPED_COUNT; i++) {
-        SHAPED[i] = loadImage(`./projects/orbicular/tex/planets_shaped/shaped_${String(i+1).padStart(2, '0')}.jpg`);
-        SHAPED_MASKS[i] = loadImage(`./projects/orbicular/tex/planets_shaped/shaped_${String(i+1).padStart(2, '0')}_mask.jpg`);
+        SHAPED[i] = loadImage(`${texPath}/planets_shaped/shaped_${String(i+1).padStart(2, '0')}.jpg`);
+        SHAPED_MASKS[i] = loadImage(`${texPath}/planets_shaped/shaped_${String(i+1).padStart(2, '0')}_mask.jpg`);
     }
 
     for (let i = 0; i < STARS_COUNT; i++) {
-        STARS[i] = loadImage(`./projects/orbicular/tex/stars/star_${String(i+1).padStart(2, '0')}.png`);
+        STARS[i] = loadImage(`${texPath}/stars/star_${String(i+1).padStart(2, '0')}.png`);
     }
 }
 
@@ -46,7 +48,7 @@ function setup() {
 function init(){
     units();
 
-    // RES = 600; // TEST
+    RES = 600; // TEST
 
     CANVAS = createCanvas(RES, RES);
     CANVAS.parent('drawing'); 
@@ -72,6 +74,8 @@ function draw(){
         if(GRAIN) GRAIN.draw();
 
         drawingDone = true;
+
+        console.log("drawing done");
     }
 
     else{
@@ -80,7 +84,10 @@ function draw(){
             callPreview = false;
         }
         if(autoSave) autoSaveImg();
-    }
+
+        console.log("drawing post");
+        noLoop();
+    }    
 }
 
 function autoSaveImg(){
