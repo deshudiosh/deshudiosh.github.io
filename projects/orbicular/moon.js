@@ -66,8 +66,9 @@ class Moon{
         gOrbit.mask(gradMask);
 
         // graphics of the moon img
-        let gMoon = createGraphics(this.moonSize * RES, this.moonSize * RES);
-        gMoon.image(STARS[this.imgIdx], 0, 0, this.moonSize * RES, this.moonSize * RES);
+        let gMoonSize = round(this.moonSize * RES);
+        let gMoon = createGraphics(gMoonSize, gMoonSize);
+        gMoon.image(STARS[this.imgIdx], 0, 0, gMoonSize, gMoonSize);
         gMoon.filter(GRAY);
 
         let g = createGraphics(RES, RES);

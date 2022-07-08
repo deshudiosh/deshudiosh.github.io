@@ -25,7 +25,7 @@ function preload(){
 
     randomize(); 
 
-    let texPath = `${PROJECT_PATH}/tex`;
+    let texPath = `./projects/orbicular/tex`;
 
     console.log(texPath);
 

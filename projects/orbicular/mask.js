@@ -118,7 +118,7 @@ class Mask{
     }
 
     inverseMask(maskImg, writeMaskToRGB = true){
-        let g = createGraphics(maskImg.width, maskImg.height);
+        let g = createGraphics(round(maskImg.width), round(maskImg.height));
         g.image(maskImg, 0, 0);
 
         let pxDenSq = sq(g.pixelDensity());

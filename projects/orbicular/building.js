@@ -192,7 +192,7 @@ class Building{
     }
 
     getGraphics(){
-        let g = createGraphics(this.drawSize.x * RES, this.drawSize.y * RES);
+        let g = createGraphics(round(this.drawSize.x * RES), round(this.drawSize.y * RES));
         // g.stroke(255, 90);
         // g.background(255,0,0,128);
         g.strokeWeight(0.001*RES);
@@ -215,7 +215,7 @@ class Building{
     }
 
     getMask(){
-        let mask = createGraphics(this.drawSize.x * RES, this.drawSize.y * RES);
+        let mask = createGraphics(round(this.drawSize.x * RES), round(this.drawSize.y * RES));
         mask.strokeWeight(0.001*RES);
         mask.fill(255, 0, 0, 255);
         mask.stroke(255, 0, 0, 255);

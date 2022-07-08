@@ -39,36 +39,24 @@ permalink: /orbicular
   </head>
   <body>
     <div id="drawing">
-      <script type="text/javascript">
-        let PROJECT_PATH = "./projects/orbicular"
-        // PROJECT_PATH = ".";
-
-        let drawingDiv = document.getElementById('drawing');
-        
-        for (scriptName of [
-          'utils',
-          'stackblur.min',
-          'p5js_wrappers',
-          'p5.min',
-          'color_utils',
-          'randomize',
-          'light',
-          'background',
-          'mask',
-          'building',
-          'city',
-          'ring',
-          'moon',
-          'orb_spawner',
-          'orb_hitbox',
-          'orb',
-          'grain',
-          'sketch']){
-          let newScript = document.createElement('script');
-          newScript.src = `${PROJECT_PATH}/${scriptName}.js?version=${Math.random()}`;
-          drawingDiv.appendChild(newScript);
-        }
-      </script>
+      <script src="./projects/orbicular/utils.js"></script>
+      <script src="./projects/orbicular/stackblur.min.js"></script>
+      <script src="./projects/orbicular/p5js_wrappers.js"></script>
+      <script src="./projects/orbicular/color_utils.js"></script>
+      <script src="./projects/orbicular/randomize.js"></script>
+      <script src="./projects/orbicular/light.js"></script>
+      <script src="./projects/orbicular/background.js"></script>
+      <script src="./projects/orbicular/mask.js"></script>
+      <script src="./projects/orbicular/building.js"></script>
+      <script src="./projects/orbicular/city.js"></script>
+      <script src="./projects/orbicular/ring.js"></script>
+      <script src="./projects/orbicular/moon.js"></script>
+      <script src="./projects/orbicular/orb_spawner.js"></script>
+      <script src="./projects/orbicular/orb_hitbox.js"></script>
+      <script src="./projects/orbicular/orb.js"></script>
+      <script src="./projects/orbicular/grain.js"></script>
+      <script src="./projects/orbicular/p5.min.js"></script>
+      <script src="./projects/orbicular/sketch.js"></script>
     </div>
   </body>
 </html>
