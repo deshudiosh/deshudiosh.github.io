@@ -44,7 +44,7 @@ function randomize(){
     let orb1, orb2, orb3;
     switch (orbCount) {
         case 1:
-            orb1 = new Spec();
+            orb1 = new OrbSpec();
             orb1.size = r(.4, .7);
             // orb1.size = .8; // TEST
             // orb1.pos = cv(.5, .85); // TEST
@@ -52,10 +52,10 @@ function randomize(){
             break;
     
         case 2:            
-            orb1 = new Spec();
+            orb1 = new OrbSpec();
             orb1.size = r(.3, .6);
 
-            orb2 = new Spec();
+            orb2 = new OrbSpec();
             orb2.size = r(.1, .3);
             orb2.ring = rYesNo(.7);
 
@@ -64,14 +64,14 @@ function randomize(){
             break;
 
         case 3:            
-            orb1 = new Spec();
+            orb1 = new OrbSpec();
             orb1.size = r(.3, .6);
 
-            orb2 = new Spec();
+            orb2 = new OrbSpec();
             orb2.size = r(.1, .3);
             orb2.ring = rYesNo(.7);
 
-            orb3 = new Spec();
+            orb3 = new OrbSpec();
             orb3.size = r(.05, .1);
             orb3.ring = rYesNo();
 

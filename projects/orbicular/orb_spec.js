@@ -1,4 +1,4 @@
-class Spec{
+class OrbSpec{
     static planetIdxUsed = []; 
     static shapedIdxUsed = [];
 
@@ -18,24 +18,24 @@ class Spec{
         for (let _ = 0; _ < 1000; _++) {
             if(this.isShaped){
                 i = fr(SHAPED_COUNT);
-                if(Spec.shapedIdxUsed.includes(i) == false) break;
+                if(OrbSpec.shapedIdxUsed.includes(i) == false) break;
             }
             else{
                 i = fr(PLANETS_COUNT);
-                if(Spec.planetIdxUsed.includes(i) == false) break;
+                if(OrbSpec.planetIdxUsed.includes(i) == false) break;
             }
         }
 
         this.imgIdx = i;
 
-        if(this.isShaped) Spec.shapedIdxUsed.push(i);
-        else Spec.planetIdxUsed.push(i);
+        if(this.isShaped) OrbSpec.shapedIdxUsed.push(i);
+        else OrbSpec.planetIdxUsed.push(i);
 
         // this.moon = true; // TEST
     }
 
     static resetUsed(){
-        Spec.planetIdxUsed = [];
-        Spec.shapedIdxUsed = [];
+        OrbSpec.planetIdxUsed = [];
+        OrbSpec.shapedIdxUsed = [];
     }
 }
