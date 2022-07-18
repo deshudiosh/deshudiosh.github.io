@@ -28,7 +28,7 @@ function preload(){
 
     let texPath = `./projects/orbicular/tex`;
 
-    console.log("VERSION >35<");
+    console.log("VERSION >36<");
 
     // load all images if testing, load only needed otherwise
     if(TESTING_AUTOSAVE){
@@ -68,7 +68,7 @@ function setup() {
 function initalize(){
     units();
 
-    RES = 1000; // TEST
+    // RES = 1000; // TEST
 
     CANVAS = createCanvas(RES, RES);
     CANVAS.parent('drawing'); 
