@@ -63,71 +63,67 @@ class Orb{
 
         if(this.city) this.city.drawToGraphics(); 
 
-        push();
         
-        let gPlanet = createGraphics(RES, RES);
-        this.graphicsToPurge = [gPlanet];
-        gPlanet.translate(this.center.x * RES, this.center.y * RES);
-        gPlanet.angleMode(DEGREES);
-        gPlanet.rotate(this.rot);
-        gPlanet.imageMode(CENTER);
-        gPlanet.image(this.img, 0, 0, pxSize, pxSize);
-        // image(temp, 0, 0);
-
-        // BRIGHT
-        let gBright = gPlanet.get();
-        gBright.mask(this.mask.light);       
-        
-        // DARK
-        let gDark = gPlanet.get();
-        gDark.mask(this.mask.planet);
-
-        // SHADOW
-        let gShadowMask = createGraphics(RES, RES);
-        this.graphicsToPurge.push(gShadowMask);
-        let xOff = this.light.shadowOffset.x*RES;
-        let yOff = this.light.shadowOffset.y*RES;
-        gShadowMask.image(this.mask.planet, xOff, yOff);
-        if(this.city) gShadowMask.image(this.city.mask, xOff, yOff);
-        StackBlur.canvasRGBA(gShadowMask.canvas, 0, 0, RES, RES, this.size*RES/12);
-        
-        let gShadow = createGraphics(RES, RES);
-        this.graphicsToPurge.push(gShadow);
-        let shadowCol = color(0, 100);
-        gShadow.background(shadowCol);
-        gShadow = gShadow.get();
-        gShadow.mask(gShadowMask);
-
-        
-
         if(showOrb){
-            image(gShadow, 0, 0);
+            push();
+        
+            let gPlanet = createGraphics(RES, RES);
+            gPlanet.translate(this.center.x * RES, this.center.y * RES);
+            gPlanet.angleMode(DEGREES);
+            gPlanet.rotate(this.rot);
+            gPlanet.imageMode(CENTER);
+            gPlanet.image(this.img, 0, 0, pxSize, pxSize);
+            // image(temp, 0, 0);
+
+            // BRIGHT
+            let gBright = gPlanet.get();
+            gBright.mask(this.mask.light);       
+            
+            // DARK
+            let gDark = gPlanet.get();
+            gDark.mask(this.mask.planet);
+
+            gPlanet.remove() // purge asap
+
+            // SHADOW
+            let gShadowMask = createGraphics(RES, RES);
+            let xOff = this.light.shadowOffset.x*RES;
+            let yOff = this.light.shadowOffset.y*RES;
+            gShadowMask.image(this.mask.planet, xOff, yOff);
+            if(this.city) gShadowMask.image(this.city.mask, xOff, yOff);
+            StackBlur.canvasRGBA(gShadowMask.canvas, 0, 0, RES, RES, this.size*RES/12);
+            
+            let gShadow = createGraphics(RES, RES);
+            let shadowCol = color(0, 100);
+            gShadow.background(shadowCol);
+            let gShadowImg = gShadow.get();
+            gShadowImg.mask(gShadowMask);
+
+            gShadowMask.remove(); // purge asap
+            gShadow.remove(); // purge asap
+        
+            image(gShadowImg, 0, 0);
             
             tint(this.colors.shadowTint);
             image(gDark, 0, 0);
-            noTint();            
+            noTint();
 
             image(gBright, 0, 0);
+            
+            pop();
         }
-
-        pop();
 
         if(this.ring) this.ring.draw();
         
         if(this.moon) this.moon.draw();
 
-        if(this.city) this.city.imagePredrawnToCanvas();
+        if(this.city) this.city.drawGraphicsToCanvas();
+
+
+        this.mask.purge();
 
         // this.hitbox.preview();
 
         // this.colors.preview();
-    }
-
-    purge(){
-        this.graphicsToPurge.forEach(g => g.remove());
-        this.mask.purge();
-        if(this.city) this.city.purge();
-        if(this.moon) this.moon.purge();
-        if(this.ring) this.ring.purge();
     }
 }

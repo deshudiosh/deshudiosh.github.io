@@ -51,7 +51,6 @@ class Ring{
 
     draw(){
         let g = createGraphics(RES, RES);
-        this.graphicsToPurge = [g];
         g.ellipseMode(CENTER);
         g.noFill();
         g.translate(this.center.x * RES, this.center.y * RES);
@@ -68,7 +67,6 @@ class Ring{
         StackBlur.canvasRGBA(g.canvas, 0, 0, g.width, g.width, RES/1000);
 
         let ringMask = createGraphics(RES, RES);
-        this.graphicsToPurge.push(ringMask);
         ringMask.image(this.orb.mask.planetInverse, 0, 0);
 
         ringMask.fill(255);
@@ -79,14 +77,12 @@ class Ring{
         ringMask.rect(-RES, 0, RES*2, RES*2);
         // image(ringMask, 0, 0);        
 
-        g = g.get();
-        g.mask(ringMask);
-        image(g, 0, 0);        
-    }
+        let gImg = g.get();
+        g.remove();
+        gImg.mask(ringMask);
+        ringMask.remove();
 
-    purge(){
-        this.graphicsToPurge.forEach(g => g.remove());
+        image(gImg, 0, 0);
     }
-
 
 }

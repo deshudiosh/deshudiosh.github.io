@@ -65,6 +65,7 @@ class OrbColorSampler{
 
         // purge canvas
         g.remove();
+        g = undefined;
 
         // store avarages
         this.avgLight = 0;

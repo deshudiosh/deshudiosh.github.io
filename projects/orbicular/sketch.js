@@ -28,7 +28,7 @@ function preload(){
 
     let texPath = `./projects/orbicular/tex`;
 
-    console.log("VERSION >39<");
+    console.log("VERSION >40<");
 
     // load all images if testing, load only needed otherwise
     if(TESTING_AUTOSAVE){
@@ -68,7 +68,7 @@ function setup() {
 function initalize(){
     units();
 
-    // RES = 1000; // TEST
+    RES = 1000; // TEST
 
     CANVAS = createCanvas(RES, RES);
     CANVAS.parent('drawing'); 
@@ -88,7 +88,6 @@ function draw(){
 
         ORB_ARR.forEach(orb => {
             orb.draw();
-            orb.purge();            
         });
 
         if(GRAIN) GRAIN.draw();

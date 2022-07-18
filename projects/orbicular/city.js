@@ -83,7 +83,6 @@ class City{
         let mask = createGraphics(RES, RES);
         mask.angleMode(DEGREES);
 
-        this.graphicsToPurge = [g, mask];
         // this.gToPurge.push();
                 
         this.buildings.forEach(b => {
@@ -109,16 +108,22 @@ class City{
             mask.rotate(this.rot);
             mask.translate(-b.drawSize.x/2 * RES, -b.drawSize.y * RES);            
             mask.image(b.getMask(), 0, 0);
+
+            // building instant purge
+            b.purge();
         });
         
-        g = g.get();
-        g.mask(mask);
+        let gImg = g.get();
+        g.remove();
+        gImg.mask(mask);
 
-        this.graphics = g;
-        this.mask = mask;
+        this.graphics = gImg;
+        this.mask = mask.get();
+
+        mask.remove();
     }
 
-    imagePredrawnToCanvas(){
+    drawGraphicsToCanvas(){
         image(this.graphics, 0, 0);
         this.bush.draw();
     }
@@ -132,11 +137,5 @@ class City{
 
     shadowOff(g){
         g.drawingContext.shadowColor = color(0, 0, 0, 0);
-    }
-
-    purge(){
-        this.graphicsToPurge.forEach(g => g.remove());
-        // this.graphics.remove();
-        this.buildings.forEach(b => b.purge());
     }
 }

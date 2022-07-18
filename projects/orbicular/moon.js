@@ -15,8 +15,8 @@ class Moon{
 
 
         let moonPos = cv(0, -width/2);
-        // moonPos.rotate(r(20, 340));
-        moonPos.rotate(180);
+        moonPos.rotate(r(20, 340));
+        // moonPos.rotate(180); // TEST
         moonPos.mult(1, heightFactor);
         this.moonPos = moonPos;
 
@@ -106,9 +106,9 @@ class Moon{
         // final draw
         image(g, 0, 0);
 
-    }
 
-    purge(){
+        // purge
         this.graphicsArray.forEach(g => g.remove());
+        this.graphicsArray = undefined;
     }
 }

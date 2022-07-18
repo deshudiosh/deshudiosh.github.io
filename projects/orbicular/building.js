@@ -254,5 +254,7 @@ class Building{
     purge(){
         this.g.remove();
         this.gMask.remove();
+        this.g = undefined;
+        this.gMask = undefined;
     }
 }
