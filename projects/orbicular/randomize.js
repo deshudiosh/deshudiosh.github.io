@@ -9,7 +9,7 @@ let R_ORBS_SPEC;
 function randomize(){
     SEED = floor(10000000+fxrand()*89999999);
     // SEED = 68226679; // used for profiling
-    SEED = 21641113;
+    SEED = 84658420;
     console.log(`Orb ${SEED}`);
     randomSeed(SEED);
     noiseSeed(SEED);
@@ -46,9 +46,9 @@ function randomize(){
         case 1:
             orb1 = new OrbSpec();
             orb1.size = r(.4, .7);
-            // orb1.size = .8; // TEST
-            // orb1.pos = cv(.5, .85); // TEST
-            orb1.city = true; // TEST
+
+            if(!orb1.city) orb1.moon = true;
+
             break;
     
         case 2:            
@@ -59,7 +59,7 @@ function randomize(){
             orb2.size = r(.1, .3);
             orb2.ring = rYesNo(.7);
 
-            if(!orb1.city) orb2.city = true;
+            // if(!orb1.city) orb2.city = true; // TEST
 
             break;
 
@@ -75,7 +75,7 @@ function randomize(){
             orb3.size = r(.05, .1);
             orb3.ring = rYesNo();
 
-            if(!orb1.city) orb2.city = true;
+            // if(!orb1.city) orb2.city = true; // TEST
 
             break;
     }

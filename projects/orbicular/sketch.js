@@ -15,6 +15,8 @@ let PLANETS_COUNT = 52, SHAPED_COUNT = 12, STARS_COUNT = 12;
 let PLANETS = [];
 let SHAPED = [], SHAPED_MASKS = [];
 let STARS = [];
+let PLANET_IDX_USED = [], SHAPED_IDX_USED = [];
+
 let TEST_IMG;
 
 let MEASURE = 0;
@@ -28,7 +30,7 @@ function preload(){
 
     let texPath = `./projects/orbicular/tex`;
 
-    console.log("VERSION >40<");
+    console.log("VERSION >42<");
 
     // load all images if testing, load only needed otherwise
     if(TESTING_AUTOSAVE){
@@ -68,7 +70,7 @@ function setup() {
 function initalize(){
     units();
 
-    RES = 1000; // TEST
+    // RES = 1000; // TEST
 
     CANVAS = createCanvas(RES, RES);
     CANVAS.parent('drawing'); 
