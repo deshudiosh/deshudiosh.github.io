@@ -1,8 +1,6 @@
 class Grain{
-    static graphics; 
-
     constructor(){
-        if(Grain.graphics == undefined){
+        if(GRAIN_GRAPHICS == undefined){
             let g = createGraphics(800, 800);
             g.background(128);
 
@@ -33,8 +31,10 @@ class Grain{
             g.updatePixels();
             // g.filter(BLUR, g.width/2000);
             StackBlur.canvasRGBA(g.canvas, 0, 0, g.width, g.width, g.width/2000);
-            // this.g = g;
-            Grain.graphics = g;
+
+
+            GRAIN_GRAPHICS = g.get();
+            g.remove();
         }
     }
 
@@ -42,7 +42,7 @@ class Grain{
         push();
         blendMode(OVERLAY);
 
-        image(Grain.graphics, 0, 0, RES, RES);
+        image(GRAIN_GRAPHICS, 0, 0, RES, RES);
         pop();        
     }
 }

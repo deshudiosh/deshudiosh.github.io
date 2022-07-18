@@ -9,7 +9,7 @@ let TESTING_AUTOSAVE = false;
 let savedImgs = 0;
 let saveTotal = 121;
 
-let BG, GRAIN;
+let BG, GRAIN, GRAIN_GRAPHICS;
 
 let PLANETS_COUNT = 52, SHAPED_COUNT = 12, STARS_COUNT = 12;
 let PLANETS = [];
@@ -30,7 +30,7 @@ function preload(){
 
     let texPath = `./projects/orbicular/tex`;
 
-    console.log("VERSION >42<");
+    console.log("VERSION >43<");
 
     // load all images if testing, load only needed otherwise
     if(TESTING_AUTOSAVE){

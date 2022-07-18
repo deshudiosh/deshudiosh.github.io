@@ -118,12 +118,11 @@ class Mask{
             // shadow mask from cut from full planet
             let gShadow = createGraphics(RES, RES);
             gShadow.image(gPlanet, 0, 0);
-            gShadow = gShadow.get();
-            gShadow.mask(gCutterInverse);
-
-            this.light = gShadow.get();
-
+            let gShadowImg = gShadow.get();
             gShadow.remove(); //purge asap
+            gShadowImg.mask(gCutterInverse);
+
+            this.light = gShadowImg;
         }
     }
 
