@@ -31,7 +31,6 @@ class OrbSpec{
         if(this.isShaped) OrbSpec.shapedIdxUsed.push(i);
         else OrbSpec.planetIdxUsed.push(i);
 
-        // this.moon = true; // TEST
     }
 
     static resetUsed(){
