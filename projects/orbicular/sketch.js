@@ -28,7 +28,7 @@ function preload(){
 
     let texPath = `./projects/orbicular/tex`;
 
-    console.log("VERSION >36<");
+    console.log("VERSION >38<");
 
     // load all images if testing, load only needed otherwise
     if(TESTING_AUTOSAVE){
