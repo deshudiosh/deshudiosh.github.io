@@ -28,7 +28,7 @@ function preload(){
 
     let texPath = `./projects/orbicular/tex`;
 
-    console.log("VERSION >38<");
+    console.log("VERSION >39<");
 
     // load all images if testing, load only needed otherwise
     if(TESTING_AUTOSAVE){
@@ -111,7 +111,7 @@ function autoSaveImg(){
         savedImgs++;
         saveCanvas(`Orb ${SEED}`, "png");
     
-        Spec.resetUsed();
+        OrbSpec.resetUsed();
         resetDrawing();
         randomize();            
         initalize();
@@ -128,14 +128,14 @@ function units(){
     // console.log(`res = ${RES}x${RES}`);
 }
 
-// function windowResized() {
-//     clearTimeout(resizeDelayTimer);
-//     resizeDelayTimer = setTimeout(function() {
-//         units();
-//         resizeCanvas(RES, RES, true);
-//         resetDrawing();
-//     }, 200);
-// }
+function windowResized() {
+    clearTimeout(resizeDelayTimer);
+    resizeDelayTimer = setTimeout(function() {
+        units();
+        resizeCanvas(RES, RES, true);
+        resetDrawing();
+    }, 200);
+}
 
 function saveHires(){
     let px = 2000;
