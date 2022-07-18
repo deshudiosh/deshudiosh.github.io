@@ -9,7 +9,7 @@ let R_ORBS_SPEC;
 function randomize(){
     SEED = floor(10000000+fxrand()*89999999);
     // SEED = 68226679; // used for profiling
-    SEED = 84658420;
+    SEED = 21641113;
     console.log(`Orb ${SEED}`);
     randomSeed(SEED);
     noiseSeed(SEED);
