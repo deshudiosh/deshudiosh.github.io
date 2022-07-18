@@ -75,7 +75,7 @@ class Background{
         // set html body bg color
         select('body').style(
             'background-color',
-            ColorUtils.set(this.col1, {light:20}));
+            ColorUtils.set(this.colorPrimary, {light:20}));
 
         // gradient points
         let x = .6;
@@ -85,19 +85,17 @@ class Background{
         this.p1 = createVector(x, 0).rotate(R_LIGHT_ROT - rot).add(.5, .5);
         this.p2 = createVector(x, 0).rotate(R_LIGHT_ROT + rot).add(.5, .5);
 
-
         this.stars = [];
 
-        // for (let i = 0; i < 500; i++) {
-        //     let p = createVector(r(1), r(1));
-        //     let s = r(0.002, 0.004);
-        //     // s *= r(1) > .95 ? 3 : 1;
-        //     let imgIdx = fr(STARS_COUNT);
-        //     let rot = r(360);
+        for (let i = 0; i < R_BG_STARS_COUNT; i++) {
+            let p = createVector(r(1), r(1));
+            let s = r(0.002, 0.004);
+            // s *= r(1) > .95 ? 2 : 1;
+            let imgIdx = fr(STARS_COUNT);
+            let rot = r(360);
 
-        //     this.stars.push({p, s, imgIdx, rot});
-        // }
-
+            this.stars.push({p, s, imgIdx, rot});
+        }
 
         this.streaks = [];
 
@@ -115,7 +113,15 @@ class Background{
                 if(collides) break;
             }
 
-            if(!collides){
+            // angle checking only for first streak
+            let hasGoodAngle = true;
+            if(this.streaks.length == 0){
+                let angle = abs(cv(0, 1).angleBetween(s.end.copy().sub(s.start)));
+                if(angle < 45 || angle > 135) hasGoodAngle = false;
+                if(angle > 80 && angle < 100) hasGoodAngle = false
+            }
+
+            if(!collides && hasGoodAngle){
                 this.streaks.push(s)
             }
         }
@@ -129,8 +135,8 @@ class Background{
         let gradient = dc.createLinearGradient(
             floor(this.p1.x*RES), floor(this.p1.y*RES), 
             floor(this.p2.x*RES), floor(this.p2.y*RES));
-        gradient.addColorStop(0, this.col2);
-        gradient.addColorStop(1, this.col1);
+        gradient.addColorStop(0, this.colorSecondary);
+        gradient.addColorStop(1, this.colorPrimary);
         dc.fillStyle = gradient;
         noStroke();
         rect(0, 0, RES, RES);
@@ -148,18 +154,18 @@ class Background{
         push();
         gStars.filter(GRAY);
         blendMode(DODGE);
-        
-        // gStars.filter(BLUR, RES/2000);
         image(gStars, 0, 0);
         
         pop()
 
         this.streaks.forEach(s => s.draw());
         
+        // purge canvas
+        gStars.remove();
     }
 
     getColorFromOrb(orb){
-        this.col1 = ColorUtils.set(orb.col1, {sat: R_BG_SAT, light: R_BG_LIGHT_MIN});
-        this.col2 = ColorUtils.set(orb.col2, {sat: R_BG_SAT, light: R_BG_LIGHT_MAX});
+        this.colorPrimary = ColorUtils.set(orb.colors.primary, {sat: R_BG_SAT, light: R_BG_LIGHT_MIN});
+        this.colorSecondary = ColorUtils.set(orb.colors.secondary, {sat: R_BG_SAT, light: R_BG_LIGHT_MAX});
     }
 }

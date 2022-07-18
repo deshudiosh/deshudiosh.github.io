@@ -4,92 +4,96 @@ let resizeDelayTimer;
 let callPreview = true;
 let drawingDone = false;
 
-let autoSave = false;
-// autoSave = true;
+let TESTING_AUTOSAVE = false;
+// TESTING_AUTOSAVE = true; // TEST
 let savedImgs = 0;
-let saveTotal = 20;
+let saveTotal = 121;
 
 let BG, GRAIN;
 
-let PLANETS_COUNT = 70, SHAPED_COUNT = 13, STARS_COUNT = 13;
+let PLANETS_COUNT = 52, SHAPED_COUNT = 12, STARS_COUNT = 12;
 let PLANETS = [];
 let SHAPED = [], SHAPED_MASKS = [];
 let STARS = [];
+let TEST_IMG;
 
 let MEASURE = 0;
 
 function preload(){
     pixelDensity(1); 
-    frameRate(autoSave ? 10 : 60);
+    frameRate(TESTING_AUTOSAVE ? 5 : 60);
     angleMode(DEGREES);
 
     randomize(); 
 
     let texPath = `./projects/orbicular/tex`;
 
-    console.log("VERSION >33<");
+    console.log("VERSION >35<");
 
-    console.log('pre planets');
+    // load all images if testing, load only needed otherwise
+    if(TESTING_AUTOSAVE){
+        TEST_IMG = loadImage(`${texPath}/colorcheck1.jpg`);
 
-    for (let i = 0; i < PLANETS_COUNT; i++) {
-        let img = loadImage(`${texPath}/planets/t_${String(i+1).padStart(2, '0')}.jpg`);
-        
-        PLANETS[i] = img;
-        // console.log(PLANETS[i]);
+        for (let i = 0; i < PLANETS_COUNT; i++) {
+            let img = loadImage(`${texPath}/planets/planet_${String(i+1).padStart(2, '0')}.jpg`);
+            PLANETS[i] = img;
+        }
+        for (let i = 0; i < SHAPED_COUNT; i++) {
+            SHAPED[i] = loadImage(`${texPath}/planets_shaped/shaped_${String(i+1).padStart(2, '0')}.jpg`);
+            SHAPED_MASKS[i] = loadImage(`${texPath}/planets_shaped/shaped_${String(i+1).padStart(2, '0')}_mask.jpg`);
+        }
+    }
+    else{
+        ORB_ARR.forEach(orb => {
+            let i = orb.imgIdx;
+            if(orb.isShaped){
+                SHAPED[i] = loadImage(`${texPath}/planets_shaped/shaped_${String(i+1).padStart(2, '0')}.jpg`);
+                SHAPED_MASKS[i] = loadImage(`${texPath}/planets_shaped/shaped_${String(i+1).padStart(2, '0')}_mask.jpg`);
+            }
+            else{
+                PLANETS[i] = loadImage(`${texPath}/planets/planet_${String(i+1).padStart(2, '0')}.jpg`);
+            }
+        });
     }
 
-    console.log('pre shaped');
-    for (let i = 0; i < SHAPED_COUNT; i++) {
-        SHAPED[i] = loadImage(`${texPath}/planets_shaped/shaped_${String(i+1).padStart(2, '0')}.jpg`);
-        SHAPED_MASKS[i] = loadImage(`${texPath}/planets_shaped/shaped_${String(i+1).padStart(2, '0')}_mask.jpg`);
+    for (let i = 0; i < STARS_COUNT; i++) {
+        STARS[i] = loadImage(`${texPath}/stars/star_${String(i+1).padStart(2, '0')}.png`);
     }
-
-    // console.log('pre stars');
-    // for (let i = 0; i < STARS_COUNT; i++) {
-    //     console.log(loadImage(`${texPath}/stars/star_${String(i+1).padStart(2, '0')}.png`));
-    //     STARS[i] = loadImage(`${texPath}/stars/star_${String(i+1).padStart(2, '0')}.png`);
-    // }
 }
 
 function setup() {
-    console.log('setup');
     initalize();
 }
 
 function initalize(){
     units();
 
-    RES = 600; // TEST
+    RES = 1000; // TEST
 
     CANVAS = createCanvas(RES, RES);
     CANVAS.parent('drawing'); 
 
-    console.log('pre orbs init');
     ORB_ARR.forEach(orb => {
         orb.initPostSpawn();
     });
 
-    console.log('pre bg');
     BG = new Background();
-    // GRAIN = new Grain();
-    
+
+    GRAIN = new Grain();
 }
 
 function draw(){
     if(drawingDone == false){
-        console.log('pre bg draw');
         if(BG) BG.draw();
 
-        console.log('pre orbs draw');
         ORB_ARR.forEach(orb => {
-            orb.draw();            
+            orb.draw();
+            orb.purge();            
         });
 
         if(GRAIN) GRAIN.draw();
 
         drawingDone = true;
-
-        console.log("drawing done");
     }
 
     else{
@@ -97,20 +101,21 @@ function draw(){
             fxpreview();
             callPreview = false;
         }
-        if(autoSave) autoSaveImg();
-
-        console.log("drawing post");
+        if(TESTING_AUTOSAVE) autoSaveImg();
     }    
 }
 
 function autoSaveImg(){
     if(savedImgs<saveTotal){
+        noLoop();
         savedImgs++;
         saveCanvas(`Orb ${SEED}`, "png");
-        
+    
+        Spec.resetUsed();
         resetDrawing();
         randomize();            
-        initalize();    
+        initalize();
+        loop();
     }
 }
 

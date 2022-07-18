@@ -5,32 +5,16 @@ class OrbHitbox {
         this.circles.push({"pos": orb.center, "d": orb.size})
 
         if(orb.city){
-            let builingCircles = [];
-            let maxSize = 0;
+            let city = orb.city;
 
-            orb.city.buildings.forEach(b => {
-                
-                let pivot = b.pivot.copy().sub(0, b.drawMargin);
-                pivot.sub(orb.center);
+            let cityPivot = cv(0, -orb.size/2).rotate(city.rot).add(orb.center);
 
-                let peak = pivot.copy().add(0, -b.h);
+            let maxBuildingHeight = orb.size * city.scale.y * .4;
 
-                pivot.rotate(orb.city.rot);
-                pivot.add(orb.center);
+            this.circles.push({"pos": cityPivot, "d": maxBuildingHeight, "building": true});
 
-                peak.rotate(orb.city.rot);
-                peak.add(orb.center);               
-
-                let midPt = p5.Vector.lerp(pivot, peak, .5);
-
-                let d = b.h;
-
-                builingCircles.push({"pos": midPt, d, "building": true});
-
-                maxSize = max(maxSize, d)
-            });
-
-            builingCircles.forEach(c => {if(c.d == maxSize) this.circles.push(c);});
+            cityPivot = cityPivot.copy().add(cv(0, -maxBuildingHeight/2).rotate(city.rot));
+            this.circles.push({"pos": cityPivot, "d": maxBuildingHeight/1.6, "building": true});
         }
 
         if(orb.ring){

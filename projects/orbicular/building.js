@@ -45,6 +45,7 @@ class Building{
         
         let rightQuad = {"verts": rightV, "main": true, "leftSide": false};
         
+        this.bottomPoints = [leftV.lb, leftV.rb, rightV.rb];
 
         this.quads = []
 
@@ -65,10 +66,14 @@ class Building{
         // main quads
         this.quads.push(leftQuad, rightQuad);
         
-        // windows
-        if(true && r()>.4){
+        // windows (always)
+        if(true){
             this.windowSpec = {"parentQuad": bias > .5 ? leftQuad : rightQuad, wR, hR};
         }
+    }
+
+    move(offset){
+        this.pivot.add(offset);
     }
 
     initPostSpawn(){
@@ -79,17 +84,26 @@ class Building{
     }
 
     assignColors(){
-        let brighter = ColorUtils.copy(this.city.orb.col1);
-        // col = ColorUtils.set(col, {light:60, sat:5});
-        brighter = ColorUtils.rand(brighter, {hue:15, light:5});
-        if(!this.city.daytime) brighter = ColorUtils.set(brighter, {light:20})
+        let orbColors = this.city.orb.colors;
+
+        let brighter = ColorUtils.copy(orbColors.primary);
+        brighter = ColorUtils.rand(brighter, {hue:10, light:10});
+        if(lightness(brighter) > orbColors.avgLight){
+            brighter = ColorUtils.set(brighter, {light: orbColors.avgLight});
+        }
+        if(!this.city.daytime){
+            brighter = ColorUtils.set(brighter, {light:orbColors.avgLight/3});
+            brighter = ColorUtils.set(brighter, {sat:orbColors.avgSat/2});
+        }
+        this.colorBrighter = brighter;
 
         let strokeBrighter = ColorUtils.offset(brighter, {light:15});   
 
-        let darker = ColorUtils.copy(this.city.orb.col2);
-        darker = ColorUtils.set(darker, {light:20});
+        let darker = ColorUtils.copy(orbColors.secondary);
+        darker = ColorUtils.set(darker, {light:10});
         darker = ColorUtils.rand(darker, {hue:10, light:7});
-        if(!this.city.daytime) darker = ColorUtils.set(darker, {sat: 10, light:10})
+        if(!this.city.daytime) darker = ColorUtils.set(darker, {light:10})
+        this.colorDarker = darker;
 
         let strokeDarker = ColorUtils.offset(darker, {light:15});
 
@@ -145,7 +159,6 @@ class Building{
                 q.col = winCol;
             }
         });
-
     }
 
     addWindows(){
@@ -211,6 +224,8 @@ class Building{
             g.quad(lt.x, lt.y, rt.x, rt.y, rb.x, rb.y, lb.x, lb.y);    
         });
 
+        this.g = g;
+
         return g;
     }
 
@@ -231,6 +246,13 @@ class Building{
             }
         });
 
+        this.gMask = mask;
+
         return mask;
+    }
+
+    purge(){
+        this.g.remove();
+        this.gMask.remove();
     }
 }

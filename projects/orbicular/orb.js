@@ -1,6 +1,5 @@
 class Orb{
     constructor (spec){
-        
         this.rot = r(360);
 
         this.center = spec.pos;
@@ -9,10 +8,10 @@ class Orb{
         
         this.isShaped = spec.isShaped;
         if(this.isShaped){
-            this.safeScale = 1;
+            this.imgSafeScale = 1;
         }
         else{
-            this.safeScale = 1.4;
+            this.imgSafeScale = 1.1;
         }
 
         this.imgIdx = spec.imgIdx;
@@ -26,9 +25,7 @@ class Orb{
 
     initPostSpawn(){
         let i = this.imgIdx;
-        console.log(`   > ${i}`);
 
-        console.log(`   > pre isShaped`);
         if(this.isShaped){     
             this.img = SHAPED[i].get();      
             this.imgMask = SHAPED_MASKS[i].get();     
@@ -37,13 +34,15 @@ class Orb{
             this.img = PLANETS[i];    
         }
 
-        this.light = new Light(this);    // TODO: zweryfikuj czy to potrzebne i czy w dobrym misjcy
+        // this.img = TEST_IMG;// TEST force colorcheck img
+
+        this.light = new Light(this);
 
         this.mask = new Mask(this);
+        
+        this.colors = new OrbColorSampler(this);
 
-        this.setColorsFromImg(this.img);      
-
-        if(this.ring) this.ring.assignColors();
+        if(this.ring) this.ring.initPostSpawn();
         if(this.city) this.city.initPostSpawn();
         if(this.moon) this.moon.assignColors();
     }
@@ -52,23 +51,24 @@ class Orb{
         this.center.add(offset);
 
         if(this.ring) this.ring.move(offset);
-        if(this.city) this.city.move(offset);
         if(this.moon) this.moon.move(offset);
         
         this.hitbox = new OrbHitbox(this);
     }
 
     draw(showOrb = true){
-        let pxSize = round(this.size * this.safeScale * RES);
+        let pxSize = round(this.size * this.imgSafeScale * RES);
 
         this.mask.draw(pxSize);
 
-        if(this.city) this.city.draw(); 
+        if(this.city) this.city.drawToGraphics(); 
 
         push();
         
         let gPlanet = createGraphics(RES, RES);
+        this.graphicsToPurge = [gPlanet];
         gPlanet.translate(this.center.x * RES, this.center.y * RES);
+        gPlanet.angleMode(DEGREES);
         gPlanet.rotate(this.rot);
         gPlanet.imageMode(CENTER);
         gPlanet.image(this.img, 0, 0, pxSize, pxSize);
@@ -81,27 +81,29 @@ class Orb{
         // DARK
         let gDark = gPlanet.get();
         gDark.mask(this.mask.planet);
-        let darkTint = ColorUtils.set(this.col1, {sat: R_BG_SAT, light: R_BG_LIGHT_MIN});
-        darkTint = ColorUtils.set(darkTint, {light:25});
 
         // SHADOW
         let gShadowMask = createGraphics(RES, RES);
+        this.graphicsToPurge.push(gShadowMask);
         let xOff = this.light.shadowOffset.x*RES;
         let yOff = this.light.shadowOffset.y*RES;
         gShadowMask.image(this.mask.planet, xOff, yOff);
         if(this.city) gShadowMask.image(this.city.mask, xOff, yOff);
-        // StackBlur.canvasRGBA(gShadowMask.canvas, 0, 0, RES, RES, this.size*RES/12);
+        StackBlur.canvasRGBA(gShadowMask.canvas, 0, 0, RES, RES, this.size*RES/12);
         
         let gShadow = createGraphics(RES, RES);
+        this.graphicsToPurge.push(gShadow);
         let shadowCol = color(0, 100);
         gShadow.background(shadowCol);
         gShadow = gShadow.get();
         gShadow.mask(gShadowMask);
 
+        
+
         if(showOrb){
             image(gShadow, 0, 0);
             
-            tint(darkTint);
+            tint(this.colors.shadowTint);
             image(gDark, 0, 0);
             noTint();            
 
@@ -113,30 +115,19 @@ class Orb{
         if(this.ring) this.ring.draw();
         
         if(this.moon) this.moon.draw();
-        
-        // this.target.draw();
-        // image(this.TEMP_SWATCH, 0, 0);      
 
-        if(this.city) image(this.city.graphics, 0, 0);
+        if(this.city) this.city.imagePredrawnToCanvas();
 
         // this.hitbox.preview();
+
+        // this.colors.preview();
     }
 
-    setColorsFromImg(img){
-        let bias = .5; // central part of the image to be used
-        let gRes = 100;
-
-        let g = createGraphics(gRes, gRes);
-        g.imageMode(CENTER);
-        g.angleMode(DEGREES);
-        g.translate(gRes/2, gRes/2)
-        g.rotate(r(360));
-        g.scale(1/bias);
-        g.image(img, 0, 0, gRes, gRes);
-        g.filter(BLUR, gRes/20);
-        this.TEMP_SWATCH = g;
-
-        this.col1 = color(g.get(0, 0));
-        this.col2 = color(g.get(gRes-1, gRes-1));
+    purge(){
+        this.graphicsToPurge.forEach(g => g.remove());
+        this.mask.purge();
+        if(this.city) this.city.purge();
+        if(this.moon) this.moon.purge();
+        if(this.ring) this.ring.purge();
     }
 }

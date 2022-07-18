@@ -2,13 +2,14 @@ let SEED;
 
 let R_LIGHT_ROT, R_LIGHT_BIAS, R_LIGHT_INV, R_LIGHT_MASK_SHARPNESS;
 
-let R_BG_SAT, R_BG_LIGHT_MIN, R_BG_LIGHT_MAX, R_BG_STREAKS_COUNT;
+let R_BG_SAT, R_BG_LIGHT_MIN, R_BG_LIGHT_MAX, R_BG_STREAKS_COUNT, R_BG_STARS_COUNT;
 
 let R_ORBS_SPEC;
 
 function randomize(){
     SEED = floor(10000000+fxrand()*89999999);
-    // SEED = 25374118;
+    // SEED = 68226679; // used for profiling
+    // SEED = 68797990;
     console.log(`Orb ${SEED}`);
     randomSeed(SEED);
     noiseSeed(SEED);
@@ -27,24 +28,27 @@ function randomize(){
     R_BG_LIGHT_MIN = r(6, 10);
     R_BG_LIGHT_MAX = R_BG_LIGHT_MIN + r(12, 20);
 
-    R_BG_STREAKS_COUNT = 0;
-    if(rYesNo(.7)) R_BG_STREAKS_COUNT = r([1, fr(2, 6)]);
-    // R_BG_STREAKS_COUNT = 1; // TEST
+    // STREAKS - fianlly only 0 or 1 streaks, not more;
+    R_BG_STREAKS_COUNT = rYesNo(.7) ? 1 : 0;
+    // R_BG_STREAKS_COUNT = 5; // TEST
+
+    // STARS
+    R_BG_STARS_COUNT = rYesNo(.7) ? 500 : 200;
 
     /// ORBS
     R_ORBS_SPEC = [];
     let orbCount = r([1, 2, 3]);
 
-    orbCount = 1; // TEST
+    // orbCount = 3; // TEST
     
     let orb1, orb2, orb3;
     switch (orbCount) {
         case 1:
             orb1 = new Spec();
             orb1.size = r(.4, .7);
-            // orb1.size = .4; // TEST
-            // orb1.pos = cv(.5, .5); // TEST
-            // orb1.moon = true; // TEST
+            // orb1.size = .8; // TEST
+            // orb1.pos = cv(.5, .85); // TEST
+            orb1.city = true; // TEST
             break;
     
         case 2:            
@@ -81,11 +85,12 @@ function randomize(){
     if(orb3) R_ORBS_SPEC.push(orb3);
 
     
-
     // SPAWN ORBS
     let spawner = new OrbSpawner();
     ORB_ARR = [];
     R_ORBS_SPEC.forEach(spec => spawner.add(spec));
+
+    let F_COLONIZED = "No";
 
     // POST SPAWN SMALL PLANETS ADJUSTMENTS
     let small = .1;
@@ -94,30 +99,34 @@ function randomize(){
             orb.city = undefined; // 100% city remove chance
             if(orb.ring && rYesNo()) orb.ring = undefined; // 50% ring remove chance
         }
+
+        if(orb.city) F_COLONIZED = "Yes";
     });
 
-    ORB_ARR.reverse();
     
+    // ORB ORDER
+    // ORB_ARR.reverse();
+    let order = [0];
+    if(ORB_ARR.length == 2) order = [0, 1];
+    if(ORB_ARR.length == 3) order = [0, 1, 2];
+    order = order.sort(() => 0.5 - r());
+    let tempArr = [];
+    for (let i = 0; i < ORB_ARR.length; i++) { tempArr.push(ORB_ARR[order[i]]) };
+    ORB_ARR = tempArr;
+
+
     
     // FEATURES
-    let F_COMP;
-    switch (ORB_ARR.length){
-        case 1:
-            F_COMP = "Alone";
-            break;
-        case 2:
-            F_COMP = "Two Bodies";
-            break;
-        case 3:
-            F_COMP = "Trinity";
-            break;
-    }
+    let F_COMP = "⬤";
+    if(ORB_ARR.length == 2) F_COMP = "⬤ ⬤";
+    if(ORB_ARR.length == 3) F_COMP = "⬤ ⬤ ⬤";
 
     //////////////////////////
     // make features object //
     //////////////////////////
     window.$fxhashFeatures = {
-        "Situation": F_COMP,
+        "Constellation": F_COMP,
+        "Colonized": F_COLONIZED
     };
 
     console.log(window.$fxhashFeatures);

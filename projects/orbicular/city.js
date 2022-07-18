@@ -5,13 +5,14 @@ class City{
         this.scale = {"x": r(.5, 1), "y": r(.7, 1)};
         // this.scale = {"x":1, "y":1};
         
-        let angWidth = r(10, 40);
+        let angleWidth = r(10, 40);
         // angWidth = 40;
-        angWidth *= this.scale.x;
+        angleWidth *= this.scale.x;
+        this.angleWidth = angleWidth;
 
         //////// city rotation, light edge aware
         let rot = r(-5, 5); // initial rot
-        // rot = 0;
+        // rot = 0; // TEST
 
         let lightHalfAngle = 90;
         lightHalfAngle += map(R_LIGHT_BIAS, .5, 1, 30, 0);
@@ -22,8 +23,8 @@ class City{
         let topEdge = abs(lightStartAng) < abs(lightEndAng) ? lightStartAng : lightEndAng;
 
         let overlapMargin = 15;
-        let leftOvelap = (angWidth/2-rot) + topEdge + overlapMargin;
-        let rightOverlap = -((-angWidth/2-rot) + topEdge) + overlapMargin;
+        let leftOvelap = (angleWidth/2-rot) + topEdge + overlapMargin;
+        let rightOverlap = -((-angleWidth/2-rot) + topEdge) + overlapMargin;
         // console.log(leftOvelap, rightOverlap);
 
         if(leftOvelap > 0 && leftOvelap <= rightOverlap) rot += leftOvelap;
@@ -36,12 +37,17 @@ class City{
         this.daytime = daytime;
 
         /////////// rotation end //////
-        
-        let num = angWidth/r(3, 4);
-        num *= 1/this.scale.x;
-        let rotRand = angWidth/num/4;
+    }
 
-        let inset = .95;
+    initPostSpawn(){
+        let angleWidth = this.angleWidth;
+        let orb = this.orb;
+
+        let num = angleWidth/r(3, 4);
+        num *= 1/this.scale.x;
+        let rotRand = angleWidth/num/4;
+
+        let inset = orb.isShaped ? .92 : .95;
         this.pivot = createVector(0, -orb.size/2 * inset);
 
         this.buildings = [];
@@ -49,7 +55,7 @@ class City{
             let prog = map(i, 0, num, 0, 1, true);
 
             let pivot = this.pivot.copy();
-            pivot.rotate(map(prog, 0, 1, -angWidth/2, angWidth/2));
+            pivot.rotate(map(prog, 0, 1, -angleWidth/2, angleWidth/2));
             
             pivot.rotate(r(-rotRand, rotRand));
             pivot.add(orb.center.copy());
@@ -66,22 +72,19 @@ class City{
 
         this.buildings.sort(() => r(-.5, .5)); // random order
 
-    }
-
-    move(offset){
-        this.buildings.forEach(b => b.pivot.add(offset));
-    }
-
-    initPostSpawn(){
         this.buildings.forEach(b => b.initPostSpawn());
+        this.bush = new Bush(this);
     }
 
-    draw(){
+    drawToGraphics(){
         let g = createGraphics(RES, RES);
         g.angleMode(DEGREES);
 
         let mask = createGraphics(RES, RES);
         mask.angleMode(DEGREES);
+
+        this.graphicsToPurge = [g, mask];
+        // this.gToPurge.push();
                 
         this.buildings.forEach(b => {
             this.shadowOn(g, b.drawSize.x);
@@ -113,9 +116,11 @@ class City{
 
         this.graphics = g;
         this.mask = mask;
+    }
 
-        // image(g, 0, 0);
-        // image(mask, 0, 0);
+    imagePredrawnToCanvas(){
+        image(this.graphics, 0, 0);
+        this.bush.draw();
     }
 
     shadowOn(g, sizeX){
@@ -127,5 +132,11 @@ class City{
 
     shadowOff(g){
         g.drawingContext.shadowColor = color(0, 0, 0, 0);
+    }
+
+    purge(){
+        this.graphicsToPurge.forEach(g => g.remove());
+        // this.graphics.remove();
+        this.buildings.forEach(b => b.purge());
     }
 }

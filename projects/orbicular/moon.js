@@ -15,8 +15,8 @@ class Moon{
 
 
         let moonPos = cv(0, -width/2);
-        moonPos.rotate(r(20, 340));
-        // moonPos.rotate(180);
+        // moonPos.rotate(r(20, 340));
+        moonPos.rotate(180);
         moonPos.mult(1, heightFactor);
         this.moonPos = moonPos;
 
@@ -25,7 +25,7 @@ class Moon{
     }
 
     assignColors(){
-        let col = ColorUtils.set(this.orb.col1, {light: 65, sat:20});
+        let col = ColorUtils.set(this.orb.colors.primary, {light: 65, sat:20});
 
         this.ellipse.color = col;
     }
@@ -35,8 +35,11 @@ class Moon{
     }
 
     draw(){
+        this.graphicsArray = [];
+
         // graphics with elipse
         let gOrbit = createGraphics(RES, RES);
+        this.graphicsArray.push(gOrbit);
         gOrbit.ellipseMode(CENTER);
         gOrbit.noFill();
         gOrbit.translate(this.pos.x * RES, this.pos.y * RES);
@@ -47,9 +50,11 @@ class Moon{
         gOrbit.stroke(this.ellipse.color);
         gOrbit.ellipse(0, 0, this.ellipse.width * RES, this.ellipse.height * RES);
         gOrbit.filter(BLUR, RES/1000);
+        // StackBlur.canvasRGBA(gOrbit.canvas, 0, 0, gOrbit.width, gOrbit.width, RES/1000);
 
         // gradient mask on top of everything
         let gradMask = createGraphics(RES, RES);
+        this.graphicsArray.push(gradMask);
         let dc = gradMask.drawingContext;
         let g1 = cv(this.ellipse.width/2, 0).rotate(this.rot).add(this.pos),
             g2 = cv(this.ellipse.width/2, 0).rotate(this.rot+180).add(this.pos);
@@ -68,23 +73,26 @@ class Moon{
         // graphics of the moon img
         let gMoonSize = round(this.moonSize * RES);
         let gMoon = createGraphics(gMoonSize, gMoonSize);
+        this.graphicsArray.push(gMoon);
         gMoon.image(STARS[this.imgIdx], 0, 0, gMoonSize, gMoonSize);
         gMoon.filter(GRAY);
 
         let g = createGraphics(RES, RES);
+        this.graphicsArray.push(g);
         g.image(gOrbit, 0, 0);
-
         g.translate(this.pos.x * RES, this.pos.y * RES);
         g.angleMode(DEGREES);
         g.rotate(this.rot);
         g.imageMode(CENTER);
+        g.image(gMoon, this.moonPos.x * RES, this.moonPos.y * RES);
         let tintCol = ColorUtils.copy(this.ellipse.color);
         tintCol.setAlpha(220);
-        g.tint(tintCol); // FIX number as first parameter?
+        g.tint(tintCol);
         g.image(gMoon, this.moonPos.x * RES, this.moonPos.y * RES);
 
         // mask cutting off "behind" the planete
         let mask = createGraphics(RES, RES);
+        this.graphicsArray.push(mask);
         mask.image(this.orb.mask.planetInverse, 0, 0);
         mask.fill(255);
         mask.noStroke();
@@ -98,5 +106,9 @@ class Moon{
         // final draw
         image(g, 0, 0);
 
+    }
+
+    purge(){
+        this.graphicsArray.forEach(g => g.remove());
     }
 }

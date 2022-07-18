@@ -51,6 +51,8 @@ class Mask{
 
     draw(pxSize){
         let gPlanet = createGraphics(RES, RES);
+        this.graphicsToPurge = [gPlanet];
+        gPlanet.angleMode(DEGREES);
 
         // img based mask
         if(this.orb.isShaped){
@@ -81,46 +83,50 @@ class Mask{
 
         // cutter
         let gCutter = createGraphics(RES, RES);
-        console.log(gCutter.pixelDensity());
+        this.graphicsToPurge.push(gCutter);
         // gShadow.image(gPlanet, 0, 0);
         gCutter.fill(255, 0, 0, 255);
         gCutter.noStroke();
         gCutter.beginShape();
         this.cutterCircle.points.forEach(p => gCutter.curveVertex(p.x * RES, p.y * RES));
         gCutter.endShape();
-        // StackBlur.canvasRGBA(gCutter.canvas, 0, 0, gCutter.width, gCutter.width, 
-            // this.orb.size*RES * R_LIGHT_MASK_SHARPNESS);
-        let gCutterInverse = this.inverseMask(gCutter);
-        // image(gCutter, 0, 0);
-
-        // shadow mask from cut from full planet
-        let gShadow = createGraphics(RES, RES);
-        gShadow.image(gPlanet, 0, 0);
-        gShadow = gShadow.get()
-        // console.log(gCutterInverse);
-        // gShadow.mask(gCutterInverse);
+        StackBlur.canvasRGBA(gCutter.canvas, 0, 0, gCutter.width, gCutter.width, 
+            this.orb.size*RES * R_LIGHT_MASK_SHARPNESS);
         
-        let gLightTemp = gPlanet.get();
-        gLightTemp.mask(gCutter);
-        let gLight = createGraphics(RES, RES);
-        gLight.image(gLightTemp, 0, 0);
 
         this.planet = gPlanet;
         this.planetInverse = this.inverseMask(this.planet);
         
+
         if(!R_LIGHT_INV){
+            let gLightTemp = gPlanet.get();
+            gLightTemp.mask(gCutter);
+            let gLight = createGraphics(RES, RES);
+            this.graphicsToPurge.push(gLight);
+            gLight.image(gLightTemp, 0, 0);
+
             this.light = gLight;
-            this.shadow = gShadow;
         }
         else{
+            let gCutterInverse = this.inverseMask(gCutter);
+            // image(gCutterInverse, 0, 0);
+
+            // shadow mask from cut from full planet
+            let gShadow = createGraphics(RES, RES);
+            this.graphicsToPurge.push(gShadow);
+            gShadow.image(gPlanet, 0, 0);
+            gShadow = gShadow.get();
+            gShadow.mask(gCutterInverse);
+
             this.light = gShadow;
-            this.shadow = gLight;
         }
-        
     }
 
-    inverseMask(maskImg, writeMaskToRGB = true){
+    inverseMask(maskImg, writeMaskToRGB = false){
+        // writeMaskToRGB - SLOW, use for preview testing only
+
         let g = createGraphics(maskImg.width, maskImg.height);
+        this.graphicsToPurge.push(g);
         g.image(maskImg, 0, 0);
 
         let pxDenSq = sq(g.pixelDensity());
@@ -139,5 +145,9 @@ class Mask{
         g.updatePixels();
 
         return g;
+    }
+
+    purge(){
+        this.graphicsToPurge.forEach(g => g.remove());
     }
 }

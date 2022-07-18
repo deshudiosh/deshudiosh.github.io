@@ -4,34 +4,38 @@ class Ring{
         this.center = orb.center.copy();
 
         let width = orb.size * r(1.2, 2.2);  
-        let heightFactor = 1/r(2, 6);
+        let heightFactor = 1/r(2.8, 6);
         heightFactor = min(heightFactor, orb.size * .8)
         let height = width * heightFactor;
 
         this.width = width;
         this.height = height;
+        this.heightFactor = heightFactor;
         
         this.rot = r([r(-45, 45), r(-20, 20)]);
+    }
 
-        let outerW = width;
-        let innerW = orb.size*r(1.1, 1.8); 
+    initPostSpawn(){
+        let outerW = this.width;
+        let innerW = this.orb.size*r(1.1, 1.8); 
         innerW = min(innerW, outerW-.08); // musi byc mniejsze niz najmniejszy mozliwe outerW
         let spread = .004;
 
         this.ellipses = [];
         for(let w = outerW; w > innerW; w-=spread){
-            let h = w * heightFactor;
+            let h = w * this.heightFactor;
 
             let weight = .001;
 
             this.ellipses.push({w, h, weight});
         }
 
+        this.assignColors();
     }
 
     assignColors(){
         this.ellipses.forEach(e => {
-            let col = ColorUtils.set(this.orb.col1, {sat:7});
+            let col = ColorUtils.set(this.orb.colors.primary, {sat:7});
             if(lightness(col) < 40)
                 col = ColorUtils.offset(col, {light:20});
             // col = ColorUtils.rand(col, {sat:20});
@@ -47,6 +51,7 @@ class Ring{
 
     draw(){
         let g = createGraphics(RES, RES);
+        this.graphicsToPurge = [g];
         g.ellipseMode(CENTER);
         g.noFill();
         g.translate(this.center.x * RES, this.center.y * RES);
@@ -59,9 +64,11 @@ class Ring{
             g.ellipse(0, 0, e.w * RES, e.h * RES);
         });
 
-        g.filter(BLUR, RES/1000);
+        // g.filter(BLUR, RES/1000);
+        StackBlur.canvasRGBA(g.canvas, 0, 0, g.width, g.width, RES/1000);
 
         let ringMask = createGraphics(RES, RES);
+        this.graphicsToPurge.push(ringMask);
         ringMask.image(this.orb.mask.planetInverse, 0, 0);
 
         ringMask.fill(255);
@@ -70,11 +77,15 @@ class Ring{
         ringMask.angleMode(DEGREES);
         ringMask.rotate(this.rot);
         ringMask.rect(-RES, 0, RES*2, RES*2);
-        // image(ringMask, 0, 0);
+        // image(ringMask, 0, 0);        
 
         g = g.get();
         g.mask(ringMask);
-        image(g, 0, 0);
+        image(g, 0, 0);        
+    }
+
+    purge(){
+        this.graphicsToPurge.forEach(g => g.remove());
     }
 
 

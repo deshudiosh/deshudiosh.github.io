@@ -1,4 +1,5 @@
 let UTIL_START = undefined;
+let LOG_TOTAL = 0;
 
 let MIN_FPS = 999;
 
@@ -23,8 +24,15 @@ function timeStart(){
 
 function timeEnd(consoleOutput = true){
     let amount = performance.now() - UTIL_START;
+
+    UTIL_START = 0;
+    LOG_TOTAL += amount;
     
     if(consoleOutput) console.log("This took: " + amount.toFixed(3) + "ms.")
     
     return amount;
+}
+
+function timeLogTotal(){
+    console.log("Total time: " + LOG_TOTAL.toFixed(3) + "ms.")
 }

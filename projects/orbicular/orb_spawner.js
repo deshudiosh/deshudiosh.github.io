@@ -12,7 +12,7 @@ class Spec{
         this.size = .3;
         this.moon = rYesNo();
 
-        this.isShaped = false; // TEST TEST
+        // this.isShaped = false; // TEST TEST
 
         let i;
         for (let _ = 0; _ < 1000; _++) {
@@ -32,6 +32,11 @@ class Spec{
         else Spec.planetIdxUsed.push(i);
 
         // this.moon = true; // TEST
+    }
+
+    static resetUsed(){
+        Spec.planetIdxUsed = [];
+        Spec.shapedIdxUsed = [];
     }
 }
 
@@ -74,12 +79,20 @@ class OrbSpawner{
             for (let posTry = 0; posTry < 5000; posTry++) {
                 count++;
                 
-                if(posNotSpecified) spec.pos = cv(r(), r());
-
-                this.adjustPosToSizeAndMargin(spec);
+                if(posNotSpecified){
+                    spec.pos = cv(r(), r());
+                    this.adjustPosToSizeAndMargin(spec);
+                }
 
                 newOrb = new Orb(spec);            
                 
+                // if position directly specified, 
+                // just spawn and dont care about collisions
+                if(!posNotSpecified){
+                    newPosOk = true;
+                    break;
+                }
+
                 //// fit into margin rect - take city into account
                 let b = newOrb.hitbox.bounds();
     
@@ -113,11 +126,11 @@ class OrbSpawner{
         }
 
         if(newPosOk){
-            console.log(`Spawn tries: ${count} \n   scale mult: ${scaleMul.toFixed(2)} \n   final size: ${newOrb.size}`);
+            // console.log(`Spawn tries: ${count} \n   scale mult: ${scaleMul.toFixed(2)} \n   final size: ${newOrb.size}`);
             ORB_ARR.push(newOrb);
         }
         else{
-            console.log(`Fail: ${count}`);
+            // console.log(`Fail: ${count}`);
         }
         // this.prevRect(newOrb.hitbox.bounds())        
 
