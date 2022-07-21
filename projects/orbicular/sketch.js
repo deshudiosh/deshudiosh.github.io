@@ -72,26 +72,24 @@ function setup() {
     fxpreview();
 }
 
-function initDrawingRoutine(forcedRES = undefined){
-    if(TESTING_AUTOSAVE) forcedRES = 1000;
-
-    updateRES(forcedRES);
-
-    CANVAS = createCanvas(RES, RES);
-    CANVAS.parent('drawing'); 
-
+function initDrawingRoutine(){
     ORB_ARR.forEach(orb => {
         orb.initPostSpawn();
     });
 
     BG = new Background();
-
     GRAIN = new Grain();
 
-    myDrawToCanvas();
+    let forcedRES = TESTING_AUTOSAVE ? 1000 : undefined; 
+    updateRES(forcedRES);
+    
+    drawToCanvas();
 }
 
-function myDrawToCanvas(){
+function drawToCanvas(){
+    CANVAS = createCanvas(RES, RES);
+    CANVAS.parent('drawing'); 
+
     if(BG) BG.draw();
 
     ORB_ARR.forEach(orb => {
@@ -128,17 +126,19 @@ function windowResized() {
     resizeDelayTimer = setTimeout(function() {
         updateRES();
         resizeCanvas(RES, RES, true);
-        myDrawToCanvas();
+        drawToCanvas();
     }, 200);
 }
 
 function saveHires(){
     let highres_px = 2000;
-    initDrawingRoutine(highres_px);
+    updateRES(highres_px);
+    drawToCanvas();
 
     save(CANVAS, `Orbicular ${SEED}`, "png");
 
-    initDrawingRoutine();
+    updateRES();
+    drawToCanvas();
 }
 
 function keyReleased(){
