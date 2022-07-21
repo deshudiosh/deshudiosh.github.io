@@ -8,12 +8,15 @@ let R_ORBS_SPEC;
 
 function randomize(){
     SEED = floor(10000000+fxrand()*89999999);
+
+    // Force seed for TESTING
     // SEED = 68226679; // used for profiling
-    // SEED = 21641113;
-    console.log(`Orb ${SEED}`);
+    // SEED = 31714046;
+
+    // Keep things the same for the same seed
+    console.log(`Orbicular ${SEED}`);
     randomSeed(SEED);
     noiseSeed(SEED);
-
 
     /// LIGHT
     let ea = 40; // excluded angle

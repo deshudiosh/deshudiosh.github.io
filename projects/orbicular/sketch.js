@@ -1,25 +1,25 @@
-let CANVAS, RES, ORB_ARR;
+///////////////////////////////////
+// Created by Pawel Grzelak 2022 //
+////// www.pawelgrzelak.com ///////
+///////////////////////////////////
+/////// ALL RIGHTS RESERVED ///////
+///////////////////////////////////
 
-let resizeDelayTimer;
-let callPreview = true;
-let drawingDone = false;
-
+// debugging and testing vars
 let TESTING_AUTOSAVE = false;
 // TESTING_AUTOSAVE = true; // TEST
-let savedImgs = 0;
-let saveTotal = 121;
+let savedImgs = 0, saveTotal = 5;
 
-let BG, GRAIN, GRAIN_GRAPHICS;
+// sketch vars
+let resizeDelayTimer;
+let CANVAS, RES, ORB_ARR;
+let BG, GRAIN, GRAIN_GRAPHICS, TEST_IMG;
 
 let PLANETS_COUNT = 52, SHAPED_COUNT = 12, STARS_COUNT = 12;
 let PLANETS = [];
 let SHAPED = [], SHAPED_MASKS = [];
 let STARS = [];
 let PLANET_IDX_USED = [], SHAPED_IDX_USED = [];
-
-let TEST_IMG;
-
-let MEASURE = 0;
 
 function preload(){
     pixelDensity(1); 
@@ -32,7 +32,8 @@ function preload(){
 
     // console.log("VERSION >43<");
 
-    // load all images if testing, load only needed otherwise
+    // IMAGE PREALOADING
+    // load all images if testing 
     if(TESTING_AUTOSAVE){
         TEST_IMG = loadImage(`${texPath}/colorcheck1.jpg`);
 
@@ -45,6 +46,7 @@ function preload(){
             SHAPED_MASKS[i] = loadImage(`${texPath}/planets_shaped/shaped_${String(i+1).padStart(2, '0')}_mask.jpg`);
         }
     }
+    // load only needed otherwise
     else{
         ORB_ARR.forEach(orb => {
             let i = orb.imgIdx;
@@ -58,19 +60,22 @@ function preload(){
         });
     }
 
+    // load stars
     for (let i = 0; i < STARS_COUNT; i++) {
         STARS[i] = loadImage(`${texPath}/stars/star_${String(i+1).padStart(2, '0')}.png`);
     }
 }
 
 function setup() {
-    initalize();
+    initDrawingRoutine();
+
+    fxpreview();
 }
 
-function initalize(){
-    units();
+function initDrawingRoutine(forcedRES = undefined){
+    if(TESTING_AUTOSAVE) forcedRES = 1000;
 
-    // RES = 1000; // TEST
+    updateRES(forcedRES);
 
     CANVAS = createCanvas(RES, RES);
     CANVAS.parent('drawing'); 
@@ -82,75 +87,58 @@ function initalize(){
     BG = new Background();
 
     GRAIN = new Grain();
+
+    myDrawToCanvas();
 }
 
-function draw(){
-    if(drawingDone == false){
-        if(BG) BG.draw();
+function myDrawToCanvas(){
+    if(BG) BG.draw();
 
-        ORB_ARR.forEach(orb => {
-            orb.draw();
-        });
+    ORB_ARR.forEach(orb => {
+        orb.draw();
+    });
 
-        if(GRAIN) GRAIN.draw();
+    if(GRAIN) GRAIN.draw();
+}
 
-        drawingDone = true;
+function draw(){    
+    if(TESTING_AUTOSAVE){
+        autoSaveImg();
     }
-
-    else{
-        if(callPreview){
-            fxpreview();
-            callPreview = false;
-        }
-        if(TESTING_AUTOSAVE) autoSaveImg();
-    }    
 }
 
 function autoSaveImg(){
     if(savedImgs<saveTotal){
-        noLoop();
         savedImgs++;
         saveCanvas(`Orb ${SEED}`, "png");
     
         OrbSpec.resetUsed();
-        resetDrawing();
         randomize();            
-        initalize();
-        loop();
+        initDrawingRoutine();
     }
 }
 
-function resetDrawing(){
-    drawingDone = false;
-}
-
-function units(){
-    RES = min(windowWidth, windowHeight);
-    // console.log(`res = ${RES}x${RES}`);
+function updateRES(forcedRES = undefined){
+    if(!forcedRES) RES = min(windowWidth, windowHeight);
+    else RES = forcedRES;
 }
 
 function windowResized() {
     clearTimeout(resizeDelayTimer);
     resizeDelayTimer = setTimeout(function() {
-        units();
+        updateRES();
         resizeCanvas(RES, RES, true);
-        resetDrawing();
+        myDrawToCanvas();
     }, 200);
 }
 
 function saveHires(){
-    let px = 2000;
-    let highres = createGraphics(px, px);
+    let highres_px = 2000;
+    initDrawingRoutine(highres_px);
 
-    bg.resetBuffer(px);
+    save(CANVAS, `Orbicular ${SEED}`, "png");
 
-    bg.fill(highres)
-    leafs.drawHighRes(highres, px);
-    bg.draw(highres);
-
-    save(highres, `Padina ${SEED}`, "png");
-
-    resetDrawing();
+    initDrawingRoutine();
 }
 
 function keyReleased(){

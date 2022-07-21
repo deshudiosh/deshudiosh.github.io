@@ -9,9 +9,16 @@ body {
   height: 100vh;
   overflow: hidden;  
   /* touch-action: none; */
-  background-color: #808080;
+  background-color: #3A3636;
 }
 
 canvas {
   display: block;
+}
+
+.loadergif {
+  /* opacity: 80%; */
+  /* Add the blur effect */
+  /* filter: blur(4px);
+  -webkit-filter: blur(4px); */
 }

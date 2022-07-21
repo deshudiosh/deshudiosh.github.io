@@ -70,12 +70,12 @@ class Streak{
 
 class Background{
     constructor(){
-        this.getColorFromOrb(ORB_ARR[0]);
+        let orb = ORB_ARR[0];
+        this.constructColorsFromOrb(orb);
 
         // set html body bg color
         select('body').style(
-            'background-color',
-            ColorUtils.set(this.colorPrimary, {light:20}));
+            'background-color', ColorUtils.set(this.colorSecondary, {light:20}));
 
         // gradient points
         let x = .6;
@@ -164,7 +164,7 @@ class Background{
         gStars.remove();
     }
 
-    getColorFromOrb(orb){
+    constructColorsFromOrb(orb){
         this.colorPrimary = ColorUtils.set(orb.colors.primary, {sat: R_BG_SAT, light: R_BG_LIGHT_MIN});
         this.colorSecondary = ColorUtils.set(orb.colors.secondary, {sat: R_BG_SAT, light: R_BG_LIGHT_MAX});
     }
