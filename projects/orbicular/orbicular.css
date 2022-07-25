@@ -15,18 +15,23 @@ body {
     margin:0 auto;
 }
 
-h1, h2, h3 {
+.title{
+    font-size: 4em;
+    font-weight: 100;
+    text-shadow: 3px 3px 6px black;
+    margin-top: .1em;
+    margin-bottom: .5em;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+h2, h3 {
     font-family: 'Merriweather Sans', sans-serif;
 }
 
-h1 {
-    font-size: 4em;
-    text-shadow: 3px 3px 6px black;
-}
-
 h2 {
-    margin-top: 2em;
     font-size: 2em;
+    font-weight: 100;
+    margin-top: 2em;
     margin-bottom: .2em;
 }
 
@@ -40,10 +45,6 @@ h4 {
     font-size: 1.5em;
     font-weight: 100;
     font-family: 'Merriweather Sans', sans-serif;
-}
-
-.title{
-    margin-top: .1em;
 }
 
 .section {
