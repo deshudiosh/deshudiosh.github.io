@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 .vscode/settings.json
 /____TEST_NFT/
 /jekylltest/
+=======
+/.jekyll-cache/
+Gemfile
+Gemfile.lock
+>>>>>>> parent of 5e7ccfc... jerkyll v3
