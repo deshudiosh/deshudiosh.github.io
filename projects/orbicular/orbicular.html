@@ -1,20 +1,26 @@
 ---
 permalink: /orbicular
+root: ./projects/orbicular/
 ---
 <!DOCTYPE html>
 <html>
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin&family=Merriweather+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&family=Libre+Franklin&family=Merriweather+Sans:wght@300;400&display=swap" rel="stylesheet">
 
-    <link type="text/css" rel="stylesheet" href="./style.css"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{page.root}}/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{page.root}}/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{page.root}}/favicon/favicon-16x16.png">
+    <link rel="manifest" href="{{page.root}}/favicon/site.webmanifest">
+
+    <link type="text/css" rel="stylesheet" href="{{page.root}}/orbicular.css"/>
 </head>
 <body>
     <iframe class="header" src="../site_elements/header.html"></iframe>
 
     <div class="container">
-        <img class="loader" src="./imgs/loader.gif">
+        <img class="loader" src="{{page.root}}/assets/loader.gif">
 
         <h1 class="title">Orbicular</h1>
 
@@ -24,13 +30,10 @@ permalink: /orbicular
         I took care of the code, Tom used paint. We shared the idea.
         </p>
 
-        <img src="./imgs/Orb 12018944.jpg">
+        <img src="{{page.root}}/assets/Orb 12018944.jpg">
 
-        <!-- <video >
-            <source src="./imgs/Orbicular.mp4" type="video/mp4">
-        </video> -->
         <video loop="true" autoplay muted controls>
-            <source src="./imgs/Orbicular.mp4" type="video/mp4" />
+            <source src="{{page.root}}/assets/Orbicular.mp4" type="video/mp4" />
         </video>
 
         <h2 class="section">Breakdown</h2>
@@ -41,7 +44,7 @@ permalink: /orbicular
         Little moons, and stars are also bitmap-based, rest of the picture is generated with code.
         </p>
 
-        <img src="./imgs/rozlozenie1.png">
+        <img src="./projects/orbicular/assets/rozlozenie1.png">
 
         <h4>Part 1 - Traditional art</h4>
 
@@ -53,29 +56,29 @@ permalink: /orbicular
         </p>
         <p>Some of them turned out very round:</p>   
 
-        <img src="./imgs/2_flowing_patterns.jpg">
+        <img src="{{page.root}}/assets/2_flowing_patterns.jpg">
 
         <p>
         Those that didn't but we thought are interesing, were cropped to a perfect circle:
         </p>
         
-        <img src="./imgs/2_kolowanie.png">
+        <img src="{{page.root}}/assets/2_kolowanie.png">
         
         <p>
         And then futher modifed programmaticaly to have uneven edge:
         </p>
-        <img src="./imgs/2_wycinanie_kodem.png">
+        <img src="{{page.root}}/assets/2_wycinanie_kodem.png">
 
         <p>
         The whole collection:
         </p>
-        <img src="./imgs/2_all_of_them.jpg">
+        <img src="{{page.root}}/assets/2_all_of_them.jpg">
 
         <hr>
         <!-- <h2>Generative</h2> -->
         <h4>Part 2 - Digital, generative</h4>
 
-        <img src="./imgs/3_orb.jpg">
+        <img src="{{page.root}}/assets/3_orb.jpg">
 
         <p>
         Every planet has a chance to spawn geenrative elements:<br> 
@@ -86,7 +89,7 @@ permalink: /orbicular
             <p class="pInHorContainer">moon with an orbit</p>
         </div>
 
-        <img src="./imgs/3_city_ring_moon.jpg">
+        <img src="{{page.root}}/assets/3_city_ring_moon.jpg">
 
 
         

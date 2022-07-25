@@ -22,3 +22,8 @@
 .right {
     float: right;
 }
+
+img{
+    /* width: 30px; */
+    height: 100%;
+}
