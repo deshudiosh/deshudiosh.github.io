@@ -17,7 +17,21 @@ root: ./projects/orbicular/
     <link type="text/css" rel="stylesheet" href="{{page.root}}/orbicular.css"/>
 </head>
 <body>
-    <iframe class="header" src="../site_elements/header.html"></iframe>
+    <!-- <iframe class="header" src="../site_elements/header.html"></iframe> -->
+    <div id="header">
+        <div id="head_bar">
+            <div id="head_content">
+                <div class="head_div" id="head_left_flex" onclick="location.href='https://pawelgrzelak.com';">
+                    <img id="head_logo" src="../assets/logo.png" ></img>
+                    <p id="head_backto">pawelgrzelak.com</p>
+                </div>
+                <div class="head_div" id="head_right_flex">
+                    <p id="head_contact">contact & about</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <div class="container">
         <img class="loader" src="{{page.root}}/assets/loader.gif">
@@ -32,9 +46,9 @@ root: ./projects/orbicular/
 
         <!-- <img src="{{page.root}}/assets/Orb 12018944.jpg"> -->
 
-        <video poster="{{page.root}}/assets/Orb 12018944.jpg" loop="true" autoplay muted>
+        <!-- <video poster="{{page.root}}/assets/Orb 12018944.jpg" loop="true" autoplay muted>
             <source src="{{page.root}}/assets/Orbicular.mp4" type="video/mp4" />
-        </video>
+        </video> -->
 
         <h2 class="section">Breakdown</h2>
 

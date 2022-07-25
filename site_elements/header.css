@@ -1,5 +1,5 @@
-* {
-    margin: 0;
+.header {
+    height: 3em;
 }
 
 .bar{
@@ -23,7 +23,7 @@
     float: right;
 }
 
-img{
-    /* width: 30px; */
-    height: 100%;
+.logo {
+    max-height: 2.5em;
+    object-fit: contain;
 }
