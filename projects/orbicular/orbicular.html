@@ -1,0 +1,181 @@
+---
+permalink: /orbicular
+root: ./projects/orbicular/
+---
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&family=Libre+Franklin&family=Merriweather+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+    <link type="text/css" rel="stylesheet" href="{{page.root}}/orbicular.css"/>
+</head>
+<body>
+    <iframe class="header" src="../site_elements/header.html"></iframe>
+
+    <div class="container">
+        <img class="loader" src="{{page.root}}/imgs/loader.gif">
+
+        <h1 class="title">Orbicular</h1>
+
+        <p>
+        Generative constelations of planets, a combination of digital and non-digital art.<br>
+        Created in collaboration with abstract painter Tom Blameworth.<br>
+        I took care of the code, Tom used paint. We shared the idea.
+        </p>
+
+        <img src="{{page.root}}/imgs/Orb 12018944.jpg">
+
+        <video loop="true" autoplay muted controls>
+            <source src="{{page.root}}/imgs/Orbicular.mp4" type="video/mp4" />
+        </video>
+
+        <h2 class="section">Breakdown</h2>
+
+        <p>
+        Each variation consists of at least one planet.<br>
+        Each planet is textured with one of over 60 photograped painted "orbs".<br>
+        Little moons, and stars are also bitmap-based, rest of the picture is generated with code.
+        </p>
+
+        <img src="./projects/orbicular/imgs/rozlozenie1.png">
+
+        <h4>Part 1 - Traditional art</h4>
+
+        <h3>Paint orbs:</h3>
+        <p>
+        Tom developped a technique, where by squeezing paint between two pieces of paper,
+        and then unfolding them in a particular, controlled manner, he's able to achieve those natual, 
+        flowing patterns.
+        </p>
+        <p>Some of them turned out very round:</p>   
+
+        <img src="{{page.root}}/imgs/2_flowing_patterns.jpg">
+
+        <p>
+        Those that didn't but we thought are interesing, were cropped to a perfect circle:
+        </p>
+        
+        <img src="{{page.root}}/imgs/2_kolowanie.png">
+        
+        <p>
+        And then futher modifed programmaticaly to have uneven edge:
+        </p>
+        <img src="{{page.root}}/imgs/2_wycinanie_kodem.png">
+
+        <p>
+        The whole collection:
+        </p>
+        <img src="{{page.root}}/imgs/2_all_of_them.jpg">
+
+        <hr>
+        <!-- <h2>Generative</h2> -->
+        <h4>Part 2 - Digital, generative</h4>
+
+        <img src="{{page.root}}/imgs/3_orb.jpg">
+
+        <p>
+        Every planet has a chance to spawn geenrative elements:<br> 
+        </p>
+        <div class="horizontalContainer">
+            <p class="pInHorContainer">city</p>
+            <p class="pInHorContainer">planetary ring</p>
+            <p class="pInHorContainer">moon with an orbit</p>
+        </div>
+
+        <img src="{{page.root}}/imgs/3_city_ring_moon.jpg">
+
+
+        
+        <h3>City</h3>
+        <p>-napisz o: miasto losuje swoją szerokość kątową, oraz relatywną do orba wysokość (pokaż kilka miast)
+        <br>-kazdy budynek losuje swoją rotację, i zależnie od niej moze miec okna, lub nie (pokaż kilka solo budynkow)
+        <br>-oswietlenie na mieście jest left/right, zgodnie z kierunkiem oświetlenia na planecie (pokaż to samo miasto w 2 wersjach) (może to niech będzie w sekcji "Light direction")
+        <br>-miasto może byś po dziennej, lub nocnej stronie, i zmienia kolory accordingly
+        </p>
+
+        <h3>Planetary ring</h3>
+        <p>-rotacja, szerokość (kilka przykładów)
+        <br>-precyzyjne maskowanie obrazkiem części za planetą (pokaż tą samą planete z zamaskowanym, i nie zamaskowanym)
+        </p>
+
+        <h3>Moon</h3>
+        <p>-rozne pozycje moona, zawsze widoczny
+        <br>-gradient maskujacy
+        </p>
+
+        <h3>Light direction</h3>
+        <p>-cień z dobrej strony
+        <br>-cien na planecie też
+        <br>-kierunek światła na budynkach
+        <br> >przykłady różnych oświetleń na tej samej planecie
+        </p>
+
+
+        <hr class="shortHr">
+
+        <h3>Mask creation and extraction</h3>
+        <p> tutaj powinno być pokazane że kodem docinam krztałt planety
+        <br> pokaż też maskę planety z miastem
+        </p>
+
+        <hr class="shortHr">
+
+        <h3>Color sampling</h3>
+        <p>-pokaż przykład kolor samplera - planeta + obrazek samplera.
+        <br>-opowiedz o szukaniu 2 najodleglejszych kolorów
+        </p>
+
+        <h3>Color utils</h3>
+        <p>-easy to understand color manipulations in HSL space
+        <br> napisz: uzywane wszędzie w projecie;
+        <br> pokaż linikję kodu, i jak ona wpłynęła na swatch koloru;
+        <br> ze 3 takie przykłady
+        </p>
+
+        <hr class="shortHr">
+
+        <h3>Orb spawning</h3>
+        <p>1, 2, or 3 can spawn
+        <br> spawned in a sequence
+        <br> looking for a place without collision
+        <br>-pokaż przykłady z pokazanymi hitboxami
+        </p>
+
+        <hr class="shortHr">
+
+        <h3>Background</h3>
+        <p>-gradient - także korespondujący ze światłem
+        <br>-randomly spawned stars, in two 
+        </p>
+
+
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <p>
+        notatki:
+        <br> -dodaj film/gifa z przykłądami na górze
+        <br> -lightbox do powiekszania obrazków?
+        <br> -gdy są 2 obrazki obok siebie, to powinny być osobne, w osobnych divach?
+        <br> -dopisz jaka była w tym twoja rola
+        <br> -najpierw generative, potem traditional?
+        </p>
+        
+
+    </div>
+    
+</body>
+</html>
+
