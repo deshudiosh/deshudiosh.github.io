@@ -7,7 +7,7 @@ root: ./projects/orbicular/
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200&family=Libre+Franklin&family=Merriweather+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;1,200&family=Josefin+Slab:ital,wght@1,200&family=Libre+Franklin&family=Merriweather+Sans:wght@300;400&display=swap" rel="stylesheet">
 
     <link rel="apple-touch-icon" sizes="180x180" href="{{page.root}}/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="{{page.root}}/favicon/favicon-32x32.png">
@@ -27,7 +27,7 @@ root: ./projects/orbicular/
                     <img id="head_logo" src="../assets/logo.png" ></img>
                     <p id="head_backto">pawelgrzelak.com</p>
                 </div>
-                <div class="head_div" id="head_right_flex">
+                <div class="head_div" id="head_right_flex" onclick="location.href='https://pawelgrzelak.com/contact';">
                     <p id="head_contact">contact & about</p>
                 </div>
             </div>
@@ -92,29 +92,105 @@ root: ./projects/orbicular/
 
         <hr>
         <!-- <h2>Generative</h2> -->
-        <h4>Part 2 - Digital, generative</h4>
-
-        <img src="{{page.root}}/assets/3_orb.jpg">
-
+        <h4>Part 2 - Digital art</h4>
+        <h3>Generative </h3>
         <p>
-        Every planet has a chance to spawn geenrative elements:<br> 
+        This is my part.  ---------------------------------------------------------------- No trzeba tu wiecej napisać.
         </p>
-        <div class="horizontalContainer">
-            <p class="pInHorContainer">city</p>
-            <p class="pInHorContainer">planetary ring</p>
-            <p class="pInHorContainer">moon with an orbit</p>
+
+        <h3>Light</h3>
+        <p>One of the main randomized properties is light direction.
+        It affects nearly every aspect of the image:<br>
+            <ul>
+                <li>which side of the planet is lit</li>
+                <li>shadow position under the orb</li>
+                <li>if city is at daytime or nighttime</li>
+                <li>which side of the buildings should be brighter</li>
+                <li>gradient on the background</li>
+            </ul>
+        </p>
+
+        <div class="figureContainer">
+            <figure>
+                <img src="{{page.root}}/assets/lightdir_1.jpg">
+                <!-- <figcaption>City</figcaption> -->
+            </figure>
+            <figure>
+                <img src="{{page.root}}/assets/lightdir_2.jpg">
+                <!-- <figcaption>Planetary ring</figcaption> -->
+            </figure>
+            <figure>
+                <img src="{{page.root}}/assets/lightdir_3.jpg">
+                <!-- <figcaption>Moon</figcaption> -->
+            </figure>
         </div>
 
-        <img src="{{page.root}}/assets/3_city_ring_moon.jpg">
+        <div class="figureContainer">
+            <figure>
+                <img src="{{page.root}}/assets/1_light_front.jpg">
+                <figcaption>Frontal light</figcaption>
+            </figure>
+            <figure>
+                <img src="{{page.root}}/assets/1_light_back.jpg">
+                <figcaption>Back light</figcaption>
+            </figure>
+        </div>
 
+        <h3>Elements</h3>
+        <p>
+        Every planet has a chance to spawn each of those fully generative elements:<br> 
+        </p>
+        <img src="{{page.root}}/assets/3_orb.jpg">
+
+        <div class="figureContainer">
+            <figure>
+                <img src="{{page.root}}/assets/3_city.jpg">
+                <figcaption>City</figcaption>
+            </figure>
+            <figure>
+                <img src="{{page.root}}/assets/3_ring.jpg">
+                <figcaption>Planetary ring</figcaption>
+            </figure>
+            <figure>
+                <img src="{{page.root}}/assets/3_moon.jpg">
+                <figcaption>Moon</figcaption>
+            </figure>
+        </div>
 
         
         <h3>City</h3>
-        <p>-napisz o: miasto losuje swoją szerokość kątową, oraz relatywną do orba wysokość (pokaż kilka miast)
-        <br>-kazdy budynek losuje swoją rotację, i zależnie od niej moze miec okna, lub nie (pokaż kilka solo budynkow)
+        <!-- <p>-napisz o: miasto losuje swoją szerokość kątową, oraz relatywną do orba wysokość (pokaż kilka miast) -->
+        <!-- <br>-kazdy budynek losuje swoją rotację, i zależnie od niej moze miec okna, lub nie (pokaż kilka solo budynkow)
         <br>-oswietlenie na mieście jest left/right, zgodnie z kierunkiem oświetlenia na planecie (pokaż to samo miasto w 2 wersjach) (może to niech będzie w sekcji "Light direction")
         <br>-miasto może byś po dziennej, lub nocnej stronie, i zmienia kolory accordingly
+        <br>-dots are spawned to mask the place where city connects to the orb. -->
+        <p>Each city is unique. Randomization begins with very basic characteristics like width and height, or number of buildings,
+        to more complex like rotation, presense of windows, dots that make it blend near the ground level.
         </p>
+        <figure>
+            <img src="{{page.root}}/assets/city_examples.jpg">
+            <figcaption>Cities vary in sizes, and builing count.</figcaption>
+        </figure>
+
+        <div class="figureContainer">
+            <figure>
+                <img src="{{page.root}}/assets/city_lightdir_1.jpg">
+                <figcaption>Day - left</figcaption>
+            </figure>
+            <figure>
+                <img src="{{page.root}}/assets/city_lightdir_2.jpg">
+                <figcaption>Day - right</figcaption>
+            </figure>
+            <figure>
+                <img src="{{page.root}}/assets/city_lightdir_3.jpg">
+                <figcaption>Night</figcaption>
+            </figure>
+        </div>
+
+        <figure>
+            <img src="{{page.root}}/assets/building_rotation.jpg" style="height:10em">
+            <figcaption>Buildings rotate</figcaption>
+        </figure>
 
         <h3>Planetary ring</h3>
         <p>-rotacja, szerokość (kilka przykładów)
@@ -126,12 +202,7 @@ root: ./projects/orbicular/
         <br>-gradient maskujacy
         </p>
 
-        <h3>Light direction</h3>
-        <p>-cień z dobrej strony
-        <br>-cien na planecie też
-        <br>-kierunek światła na budynkach
-        <br> >przykłady różnych oświetleń na tej samej planecie
-        </p>
+
 
 
         <hr class="shortHr">
