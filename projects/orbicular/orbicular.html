@@ -4,129 +4,116 @@ root: ./projects/orbicular/
 ---
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;1,200&family=Libre+Franklin:ital,wght@0,400;1,100;1,200&family=Merriweather+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;1,200&family=Libre+Franklin:ital,wght@0,400;1,100;1,200&family=Merriweather+Sans:wght@300;400&display=swap" rel="stylesheet">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="{{page.root}}/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{page.root}}/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{page.root}}/favicon/favicon-16x16.png">
-    <link rel="manifest" href="{{page.root}}/favicon/site.webmanifest">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{page.root}}/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{page.root}}/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{page.root}}/favicon/favicon-16x16.png">
+        <link rel="manifest" href="{{page.root}}/favicon/site.webmanifest">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    <link type="text/css" rel="stylesheet" href="../../assets/header.css"/>
-    <link type="text/css" rel="stylesheet" href="{{page.root}}/orbicular.css"/>
-</head>
-<body>
-    <div id="header">
-        <div id="head_bar">
-            <div id="head_content">
-                <div class="head_div" id="head_left_flex" onclick="location.href='https://pawelgrzelak.com';">
-                    <img id="head_logo" src="../assets/logo.png" ></img>
-                    <p id="head_backto">pawelgrzelak.com</p>
-                </div>
-                <div class="head_div" id="head_right_flex" onclick="location.href='https://pawelgrzelak.com/contact';">
-                    <p id="head_contact">contact & about</p>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <link type="text/css" rel="stylesheet" href="../../assets/header.css"/>
+        <link type="text/css" rel="stylesheet" href="{{page.root}}/orbicular.css"/>
+    </head>
+    <body>
+        <div id="header">
+            <div id="head_bar">
+                <div id="head_content">
+                    <div class="head_div" id="head_left_flex" onclick="location.href='https://pawelgrzelak.com';">
+                        <img id="head_logo" src="../assets/logo.png"></img>
+                        <p id="head_backto">pawelgrzelak.com</p>
+                    </div>
+                    <div class="head_div" id="head_right_flex" onclick="location.href='https://pawelgrzelak.com/contact';">
+                        <p id="head_contact">contact & about</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        <div class="container">
+            <img class="loader" src="{{page.root}}/assets/loader.gif">
 
-    <div class="container">
-        <img class="loader" src="{{page.root}}/assets/loader.gif">
+            <h1 class="title">ORBICULAR</h1>
 
-        <h1 class="title">ORBICULAR</h1>
+            <div class="box m-top-big">
+                <p class="p-bigger m-top-0">orbicular <span class="italic">(adj.)</span></p>
+                <p class="p_italic m-top-0"> round, circular, spherical, having the shape of an orb</p>
+                <!-- <ol id="dict_definition">
+                    <li>circular or nearly circular</li>
+                    <li>having the shape of a sphere or ball</li>
+                </ol> -->
+            </div>
 
-        
-        <div class="box m-top-big">
-            <p class="p-bigger m-top-0">Orbicular</p>
-            <p class="p_italic m-top-0">adjective</p>
-            <ol id="dict_definition">
-                <li>circular or nearly circular</li>
-                <li>having the shape of a sphere or ball</li>
-            </ol>
-        </div>
+            <p class="m-top-big">Generative constelations of planets, a combination of digital and Śn-digital art.<br>
+            Created in collaboration with abstract painter
+            <a href="https://www.instagram.com/tom.blameworth/">Tom Blameworth <i class="fa fa-instagram"></i></a><br></p>
+            <p class="m-top">I took care of the code, Tom used paint. We share the idea.</p>
+            
+            <figure>
+                <video poster="{{page.root}}/assets/Orb 12018944.jpg" loop="true" autoplay muted>
+                    <source src="{{page.root}}/assets/Orbicular_vid1_h264_1000kbps.mp4" type="video/mp4" />
+                </video>
+                <figcaption>Examples of Orbicular variants</figcaption>
+            </figure>
 
-        <p class="m-top-big">
-        Generative constelations of planets, a combination of digital and Śn-digital art.<br>
-        Created in collaboration with abstract painter
-        <a href="https://www.instagram.com/tom.blameworth/">Tom Blameworth <i class="fa fa-instagram"></i></a><br>
-        </p>
-        <p class="m-top">
-        I took care of the code, Tom used paint. We share the idea.
-        </p>
-        
-        <figure>
-            <video poster="{{page.root}}/assets/Orb 12018944.jpg" loop="true" autoplay muted>
-                <source src="{{page.root}}/assets/Orbicular_vid1_h264_1000kbps.mp4" type="video/mp4" />
-            </video>
-            <figcaption>Examples of Orbicular variants</figcaption>
-        </figure>
+            <p>Each variant consists of at least one planet.<br>
+            Every planet is textured with one of over 60 photograped painted "orbs".<br>
+            Little moons, and stars are also bitmap-based, rest of the picture is generated with code.</p>
 
-        <!-- <h2>Breakdown</h2> -->
+            <!-- <figure>
+                <img src="./projects/orbicular/assets/rozlozenie1.png">
+            </figure> -->
 
-        <p>
-        Each variant consists of at least one planet.<br>
-        Every planet is textured with one of over 60 photograped painted "orbs".<br>
-        Little moons, and stars are also bitmap-based, rest of the picture is generated with code.
-        </p>
+            <h2 class="section">Part 1 - Traditional art</h2>
 
-        <figure>
-            <img src="./projects/orbicular/assets/rozlozenie1.png">
-        </figure>
+            <h3>Paint orbs:</h3>
+            <p>Tom developped a technique, where by squeezing paint between two pieces of paper,
+            and unfolding them in a particular, controlled manner, he's able to achieve those natual, 
+            flowing patterns.</p>
+            <p>Some of them turned out very round:</p>   
 
-        <h2 class="section">Part 1 - Traditional art</h2>
+            <figure>
+                <img src="{{page.root}}/assets/2_flowing_patterns.jpg">
+            </figure>
 
-        <h3>Paint orbs:</h3>
-        <p>
-        Tom developped a technique, where by squeezing paint between two pieces of paper,
-        and unfolding them in a particular, controlled manner, he's able to achieve those natual, 
-        flowing patterns.
-        </p>
-        <p>Some of them turned out very round:</p>   
-
-        <figure>
-            <img src="{{page.root}}/assets/2_flowing_patterns.jpg">
-        </figure>
-
-        <p>Those that didn't, but we thought are interesing, were cropped to a perfect circle,
+            <p>Those that didn't, but we thought are interesing, were cropped to a perfect circle,
             to be further modified programmaticaly (more details later).</p>
-        <p>Some slight color corrections also happened at this stage:</p>
+            <p>Some slight color corrections also happened at this stage:</p>
 
-        <div class="figureContainer">
+            <div class="figureContainer">
+                <figure>
+                    <img src="{{page.root}}/assets/orb_circulation_1.jpg">
+                    <figcaption>Before</figcaption>
+                </figure>
+                <figure>
+                    <img src="{{page.root}}/assets/orb_circulation_2.jpg">
+                    <figcaption>After</figcaption>
+                </figure>
+            </div>
+
+            <p class="m-top-big">The whole collection:</p>
             <figure>
-                <img src="{{page.root}}/assets/orb_circulation_1.jpg">
-                <figcaption>Before</figcaption>
+                <img src="{{page.root}}/assets/2_all_of_them.jpg">
+                <figcaption>12 naturally formed orbs, and 52 cropped ones.</figcaption>
             </figure>
-            <figure>
-                <img src="{{page.root}}/assets/orb_circulation_2.jpg">
-                <figcaption>After</figcaption>
-            </figure>
-        </div>
 
-        <p class="m-top-big">
-        The whole collection:
-        </p>
-        <figure>
-            <img src="{{page.root}}/assets/2_all_of_them.jpg">
-            <figcaption>12 naturally formed orbs, and 52 cropped ones.</figcaption>
-        </figure>
+            <h2 class="section">Part 2 - Digital art</h2>
+            <p class="m-top-mid">Generative - what does it mean?</p>
+            <p>At the root of algorythm constructing each picture, there is a single number called <span class="italic">seed</span>.
+            That seed is used in all randomization functions throuout the project.</p>
+            <p>Everything - which images to use by each planet; light direction; number of orbs and their position and size;
+            presense or lack of cities; moons; planetry rings - is derived from that seed. 
+            Every seed yields different Orbicular variant, and one particular seed always yields the same output.</p>
 
-        <h2 class="section">Part 2 - Digital art</h2>
-        <p class="m-top-mid">Generative - what does it mean?</p>
-        <p>At the root of algorythm constructing each picture, there is a single number called <span class="italic">seed</span>.
-        That seed is used in all randomization functions throuout the project.</p>
-        <p>Everything - which images to use by each planet; light direction; number of orbs and their position and size;
-        presense or lack of cities; moons; planetry rings - is derived from that seed. 
-        Every seed yields different Orbicular variant, and one particular seed always yields the same output.
-        </p>
+            <hr>
 
-        <h3>Light</h3>
-        <p>One of the main randomized properties is light direction.
-        It affects nearly every aspect of the image:<br>
+            <h3>Light</h3>
+            <p>One of the main randomized properties is light direction.<br>
+            It affects nearly every aspect of the image:</p>
             <ul>
                 <li>which side of the planet is lit</li>
                 <li>shadow position under the orb</li>
@@ -134,170 +121,170 @@ root: ./projects/orbicular/
                 <li>which side of the buildings should be brighter</li>
                 <li>gradient on the background</li>
             </ul>
-        </p>
 
-        <div class="figureContainer">
-            <figure>
-                <img src="{{page.root}}/assets/lightdir_1.jpg">
-            </figure>
-            <figure>
-                <img src="{{page.root}}/assets/lightdir_2.jpg">
-            </figure>
-            <figure>
-                <img src="{{page.root}}/assets/lightdir_3.jpg">
-            </figure>
-        </div>
+            <div class="figureContainer">
+                <figure>
+                    <img src="{{page.root}}/assets/lightdir_1.jpg">
+                </figure>
+                <figure>
+                    <img src="{{page.root}}/assets/lightdir_2.jpg">
+                </figure>
+                <figure>
+                    <img src="{{page.root}}/assets/lightdir_3.jpg">
+                </figure>
+            </div>
 
-        <div class="figureContainer">
-            <figure>
-                <img src="{{page.root}}/assets/1_light_front.jpg">
-                <figcaption>Frontal light</figcaption>
-            </figure>
-            <figure>
-                <img src="{{page.root}}/assets/1_light_back.jpg">
-                <figcaption>Back light</figcaption>
-            </figure>
-        </div>
+            <div class="figureContainer">
+                <figure>
+                    <img src="{{page.root}}/assets/1_light_front.jpg">
+                    <figcaption>Frontal light</figcaption>
+                </figure>
+                <figure>
+                    <img src="{{page.root}}/assets/1_light_back.jpg">
+                    <figcaption>Back light</figcaption>
+                </figure>
+            </div>
 
-        <h3>Elements</h3>
-        <p>
-        Every planet has a chance to spawn each of those fully generative elements:<br> 
-        </p>
-        <img src="{{page.root}}/assets/3_orb.jpg">
+            <hr>
 
-        <div class="figureContainer">
-            <figure>
-                <img src="{{page.root}}/assets/3_city.jpg">
-                <figcaption>City</figcaption>
-            </figure>
-            <figure>
-                <img src="{{page.root}}/assets/3_ring.jpg">
-                <figcaption>Planetary ring</figcaption>
-            </figure>
-            <figure>
-                <img src="{{page.root}}/assets/3_moon.jpg">
-                <figcaption>Moon</figcaption>
-            </figure>
-        </div>
+            <h3>Elements</h3>
+            <p>
+            Every planet has a chance to spawn each of those fully generative elements:<br> 
+            </p>
+            <img src="{{page.root}}/assets/3_orb.jpg">
 
-        
-        <h3>City</h3>
-        <p>Each city is unique. Randomization begins with very basic characteristics like width and height, or number of buildings,
-        to more complex like rotation, presense of windows, dots that make it blend near the ground level.
-        City colors match the planet, and also the lightining.
-        </p>
-        <figure>
-            <img src="{{page.root}}/assets/city_examples.jpg">
-            <figcaption>Cities vary in sizes, and builing count.</figcaption>
-        </figure>
-
-        <div class="figureContainer">
-            <figure>
-                <img src="{{page.root}}/assets/city_lightdir_1.jpg">
-                <figcaption>Day - left light</figcaption>
-            </figure>
-            <figure>
-                <img src="{{page.root}}/assets/city_lightdir_2.jpg">
-                <figcaption>Day - right light</figcaption>
-            </figure>
-            <figure>
-                <img src="{{page.root}}/assets/city_lightdir_3.jpg">
-                <figcaption>Night</figcaption>
-            </figure>
-        </div>
-
-        <figure>
-            <img src="{{page.root}}/assets/building_rotation.jpg" style="height:10em">
-            <figcaption>Buildings rotate</figcaption>
-        </figure>
-
-        <h3>Planetary ring</h3>
-        <!-- <p>-rotacja, szerokość (kilka przykładów) -->
-        <!-- <br>-precyzyjne maskowanie obrazkiem części za planetą (pokaż tą samą planete z zamaskowanym, i nie zamaskowanym) -->
-        <p>Many semi-transparent white ellipses combined together construct every planetary ring.
-        Varying outter radius, inner radius and rotation attributes control the look.
-        Ellipses thickness is randomized to break the ring's otherwise uniform look.
-        
-        </p>
-        <div class="figureContainer">
-            <figure>
-                <img src="{{page.root}}/assets/ring_1.jpg">
-            </figure>
-            <figure>
-                <img src="{{page.root}}/assets/ring_2.jpg">
-            </figure>
-            <figure>
-                <img src="{{page.root}}/assets/ring_3.jpg">
-            </figure>
-        </div>
-        <figcaption>Planetary ring edge cases</figcaption>
-
-        <hr class="shortHr">
-
-        <h3>Color sampling</h3>
-        <p>I developped a custom color sampling module for this project, along with previewer.<br>
-        The procedure is to get a slighly blurred image from the planet, and set the color at the top edge as a primary (marked with a big red dot).
-        Then create a matrix of sample points (little red dots), and find the secondary color, which will be visually as distant from primary as possible.
-        Distant in terms of hue-saturation-lightness color space. Hue difference is the most important part of the equation.
-        </p>
-        <div class="figureContainer">
-            <figure>
-                <img src="{{page.root}}/assets/colorsampler_1.jpg">
-            </figure>
-            <figure>
-                <img src="{{page.root}}/assets/colorsampler_2.jpg">
-            </figure>
-            <figure>
-                <img src="{{page.root}}/assets/colorsampler_3.jpg">
-            </figure>
-        </div>
-        <figcaption>Color swatches preview (click to enlarge)</figcaption>
-
-        <hr class="shortHr">
-
-        <h3>Background</h3>
-        <p>Background is simple: gradient corresponds with light direction;
-        colors are darkened swatches extracted from biggest orb;
-        stars are randomly scattered little grayscale images.
-        There is also a high chance of falling star appearing.</p>
+            <div class="figureContainer">
+                <figure>
+                    <img src="{{page.root}}/assets/3_city.jpg">
+                    <figcaption>City</figcaption>
+                </figure>
+                <figure>
+                    <img src="{{page.root}}/assets/3_ring.jpg">
+                    <figcaption>Planetary ring</figcaption>
+                </figure>
+                <figure>
+                    <img src="{{page.root}}/assets/3_moon.jpg">
+                    <figcaption>Moon</figcaption>
+                </figure>
+            </div>
             
-        <div class="figureContainer">
+            <hr>
+
+            <h3>City</h3>
+            <p>Each city is unique. Randomization begins with very basic characteristics like width and height, or number of buildings,
+            to more complex like rotation, presense of windows, dots that make it blend near the ground level.
+            City colors match the planet, and also the lightining.</p>
+
             <figure>
-                <img src="{{page.root}}/assets/background_1.jpg">
+                <img src="{{page.root}}/assets/city_examples.jpg">
+                <figcaption>Cities vary in sizes, and builing count.</figcaption>
             </figure>
+
+            <div class="figureContainer">
+                <figure>
+                    <img src="{{page.root}}/assets/city_lightdir_1.jpg">
+                    <figcaption>Day - left light</figcaption>
+                </figure>
+                <figure>
+                    <img src="{{page.root}}/assets/city_lightdir_2.jpg">
+                    <figcaption>Day - right light</figcaption>
+                </figure>
+                <figure>
+                    <img src="{{page.root}}/assets/city_lightdir_3.jpg">
+                    <figcaption>Night</figcaption>
+                </figure>
+            </div>
+
             <figure>
-                <img src="{{page.root}}/assets/background_2.jpg">
+                <img src="{{page.root}}/assets/building_rotation.jpg" style="height:10em">
+                <figcaption>Buildings rotate</figcaption>
             </figure>
-        </div>
-        
-        
-        <hr class="shortHr">
-        
-        <h3>Orb spawning</h3>
-        <p>Very technical solution, to visually very influential aspect is planet positioning. There are no predetermined compositions in Orbicular.
-            Planets are spawned in a sequence, ensuring there aren't any unwanted collisions, and also fitting the margin.
-        </p>
-        <p>Collision detection system is based on circles. Rules are:
-            <ul>
-                <li>Red circles can't collide with anything (except for circles of the same planet).</li>
-                <li>Green and orange circles behave the same as red, but are allowed to go past blue margin.</li>
-            </ul>
-        </p>
-        
-        <div class="figureContainer">
-            <figure>
-                <img src="{{page.root}}/assets/collisions_1.jpg">
-            </figure>
-            <figure>
-                <img src="{{page.root}}/assets/collisions_2.jpg">
-            </figure>
-        </div>
-        
-        <p>Falling star (orange) collision detection serves two purposes. 
+
+            <hr>
+
+            <h3>Planetary ring</h3>
+            <p>Many semi-transparent white ellipses combined together construct every planetary ring.
+            Varying outter radius, inner radius and rotation attributes control the look.
+            Ellipses thickness is randomized to break the ring's otherwise uniform look.</p>
+
+            <div class="figureContainer">
+                <figure>
+                    <img src="{{page.root}}/assets/ring_1.jpg">
+                </figure>
+                <figure>
+                    <img src="{{page.root}}/assets/ring_2.jpg">
+                </figure>
+                <figure>
+                    <img src="{{page.root}}/assets/ring_3.jpg">
+                </figure>
+            </div>
+            <figcaption>Planetary ring edge cases</figcaption>
+
+            <hr>
+
+            <h3>Color sampling</h3>
+            <p>I developped a custom color sampling module for this project, along with previewer.<br>
+            The procedure is to get a slighly blurred image from the planet, and set the color at the top edge as a primary (marked with a big red dot).
+            Then create a matrix of sample points (little red dots), and find the secondary color, which will be visually as distant from primary as possible.
+            Distant in terms of hue-saturation-lightness color space. Hue difference is the most important part of the equation.</p>
+
+            <div class="figureContainer">
+                <figure>
+                    <img src="{{page.root}}/assets/colorsampler_1.jpg">
+                </figure>
+                <figure>
+                    <img src="{{page.root}}/assets/colorsampler_2.jpg">
+                </figure>
+                <figure>
+                    <img src="{{page.root}}/assets/colorsampler_3.jpg">
+                </figure>
+            </div>
+            <figcaption>Color swatches preview (click to enlarge)</figcaption>
+
+            <hr>
+
+            <h3>Background</h3>
+            <p>Background is simple: gradient corresponds with light direction;
+            colors are darkened swatches extracted from biggest orb;
+            stars are randomly scattered little grayscale images.
+            There is also a high chance of falling star appearing.</p>
+                
+            <div class="figureContainer">
+                <figure>
+                    <img src="{{page.root}}/assets/background_1.jpg">
+                </figure>
+                <figure>
+                    <img src="{{page.root}}/assets/background_2.jpg">
+                </figure>
+            </div>
+            
+            <hr>
+            
+            <h3>Orb spawning</h3>
+            <p>Very technical solution, to visually very influential aspect is planet positioning. There are no predetermined compositions in Orbicular.
+                Planets are spawned in a sequence, ensuring there aren't any unwanted collisions, and also fitting the margin.
+            </p>
+            <p>Collision detection system is based on circles. Rules are:
+                <ul>
+                    <li>Red circles can't collide with anything (except for circles of the same planet).</li>
+                    <li>Green and orange circles behave the same as red, but are allowed to go past blue margin.</li>
+                </ul>
+            </p>
+            
+            <div class="figureContainer">
+                <figure>
+                    <img src="{{page.root}}/assets/collisions_1.jpg">
+                </figure>
+                <figure>
+                    <img src="{{page.root}}/assets/collisions_2.jpg">
+                </figure>
+            </div>
+            
+            <p>Falling star (orange) collision detection serves two purposes. 
             First, it makes it occupy free space in the composition. 
             Second, it prevents "streaks" from ever starting behind any other objects.
             Small middle-circle allows for close contact though.</p>
-            
+                
             <div class="figureContainer">
                 <figure>
                     <img src="{{page.root}}/assets/collisions_3.jpg">
@@ -306,66 +293,51 @@ root: ./projects/orbicular/
                     <img src="{{page.root}}/assets/collisions_4.jpg">
                 </figure>
             </div>
-            
+                
             <!-- <h3>Moon</h3>
-                <p>-rozne pozycje moona, zawsze widoczny
-                    <br>-gradient maskujacy
-                </p> -->
-                
-                <hr class="shortHr">
-                
-                <h3>Mask creation and extraction</h3>
-                <p>Many masks are drawn off screen for each planet</p>
-                <p>tutaj obrazki z podpisami: planeta, jasna czesc planety, planeta z miastem.</p>
-                <p> tutaj powinno być pokazane że kodem docinam krztałt planety
-                    <!-- <br> pokaż też maskę planety z miastem  -->
-                    <br> moze pokazać osobno czesc oświetlona, i zacienioną.
-                </p>
-                
-                <p>And then futher modifed programmaticaly to have uneven edge:</p>
-                <div class="figureContainer">
-                    <figure>
-                        <img src="{{page.root}}/assets/wycinanie_kodem_1.jpg">
-                        <figcaption>Before</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="{{page.root}}/assets/wycinanie_kodem_2.jpg">
-                        <figcaption>After</figcaption>
-                    </figure>
-                </div>
-                
-                <hr class="shortHr">
-        
-                <h3>Grain</h3>
-                <p>On top of everything I added clearly visible grain. It helps to merge all elements together.</p>
-                
-                
-                
-                
-                
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                
-                <p>
-                    notatki:
-                    <br> -dodaj film/gifa z przykłądami na górze
-                    <br> -lightbox do powiekszania obrazków?
-                    <br> -gdy są 2 obrazki obok siebie, to powinny być osobne, w osobnych divach?
-                    <br> -dopisz jaka była w tym twoja rola
-                    <br> -najpierw generative, potem traditional?
-                </p>
-                
-                
-            </div>
+            <p>-rozne pozycje moona, zawsze widoczny
+                <br>-gradient maskujacy
+            </p> -->
+                    
+            <hr>
+                    
+            <h3>Mask creation and extraction</h3>
+            <p>Many masks are drawn off screen for each planet</p>
+            <p>tutaj obrazki z podpisami: planeta, jasna czesc planety, planeta z miastem.</p>
+            <p> tutaj powinno być pokazane że kodem docinam krztałt planety
+                <!-- <br> pokaż też maskę planety z miastem  -->
+                <br> moze pokazać osobno czesc oświetlona, i zacienioną.
+            </p>
             
-        </body>
-        </html>
+            <p>And then futher modifed programmaticaly to have uneven edge:</p>
+            <div class="figureContainer">
+                <figure>
+                    <img src="{{page.root}}/assets/wycinanie_kodem_1.jpg">
+                    <figcaption>Before</figcaption>
+                </figure>
+                <figure>
+                    <img src="{{page.root}}/assets/wycinanie_kodem_2.jpg">
+                    <figcaption>After</figcaption>
+                </figure>
+            </div>
+                    
+            <hr>
+
+            <h3>Grain</h3>
+            <p>On top of everything I added clearly visible grain. It helps to merge all elements together.</p>
+
+            <p><br><br><br><br><br><br><br</p>
+                    
+            <p>
+            notatki:
+            <br> -dodaj film/gifa z przykłądami na górze
+            <br> -lightbox do powiekszania obrazków?
+            <br> -gdy są 2 obrazki obok siebie, to powinny być osobne, w osobnych divach?
+            <br> -dopisz jaka była w tym twoja rola
+            <br> -najpierw generative, potem traditional?
+            </p>
+                    
+        </div>        
+    </body>
+</html>
 
