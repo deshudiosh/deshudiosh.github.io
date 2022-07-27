@@ -37,6 +37,7 @@ h2 {
 
 h3 {
     text-align: left;
+    margin-top: 2em;
 }
 
 h4 {
@@ -55,11 +56,12 @@ h4 {
 
 
 p, ul {
+    text-align:left;
     font-family: 'Libre Franklin', sans-serif;
     font-size: 1em;
     line-height: 1.5em;
     margin-top: 1em;
-    text-align:left;
+    /* margin-bottom: 1em; */
 }
 
 ul {
@@ -73,7 +75,8 @@ img {
 }
 
 figure{
-    margin-bottom: 2em;
+    margin-top: 1em;
+    /* margin-bottom: 2em; */
 }
 
 figcaption {
