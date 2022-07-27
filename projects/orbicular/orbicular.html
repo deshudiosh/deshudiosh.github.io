@@ -48,10 +48,10 @@ root: ./projects/orbicular/
                 </ol> -->
             </div>
 
-            <p class="m-top-big">Generative constelations of planets, a combination of digital and Śn-digital art.<br>
+            <p class="m-top-big">Generative constellation of planets, a combination of digital and non-digital art.<br>
             Created in collaboration with abstract painter
             <a href="https://www.instagram.com/tom.blameworth/">Tom Blameworth <i class="fa fa-instagram"></i></a><br></p>
-            <p class="m-top">I took care of the code, Tom used paint. We share the idea.</p>
+            <p class="m-top">I took care of the code, Tom used paint. We shared the idea.</p>
             
             <figure>
                 <video poster="{{page.root}}/assets/Orb 12018944.jpg" loop="true" autoplay muted>
@@ -60,20 +60,14 @@ root: ./projects/orbicular/
                 <figcaption>Examples of Orbicular variants</figcaption>
             </figure>
 
-            <p>Each variant consists of at least one planet.<br>
-            Every planet is textured with one of over 60 photograped painted "orbs".<br>
-            Little moons, and stars are also bitmap-based, rest of the picture is generated with code.</p>
-
-            <!-- <figure>
-                <img src="./projects/orbicular/assets/rozlozenie1.png">
-            </figure> -->
+            <p>Each variant consists of at least one planet. 
+            Every planet is textured with one of over 60 photographed painted "orbs". 
+            Little moons, and stars are also bitmap-based, the rest of the picture is generated with code.</p>
 
             <h2 class="section">Part 1 - Traditional art</h2>
 
             <h3>Paint orbs:</h3>
-            <p>Tom developped a technique, where by squeezing paint between two pieces of paper,
-            and unfolding them in a particular, controlled manner, he's able to achieve those natual, 
-            flowing patterns.</p>
+            <p>Tom has developed a technique, where using paint and paper, he is able to create colorful orbs with natural, floral patterns.</p>
             <p>Some of them turned out very round:</p>   
 
             <figure>
@@ -95,6 +89,8 @@ root: ./projects/orbicular/
                 </figure>
             </div>
 
+            <hr>
+
             <p class="m-top-big">The whole collection:</p>
             <figure>
                 <img src="{{page.root}}/assets/2_all_of_them.jpg">
@@ -103,10 +99,10 @@ root: ./projects/orbicular/
 
             <h2 class="section">Part 2 - Digital art</h2>
             <p class="m-top-mid">Generative - what does it mean?</p>
-            <p>At the root of algorythm constructing each picture, there is a single number called <span class="italic">seed</span>.
-            That seed is used in all randomization functions throuout the project.</p>
+            <p>At the root of algorithm constructing each picture, there is a single number called <span class="italic">seed</span>.
+            That seed is used in all randomization functions throughout the project.</p>
             <p>Everything - which images to use by each planet; light direction; number of orbs and their position and size;
-            presense or lack of cities; moons; planetry rings - is derived from that seed. 
+            presence or lack of cities; moons; planetary rings - is derived from that seed. 
             Every seed yields different Orbicular variant, and one particular seed always yields the same output.</p>
 
             <hr>
@@ -148,9 +144,8 @@ root: ./projects/orbicular/
             <hr>
 
             <h3>Elements</h3>
-            <p>
-            Every planet has a chance to spawn each of those fully generative elements:<br> 
-            </p>
+            <p>Every planet has a chance to spawn each of those fully generative elements:<br></p>
+
             <img src="{{page.root}}/assets/3_orb.jpg">
 
             <div class="figureContainer">
@@ -172,12 +167,12 @@ root: ./projects/orbicular/
 
             <h3>City</h3>
             <p>Each city is unique. Randomization begins with very basic characteristics like width and height, or number of buildings,
-            to more complex like rotation, presense of windows, dots that make it blend near the ground level.
-            City colors match the planet, and also the lightining.</p>
+            to more complex like rotation, presence of windows, dots that make it blend near the ground level.
+            City colors match the planet, and also the lightning.</p>
 
             <figure>
                 <img src="{{page.root}}/assets/city_examples.jpg">
-                <figcaption>Cities vary in sizes, and builing count.</figcaption>
+                <figcaption>Cities vary in sizes, and building count.</figcaption>
             </figure>
 
             <div class="figureContainer">
@@ -197,14 +192,14 @@ root: ./projects/orbicular/
 
             <figure>
                 <img src="{{page.root}}/assets/building_rotation.jpg" style="height:10em">
-                <figcaption>Buildings rotate</figcaption>
+                <figcaption>Building rotation</figcaption>
             </figure>
 
             <hr>
 
             <h3>Planetary ring</h3>
             <p>Many semi-transparent white ellipses combined together construct every planetary ring.
-            Varying outter radius, inner radius and rotation attributes control the look.
+            Varying outer radius, inner radius and rotation attributes control the look.
             Ellipses thickness is randomized to break the ring's otherwise uniform look.</p>
 
             <div class="figureContainer">
@@ -223,9 +218,9 @@ root: ./projects/orbicular/
             <hr>
 
             <h3>Color sampling</h3>
-            <p>I developped a custom color sampling module for this project, along with previewer.<br>
-            The procedure is to get a slighly blurred image from the planet, and set the color at the top edge as a primary (marked with a big red dot).
-            Then create a matrix of sample points (little red dots), and find the secondary color, which will be visually as distant from primary as possible.
+            <p>I developed a custom color sampling module for this project, along with previewer.<br>
+            The procedure is to get a slightly blurred image from the planet, and set the color at the top edge as a primary (marked with a big red dot).
+            Then create a matrix of sample points (little red dots), and find the secondary color, which will be visually as distant from the primary one as possible.
             Distant in terms of hue-saturation-lightness color space. Hue difference is the most important part of the equation.</p>
 
             <div class="figureContainer">
@@ -245,8 +240,8 @@ root: ./projects/orbicular/
 
             <h3>Background</h3>
             <p>Background is simple: gradient corresponds with light direction;
-            colors are darkened swatches extracted from biggest orb;
-            stars are randomly scattered little grayscale images.
+            colors are darkened swatches extracted from the biggest orb;
+            stars are little randomly scattered grayscale images.
             There is also a high chance of falling star appearing.</p>
                 
             <div class="figureContainer">
@@ -260,14 +255,13 @@ root: ./projects/orbicular/
             
             <hr>
             
-            <h3>Orb spawning</h3>
+            <h3>Composition</h3>
             <p>Very technical solution, to visually very influential aspect is planet positioning. There are no predetermined compositions in Orbicular.
-                Planets are spawned in a sequence, ensuring there aren't any unwanted collisions, and also fitting the margin.
-            </p>
+                Planets are spawned in a sequence, ensuring there aren't any unwanted collisions, and also fitting the margin.</p>
             <p>Collision detection system is based on circles. Rules are:
                 <ul>
                     <li>Red circles can't collide with anything (except for circles of the same planet).</li>
-                    <li>Green and orange circles behave the same as red, but are allowed to go past blue margin.</li>
+                    <li>Green and orange circles behave the same as red, but are allowed to go past the blue margin.</li>
                 </ul>
             </p>
             
@@ -280,11 +274,6 @@ root: ./projects/orbicular/
                 </figure>
             </div>
             
-            <p>Falling star (orange) collision detection serves two purposes. 
-            First, it makes it occupy free space in the composition. 
-            Second, it prevents "streaks" from ever starting behind any other objects.
-            Small middle-circle allows for close contact though.</p>
-                
             <div class="figureContainer">
                 <figure>
                     <img src="{{page.root}}/assets/collisions_3.jpg">
@@ -293,7 +282,11 @@ root: ./projects/orbicular/
                     <img src="{{page.root}}/assets/collisions_4.jpg">
                 </figure>
             </div>
-                
+            
+            <p>Falling star (orange) collision detection serves two purposes. 
+            First, it makes it occupy only free space in the composition. 
+            Second, it prevents "streaks" from ever starting behind any other objects.
+            Small middle-circle allows for close contact though.</p>
             <!-- <h3>Moon</h3>
             <p>-rozne pozycje moona, zawsze widoczny
                 <br>-gradient maskujacy
