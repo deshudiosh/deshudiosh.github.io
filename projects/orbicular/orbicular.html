@@ -7,19 +7,20 @@ root: ./projects/orbicular/
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;1,200&family=Josefin+Slab:ital,wght@1,200&family=Libre+Franklin&family=Merriweather+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;1,200&family=Libre+Franklin:ital,wght@0,400;1,100;1,200&family=Merriweather+Sans:wght@300;400&display=swap" rel="stylesheet">
 
     <link rel="apple-touch-icon" sizes="180x180" href="{{page.root}}/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="{{page.root}}/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="{{page.root}}/favicon/favicon-16x16.png">
     <link rel="manifest" href="{{page.root}}/favicon/site.webmanifest">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <link type="text/css" rel="stylesheet" href="../../assets/header.css"/>
     <link type="text/css" rel="stylesheet" href="{{page.root}}/orbicular.css"/>
 </head>
 <body>
-    <!-- <iframe class="header" src="../site_elements/header.html"></iframe> -->
     <div id="header">
         <div id="head_bar">
             <div id="head_content">
@@ -34,47 +35,66 @@ root: ./projects/orbicular/
         </div>
     </div>
 
-
     <div class="container">
         <img class="loader" src="{{page.root}}/assets/loader.gif">
 
         <h1 class="title">ORBICULAR</h1>
 
-        <p>
-        Generative constelations of planets, a combination of digital and non-digital art.<br>
-        Created in collaboration with abstract painter Tom Blameworth.<br>
-        I took care of the code, Tom used paint. We shared the idea.
+        
+        <div class="box m-top-big">
+            <p class="p-bigger m-top-0">Orbicular</p>
+            <p class="p_italic m-top-0">adjective</p>
+            <ol id="dict_definition">
+                <li>circular or nearly circular</li>
+                <li>having the shape of a sphere or ball</li>
+            </ol>
+        </div>
+
+        <p class="m-top-big">
+        Generative constelations of planets, a combination of digital and Śn-digital art.<br>
+        Created in collaboration with abstract painter
+        <a href="https://www.instagram.com/tom.blameworth/">Tom Blameworth <i class="fa fa-instagram"></i></a><br>
         </p>
-
-        <!-- <img src="{{page.root}}/assets/Orb 12018944.jpg"> -->
-
-        <video poster="{{page.root}}/assets/Orb 12018944.jpg" loop="true" autoplay muted>
-            <source src="{{page.root}}/assets/Orbicular.mp4" type="video/mp4" />
-        </video>
+        <p class="m-top">
+        I took care of the code, Tom used paint. We share the idea.
+        </p>
+        
+        <figure>
+            <video poster="{{page.root}}/assets/Orb 12018944.jpg" loop="true" autoplay muted>
+                <source src="{{page.root}}/assets/Orbicular_vid1_h264_1000kbps.mp4" type="video/mp4" />
+            </video>
+            <figcaption>Examples of Orbicular variants</figcaption>
+        </figure>
 
         <!-- <h2>Breakdown</h2> -->
 
         <p>
-        Each variation consists of at least one planet.<br>
-        Each planet is textured with one of over 60 photograped painted "orbs".<br>
+        Each variant consists of at least one planet.<br>
+        Every planet is textured with one of over 60 photograped painted "orbs".<br>
         Little moons, and stars are also bitmap-based, rest of the picture is generated with code.
         </p>
 
-        <img src="./projects/orbicular/assets/rozlozenie1.png">
+        <figure>
+            <img src="./projects/orbicular/assets/rozlozenie1.png">
+        </figure>
 
         <h2 class="section">Part 1 - Traditional art</h2>
 
         <h3>Paint orbs:</h3>
         <p>
         Tom developped a technique, where by squeezing paint between two pieces of paper,
-        and then unfolding them in a particular, controlled manner, he's able to achieve those natual, 
+        and unfolding them in a particular, controlled manner, he's able to achieve those natual, 
         flowing patterns.
         </p>
         <p>Some of them turned out very round:</p>   
 
-        <img src="{{page.root}}/assets/2_flowing_patterns.jpg">
+        <figure>
+            <img src="{{page.root}}/assets/2_flowing_patterns.jpg">
+        </figure>
 
-        <p>Those that didn't but we thought are interesing, were cropped to a perfect circle, to be further modified programmaticaly (see Masking section below)</p>
+        <p>Those that didn't, but we thought are interesing, were cropped to a perfect circle,
+            to be further modified programmaticaly (more details later).</p>
+        <p>Some slight color corrections also happened at this stage:</p>
 
         <div class="figureContainer">
             <figure>
@@ -87,7 +107,7 @@ root: ./projects/orbicular/
             </figure>
         </div>
 
-        <p>
+        <p class="m-top-big">
         The whole collection:
         </p>
         <figure>
@@ -96,7 +116,13 @@ root: ./projects/orbicular/
         </figure>
 
         <h2 class="section">Part 2 - Digital art</h2>
-        <p>This is my part. Generative. ---------------------------------------------------------------- No trzeba tu wiecej napisać.        </p>
+        <p class="m-top-mid">Generative - what does it mean?</p>
+        <p>At the root of algorythm constructing each picture, there is a single number called <span class="italic">seed</span>.
+        That seed is used in all randomization functions throuout the project.</p>
+        <p>Everything - which images to use by each planet; light direction; number of orbs and their position and size;
+        presense or lack of cities; moons; planetry rings - is derived from that seed. 
+        Every seed yields different Orbicular variant, and one particular seed always yields the same output.
+        </p>
 
         <h3>Light</h3>
         <p>One of the main randomized properties is light direction.
@@ -244,24 +270,20 @@ root: ./projects/orbicular/
             </figure>
         </div>
         
-        <hr class="shortHr">
-
-        <h3>Grain</h3>
-        <p>On top of everything I added clearly visible grain. It helps to merge all elements together.</p>
         
         <hr class="shortHr">
-
+        
         <h3>Orb spawning</h3>
         <p>Very technical solution, to visually very influential aspect is planet positioning. There are no predetermined compositions in Orbicular.
-        Planets are spawned in a sequence, ensuring there aren't any unwanted collisions, and also fitting the margin.
+            Planets are spawned in a sequence, ensuring there aren't any unwanted collisions, and also fitting the margin.
         </p>
         <p>Collision detection system is based on circles. Rules are:
-        <ul>
-            <li>Red circles can't collide with anything (except for circles of the same planet).</li>
-            <li>Green and orange circles behave the same as red, but are allowed to go past blue margin.</li>
-        </ul>
+            <ul>
+                <li>Red circles can't collide with anything (except for circles of the same planet).</li>
+                <li>Green and orange circles behave the same as red, but are allowed to go past blue margin.</li>
+            </ul>
         </p>
-
+        
         <div class="figureContainer">
             <figure>
                 <img src="{{page.root}}/assets/collisions_1.jpg">
@@ -270,73 +292,80 @@ root: ./projects/orbicular/
                 <img src="{{page.root}}/assets/collisions_2.jpg">
             </figure>
         </div>
-
-        <p>Falling star (orange) collision detection serves two purposes. 
-        First, it makes it occupy free space in the composition. 
-        Second, it prevents "streaks" from ever starting behind any other objects.
-        Small middle-circle allows for close contact though.</p>
-
-        <div class="figureContainer">
-            <figure>
-                <img src="{{page.root}}/assets/collisions_3.jpg">
-            </figure>
-            <figure>
-                <img src="{{page.root}}/assets/collisions_4.jpg">
-            </figure>
-        </div>
-
-        <!-- <h3>Moon</h3>
-        <p>-rozne pozycje moona, zawsze widoczny
-        <br>-gradient maskujacy
-        </p> -->
-
-        <hr class="shortHr">
-
-        <h3>Mask creation and extraction</h3>
-        <p> tutaj powinno być pokazane że kodem docinam krztałt planety
-        <br> pokaż też maskę planety z miastem
-        </p>
-
-        <p>And then futher modifed programmaticaly to have uneven edge:</p>
-        <div class="figureContainer">
-            <figure>
-                <img src="{{page.root}}/assets/wycinanie_kodem_1.jpg">
-                <figcaption>Before</figcaption>
-            </figure>
-            <figure>
-                <img src="{{page.root}}/assets/wycinanie_kodem_2.jpg">
-                <figcaption>After</figcaption>
-            </figure>
-        </div>
-
-
-
-
-
-
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-
-        <p>
-        notatki:
-        <br> -dodaj film/gifa z przykłądami na górze
-        <br> -lightbox do powiekszania obrazków?
-        <br> -gdy są 2 obrazki obok siebie, to powinny być osobne, w osobnych divach?
-        <br> -dopisz jaka była w tym twoja rola
-        <br> -najpierw generative, potem traditional?
-        </p>
         
-
-    </div>
-    
-</body>
-</html>
+        <p>Falling star (orange) collision detection serves two purposes. 
+            First, it makes it occupy free space in the composition. 
+            Second, it prevents "streaks" from ever starting behind any other objects.
+            Small middle-circle allows for close contact though.</p>
+            
+            <div class="figureContainer">
+                <figure>
+                    <img src="{{page.root}}/assets/collisions_3.jpg">
+                </figure>
+                <figure>
+                    <img src="{{page.root}}/assets/collisions_4.jpg">
+                </figure>
+            </div>
+            
+            <!-- <h3>Moon</h3>
+                <p>-rozne pozycje moona, zawsze widoczny
+                    <br>-gradient maskujacy
+                </p> -->
+                
+                <hr class="shortHr">
+                
+                <h3>Mask creation and extraction</h3>
+                <p>Many masks are drawn off screen for each planet</p>
+                <p>tutaj obrazki z podpisami: planeta, jasna czesc planety, planeta z miastem.</p>
+                <p> tutaj powinno być pokazane że kodem docinam krztałt planety
+                    <!-- <br> pokaż też maskę planety z miastem  -->
+                    <br> moze pokazać osobno czesc oświetlona, i zacienioną.
+                </p>
+                
+                <p>And then futher modifed programmaticaly to have uneven edge:</p>
+                <div class="figureContainer">
+                    <figure>
+                        <img src="{{page.root}}/assets/wycinanie_kodem_1.jpg">
+                        <figcaption>Before</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="{{page.root}}/assets/wycinanie_kodem_2.jpg">
+                        <figcaption>After</figcaption>
+                    </figure>
+                </div>
+                
+                <hr class="shortHr">
+        
+                <h3>Grain</h3>
+                <p>On top of everything I added clearly visible grain. It helps to merge all elements together.</p>
+                
+                
+                
+                
+                
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                
+                <p>
+                    notatki:
+                    <br> -dodaj film/gifa z przykłądami na górze
+                    <br> -lightbox do powiekszania obrazków?
+                    <br> -gdy są 2 obrazki obok siebie, to powinny być osobne, w osobnych divach?
+                    <br> -dopisz jaka była w tym twoja rola
+                    <br> -najpierw generative, potem traditional?
+                </p>
+                
+                
+            </div>
+            
+        </body>
+        </html>
 
