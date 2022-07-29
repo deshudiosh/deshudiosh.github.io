@@ -16,11 +16,15 @@ root: ./projects/orbicular/
         <link rel="manifest" href="{{page.root}}/favicon/site.webmanifest">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css">
         
         <link type="text/css" rel="stylesheet" href="../../assets/header.css"/>
         <link type="text/css" rel="stylesheet" href="{{page.root}}/orbicular.css"/>
     </head>
     <body>
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
         <div id="header">
             <div id="head_bar">
                 <div id="head_content">
@@ -71,7 +75,7 @@ root: ./projects/orbicular/
             <p>Some of them turned out very round:</p>   
 
             <figure>
-                <img src="{{page.root}}/assets/2_flowing_patterns.jpg">
+                <img src="{{page.root}}/assets/2_flowing_patterns.jpg" data-fancybox="paint-orbs">
             </figure>
 
             <p>Those that didn't, but we thought are interesing, were cropped to a perfect circle,
@@ -80,11 +84,11 @@ root: ./projects/orbicular/
 
             <div class="figureContainer">
                 <figure>
-                    <img src="{{page.root}}/assets/orb_circulation_1.jpg">
+                    <img src="{{page.root}}/assets/orb_circulation_1.jpg" data-fancybox="paint-orbs">
                     <figcaption>Before</figcaption>
                 </figure>
                 <figure>
-                    <img src="{{page.root}}/assets/orb_circulation_2.jpg">
+                    <img src="{{page.root}}/assets/orb_circulation_2.jpg" data-fancybox="paint-orbs">
                     <figcaption>After</figcaption>
                 </figure>
             </div>
@@ -93,7 +97,7 @@ root: ./projects/orbicular/
 
             <p class="m-top-big">The whole collection:</p>
             <figure>
-                <img src="{{page.root}}/assets/2_all_of_them.jpg">
+                <img src="{{page.root}}/assets/2_all_of_them.jpg" data-fancybox="paint-orbs">
                 <figcaption>12 naturally formed orbs, and 52 cropped ones.</figcaption>
             </figure>
 
@@ -294,13 +298,12 @@ root: ./projects/orbicular/
                     
             <hr>
                     
-            <h3>Mask creation and extraction</h3>
-            <p>Many masks are drawn off screen for each planet</p>
-            <p>tutaj obrazki z podpisami: planeta, jasna czesc planety, planeta z miastem.</p>
-            <p> tutaj powinno być pokazane że kodem docinam krztałt planety
-                <!-- <br> pokaż też maskę planety z miastem  -->
-                <br> moze pokazać osobno czesc oświetlona, i zacienioną.
-            </p>
+            <h3>Masking</h3>
+            <p>One of the more challenging aspects of the project was to reconcile image-based elements with those drawn in code.
+            For example, part of the planetary rim is always hiding behind the planet.</p>
+            <p>Of course, the most obvious mask is the one cutting out the silhouette of the planet.
+            Although even here the matter gets complicated because some textures have their "natural" alpha channel.</p>
+            <p>However, to shed light on the planet another one was needed:</p>
             
             <p>And then futher modifed programmaticaly to have uneven edge:</p>
             <div class="figureContainer">
@@ -313,7 +316,9 @@ root: ./projects/orbicular/
                     <figcaption>After</figcaption>
                 </figure>
             </div>
-                    
+            
+            <p>There are more: for example mask of combined planet and city, needed to cast shadow.</p>
+            
             <hr>
 
             <h3>Grain</h3>
@@ -328,6 +333,7 @@ root: ./projects/orbicular/
             <br> -gdy są 2 obrazki obok siebie, to powinny być osobne, w osobnych divach?
             <br> -dopisz jaka była w tym twoja rola
             <br> -najpierw generative, potem traditional?
+            <br> -grain pokaz zooma z i bez
             </p>
                     
         </div>        
