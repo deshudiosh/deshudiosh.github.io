@@ -24,6 +24,7 @@ root: ./projects/orbicular/
     </head>
     <body>
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+        <script src="{{page.root}}/orbicular.js"></script>
 
         <div id="header">
             <div id="head_bar">
@@ -84,11 +85,15 @@ root: ./projects/orbicular/
 
             <div class="figureContainer">
                 <figure>
-                    <img src="{{page.root}}/assets/orb_circulation_1.jpg" data-fancybox="paint-orbs">
+                    <a href="{{page.root}}/assets/orb_circulation_1.png" data-fancybox="paint-orbs" data-caption="Before">
+                        <img src="{{page.root}}/assets/orb_circulation_1.jpg">
+                    </a>
                     <figcaption>Before</figcaption>
                 </figure>
                 <figure>
-                    <img src="{{page.root}}/assets/orb_circulation_2.jpg" data-fancybox="paint-orbs">
+                    <a href="{{page.root}}/assets/orb_circulation_2.png" data-fancybox="paint-orbs" data-caption="After">
+                        <img src="{{page.root}}/assets/orb_circulation_2.jpg">
+                    </a>
                     <figcaption>After</figcaption>
                 </figure>
             </div>
