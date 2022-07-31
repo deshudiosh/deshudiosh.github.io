@@ -1,4 +1,5 @@
 html {
+    font-family: 'Libre Franklin', sans-serif;
     font-size: 19px;
 }
 
@@ -11,6 +12,7 @@ a, a:hover, a:focus, a:active {
     text-decoration: none;
     color: inherit;    
     transition: 0.3s;
+    cursor: pointer;
 }
 
 a:hover {
@@ -46,6 +48,11 @@ body {
 
 .m-top-big {
     margin-top: 2.5rem;
+}
+
+#thankyou {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
 }
 
 .container {
@@ -95,6 +102,10 @@ h2, h3 {
 
 h3 {
     text-align: left;
+}
+
+#thankyou{
+
 }
 
 /* h4 {
@@ -147,6 +158,10 @@ figcaption {
     justify-content: center;
     align-items: center;
     gap:1rem;
+}
+
+figure > img, a {
+    cursor: zoom-in;
 }
 
 img {

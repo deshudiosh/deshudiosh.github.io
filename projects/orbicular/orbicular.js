@@ -9,11 +9,13 @@ Fancybox.bind('[data-fancybox]', {
   
     Thumbs: false,
     Toolbar: false,
+
+    infinite: false,
   
     Image: {
       zoom: false,
       // click: false,
-      wheel: false,
+      // wheel: false,
       // fit: "contain-w",
     }
 });

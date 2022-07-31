@@ -34,7 +34,7 @@ root: ./projects/orbicular/
                         <p id="head_backto">pawelgrzelak.com</p>
                     </div>
                     <div class="head_div" id="head_right_flex" onclick="location.href='https://pawelgrzelak.com/contact';">
-                        <p id="head_contact">contact & about</p>
+                        <p id="head_contact">pawelgrzelak.3d@gmail.com</p>
                     </div>
                 </div>
             </div>
@@ -47,10 +47,6 @@ root: ./projects/orbicular/
             <div class="box m-top-big">
                 <p class="p-bigger m-top-0">orbicular <span class="italic">(adj.)</span></p>
                 <p class="p_italic m-top-0"> round, circular, spherical, having the shape of an orb</p>
-                <!-- <ol id="dict_definition">
-                    <li>circular or nearly circular</li>
-                    <li>having the shape of a sphere or ball</li>
-                </ol> -->
             </div>
 
             <p class="m-top-big">Generative constellation of planets, a combination of digital and non-digital art.<br>
@@ -60,7 +56,7 @@ root: ./projects/orbicular/
             
             <figure>
                 <video poster="{{page.root}}/assets/Orb 12018944.jpg" loop="true" autoplay muted>
-                    <source src="{{page.root}}/assets/Orbicular_vid1_h264_1000kbps.mp4" type="video/mp4" />
+                    <source src="{{page.root}}/assets/Orbicular_vid1_h264_1000kbps.mp4" type="video/mp4"/>
                 </video>
                 <figcaption>Examples of Orbicular variants</figcaption>
             </figure>
@@ -75,9 +71,12 @@ root: ./projects/orbicular/
             <p>Tom has developed a technique, where using paint and paper, he is able to create colorful orbs with natural, floral patterns.</p>
             <p>Some of them turned out very round:</p>   
 
-            <figure>
-                <img src="{{page.root}}/assets/2_flowing_patterns.jpg" data-fancybox="paint-orbs">
-            </figure>
+            <div class="figureContainer">
+                <figure>
+                    <img src="{{page.root}}/assets/2_flowing_patterns.jpg" data-fancybox="paint-orbs">
+                    <figcaption>Paint orb on paper</figcaption>
+                </figure>
+            </div>
 
             <p>Those that didn't, but we thought are interesing, were cropped to a perfect circle,
             to be further modified programmaticaly (more details later).</p>
@@ -102,7 +101,9 @@ root: ./projects/orbicular/
 
             <p class="m-top-big">The whole collection:</p>
             <figure>
-                <img src="{{page.root}}/assets/2_all_of_them.jpg" data-fancybox="paint-orbs">
+                <a href="{{page.root}}/assets/2_all_of_them.png" data-fancybox="paint-orbs" data-caption="12 naturally formed orbs, and 52 cropped ones.">
+                    <img src="{{page.root}}/assets/2_all_of_them.jpg">
+                </a>
                 <figcaption>12 naturally formed orbs, and 52 cropped ones.</figcaption>
             </figure>
 
@@ -129,23 +130,23 @@ root: ./projects/orbicular/
 
             <div class="figureContainer">
                 <figure>
-                    <img src="{{page.root}}/assets/lightdir_1.jpg">
+                    <img src="{{page.root}}/assets/lightdir_1.jpg" data-fancybox="light">
                 </figure>
                 <figure>
-                    <img src="{{page.root}}/assets/lightdir_2.jpg">
+                    <img src="{{page.root}}/assets/lightdir_2.jpg" data-fancybox="light">
                 </figure>
                 <figure>
-                    <img src="{{page.root}}/assets/lightdir_3.jpg">
+                    <img src="{{page.root}}/assets/lightdir_3.jpg" data-fancybox="light">
                 </figure>
             </div>
 
             <div class="figureContainer">
                 <figure>
-                    <img src="{{page.root}}/assets/1_light_front.jpg">
+                    <img src="{{page.root}}/assets/1_light_front.jpg" data-fancybox="light" data-caption="Frontal light">
                     <figcaption>Frontal light</figcaption>
                 </figure>
                 <figure>
-                    <img src="{{page.root}}/assets/1_light_back.jpg">
+                    <img src="{{page.root}}/assets/1_light_back.jpg" data-fancybox="light" data-caption="Back light">
                     <figcaption>Back light</figcaption>
                 </figure>
             </div>
@@ -155,19 +156,29 @@ root: ./projects/orbicular/
             <h3>Elements</h3>
             <p>Every planet has a chance to spawn each of those fully generative elements:<br></p>
 
-            <img src="{{page.root}}/assets/3_orb.jpg">
+            <figure>
+                <a href="{{page.root}}/assets/3_orb.png" data-fancybox="elements">
+                    <img src="{{page.root}}/assets/3_orb.jpg">
+                </a>
+            </figure>
 
             <div class="figureContainer">
                 <figure>
-                    <img src="{{page.root}}/assets/3_city.jpg">
+                    <a href="{{page.root}}/assets/3_city.png" data-fancybox="elements">
+                        <img src="{{page.root}}/assets/3_city.jpg">
+                    </a>
                     <figcaption>City</figcaption>
                 </figure>
                 <figure>
-                    <img src="{{page.root}}/assets/3_ring.jpg">
+                    <a href="{{page.root}}/assets/3_ring.png" data-fancybox="elements">
+                        <img src="{{page.root}}/assets/3_ring.jpg">
+                    </a>
                     <figcaption>Planetary ring</figcaption>
                 </figure>
                 <figure>
-                    <img src="{{page.root}}/assets/3_moon.jpg">
+                    <a href="{{page.root}}/assets/3_moon.png" data-fancybox="elements">
+                        <img src="{{page.root}}/assets/3_moon.jpg">
+                    </a>
                     <figcaption>Moon</figcaption>
                 </figure>
             </div>
@@ -179,28 +190,53 @@ root: ./projects/orbicular/
             to more complex like rotation, presence of windows, dots that make it blend near the ground level.
             City colors match the planet, and also the lightning.</p>
 
-            <figure>
+            <!-- <figure>
                 <img src="{{page.root}}/assets/city_examples.jpg">
                 <figcaption>Cities vary in sizes, and building count.</figcaption>
-            </figure>
+            </figure> -->
 
             <div class="figureContainer">
                 <figure>
-                    <img src="{{page.root}}/assets/city_lightdir_1.jpg">
+                    <a href="{{page.root}}/assets/city_1.png" data-fancybox="city">
+                        <img src="{{page.root}}/assets/city_1.jpg">
+                    </a>
+                </figure>
+                <figure>
+                    <a href="{{page.root}}/assets/city_2.png" data-fancybox="city">
+                        <img src="{{page.root}}/assets/city_2.jpg">
+                    </a>
+                </figure>
+                <figure>
+                    <a href="{{page.root}}/assets/city_3.png" data-fancybox="city">
+                        <img src="{{page.root}}/assets/city_3.jpg">
+                    </a>
+                </figure>
+                <figure>
+                    <a href="{{page.root}}/assets/city_4.png" data-fancybox="city">
+                        <img src="{{page.root}}/assets/city_4.jpg">
+                    </a>
+                </figure>
+            </div>
+
+            <div class="figureContainer">
+                <figure>
+                    <img src="{{page.root}}/assets/city_lightdir_1.jpg" data-fancybox="city">
                     <figcaption>Day - left light</figcaption>
                 </figure>
                 <figure>
-                    <img src="{{page.root}}/assets/city_lightdir_2.jpg">
+                    <img src="{{page.root}}/assets/city_lightdir_2.jpg" data-fancybox="city">
                     <figcaption>Day - right light</figcaption>
                 </figure>
                 <figure>
-                    <img src="{{page.root}}/assets/city_lightdir_3.jpg">
+                    <img src="{{page.root}}/assets/city_lightdir_3.jpg" data-fancybox="city">
                     <figcaption>Night</figcaption>
                 </figure>
             </div>
 
             <figure>
-                <img src="{{page.root}}/assets/building_rotation.jpg" style="height:10em">
+                <a href="{{page.root}}/assets/building_rotation.png" data-fancybox="city">
+                    <img src="{{page.root}}/assets/building_rotation.jpg" style="width:50%">
+                </a>
                 <figcaption>Building rotation</figcaption>
             </figure>
 
@@ -213,13 +249,13 @@ root: ./projects/orbicular/
 
             <div class="figureContainer">
                 <figure>
-                    <img src="{{page.root}}/assets/ring_1.jpg">
+                    <img src="{{page.root}}/assets/ring_1.jpg" data-fancybox="ring">
                 </figure>
                 <figure>
-                    <img src="{{page.root}}/assets/ring_2.jpg">
+                    <img src="{{page.root}}/assets/ring_2.jpg" data-fancybox="ring">
                 </figure>
                 <figure>
-                    <img src="{{page.root}}/assets/ring_3.jpg">
+                    <img src="{{page.root}}/assets/ring_3.jpg" data-fancybox="ring">
                 </figure>
             </div>
             <figcaption>Planetary ring edge cases</figcaption>
@@ -234,13 +270,13 @@ root: ./projects/orbicular/
 
             <div class="figureContainer">
                 <figure>
-                    <img src="{{page.root}}/assets/colorsampler_1.jpg">
+                    <img src="{{page.root}}/assets/colorsampler_1.jpg" data-fancybox="color">
                 </figure>
                 <figure>
-                    <img src="{{page.root}}/assets/colorsampler_2.jpg">
+                    <img src="{{page.root}}/assets/colorsampler_2.jpg" data-fancybox="color">
                 </figure>
                 <figure>
-                    <img src="{{page.root}}/assets/colorsampler_3.jpg">
+                    <img src="{{page.root}}/assets/colorsampler_3.jpg" data-fancybox="color">
                 </figure>
             </div>
             <figcaption>Color swatches preview (click to enlarge)</figcaption>
@@ -255,10 +291,10 @@ root: ./projects/orbicular/
                 
             <div class="figureContainer">
                 <figure>
-                    <img src="{{page.root}}/assets/background_1.jpg">
+                    <img src="{{page.root}}/assets/background_1.jpg" data-fancybox="bg">
                 </figure>
                 <figure>
-                    <img src="{{page.root}}/assets/background_2.jpg">
+                    <img src="{{page.root}}/assets/background_2.jpg" data-fancybox="bg">
                 </figure>
             </div>
             
@@ -276,19 +312,19 @@ root: ./projects/orbicular/
             
             <div class="figureContainer">
                 <figure>
-                    <img src="{{page.root}}/assets/collisions_1.jpg">
+                    <img src="{{page.root}}/assets/collisions_1.jpg" data-fancybox="compo">
                 </figure>
                 <figure>
-                    <img src="{{page.root}}/assets/collisions_2.jpg">
+                    <img src="{{page.root}}/assets/collisions_2.jpg" data-fancybox="compo">
                 </figure>
             </div>
             
             <div class="figureContainer">
                 <figure>
-                    <img src="{{page.root}}/assets/collisions_3.jpg">
+                    <img src="{{page.root}}/assets/collisions_3.jpg" data-fancybox="compo">
                 </figure>
                 <figure>
-                    <img src="{{page.root}}/assets/collisions_4.jpg">
+                    <img src="{{page.root}}/assets/collisions_4.jpg" data-fancybox="compo">
                 </figure>
             </div>
             
@@ -306,40 +342,45 @@ root: ./projects/orbicular/
             <h3>Masking</h3>
             <p>One of the more challenging aspects of the project was to reconcile image-based elements with those drawn in code.
             For example, part of the planetary rim is always hiding behind the planet.</p>
-            <p>Of course, the most obvious mask is the one cutting out the silhouette of the planet.
-            Although even here the matter gets complicated because some textures have their "natural" alpha channel.</p>
-            <p>However, to shed light on the planet another one was needed:</p>
-            
-            <p>And then futher modifed programmaticaly to have uneven edge:</p>
+            <!-- <a href="{{page.root}}/assets/orb_circulation_1.png" data-fancybox="paint-orbs" data-caption="Before">
+                <img src="{{page.root}}/assets/orb_circulation_1.jpg">
+            </a>
+            <figcaption>Before</figcaption> -->
+
             <div class="figureContainer">
                 <figure>
-                    <img src="{{page.root}}/assets/wycinanie_kodem_1.jpg">
-                    <figcaption>Before</figcaption>
+                    <img src="{{page.root}}/assets/mask_ring_1.jpg" data-fancybox="masking" data-caption="With mask">
+                    <figcaption>With mask</figcaption>
                 </figure>
                 <figure>
-                    <img src="{{page.root}}/assets/wycinanie_kodem_2.jpg">
-                    <figcaption>After</figcaption>
+                    <img src="{{page.root}}/assets/mask_ring_2.jpg" data-fancybox="masking" data-caption="Without mask">
+                    <figcaption>Without mask</figcaption>
                 </figure>
             </div>
+
+            <!-- <p>Of course, the most obvious mask is the one cutting out the silhouette of the planet, which is also always unique.
+            Although even here the matter gets complicated because some textures have their "natural" alpha channel.</p>
+            <p>To shed light on the planet another one was needed:</p> -->
             
-            <p>There are more: for example mask of combined planet and city, needed to cast shadow.</p>
+            <!-- <p>There are more: for example mask of combined planet and city, needed to cast shadow.</p> -->
             
             <hr>
 
             <h3>Grain</h3>
-            <p>On top of everything I added clearly visible grain. It helps to merge all elements together.</p>
+            <p>On top of everything I added clearly visible grain. It helps to merge all elements together, and move away from the synthetic look.</p>
 
-            <p><br><br><br><br><br><br><br</p>
-                    
-            <p>
-            notatki:
-            <br> -dodaj film/gifa z przykłądami na górze
-            <br> -lightbox do powiekszania obrazków?
-            <br> -gdy są 2 obrazki obok siebie, to powinny być osobne, w osobnych divach?
-            <br> -dopisz jaka była w tym twoja rola
-            <br> -najpierw generative, potem traditional?
-            <br> -grain pokaz zooma z i bez
-            </p>
+            <div class="figureContainer">
+                <figure>
+                    <img src="{{page.root}}/assets/grain_1.jpg" data-fancybox="grain" data-caption="With grain">
+                    <figcaption>With grain</figcaption>
+                </figure>
+                <figure>
+                    <img src="{{page.root}}/assets/grain_2.jpg" data-fancybox="grain" data-caption="Without grain">
+                    <figcaption>Without grain</figcaption>
+                </figure>
+            </div>
+
+            <h2 id="thankyou">Thank you</h3>
                     
         </div>        
     </body>
