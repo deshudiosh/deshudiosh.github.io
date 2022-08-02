@@ -10,6 +10,7 @@ html {
 
 a, a:hover, a:focus, a:active {
     text-decoration: none;
+    border-bottom: 1px solid;
     color: inherit;    
     transition: 0.3s;
     cursor: pointer;
@@ -18,6 +19,11 @@ a, a:hover, a:focus, a:active {
 a:hover {
     color:red;
     font-weight: bold;
+}
+
+.red{
+    color: red;
+    border-color: red;
 }
 
 body {
