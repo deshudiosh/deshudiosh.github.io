@@ -1,3 +1,6 @@
+---
+thumbs: ./assets/thumbs/
+---
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +17,7 @@
     <!-- GOOGLE FONTS-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Josefin+Sans:ital,wght@0,100;1,200&display=swap" rel="stylesheet">
 
     <!-- FAVICONS -->
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
@@ -32,21 +35,34 @@
 
     <title>Pawel Grzelak</title>
 </head>
-<body>
-    <div class="container">
-        <img class="logo" src="./assets/logo.png">
-        <br><br><br><br>
-        <p>Nothing here <span style="font-weight: 700">yet.</span></p>
-        <p>Please visit my Behance portfolio:</p>
+    <body>
+        <div class="container">
+            <div id="infos">
+                <img id="logo" src="./assets/logo.png">
+                <p><span style="font-weight: 700">Website under construction.</span></p>
+                <p>Please visit my Behance portfolio:</p>
 
-        <a href="https://www.behance.net/pawelgrzelak">
-            <img src="./assets/behance.svg" class="behance"/>
-        </a>
+                <a href="https://www.behance.net/pawelgrzelak">
+                    <img src="./assets/behance.svg" id="behance"/>
+                </a>
 
-        <p>contact:<br>
-        pawelgrzelak.3d@gmail.com
-        </p>
-    </div>
-</body>
+                <p>contact:<br>
+                pawelgrzelak.3d@gmail.com
+                </p>
+            </div>
+
+            <p id="p-projects">Projects</p>
+            <div id="projects">
+                <div class="thumb" onclick="location.href='https://pawelgrzelak.com/orbicular';" style="cursor: pointer;">
+                    <video poster="{{page.thumbs}}/Orbicular_thumb_750.jpg" loop="true" autoplay muted>
+                        <source src="{{page.thumbs}}/Orbicular_thumb_750.mp4" type="video/mp4"/>
+                    </video>
+                    <div class="project-name">
+                        <p id="orbicular">ORBICULAR</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
 
