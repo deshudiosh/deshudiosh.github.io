@@ -1,6 +1,12 @@
 html{
-    font-size: 18px;
+    font-size: 19px;
 }
+
+/* @media only screen and (min-width: 1200px) {
+    html {
+      font-size: 19px;
+    }
+} */
 
 body{
     background-color: #B5AA93;
@@ -9,6 +15,10 @@ body{
 *{
     padding: 0px;
     margin: 0px;
+}
+
+#container {
+
 }
 
 #infos {
@@ -21,7 +31,7 @@ body{
 }
 
 p{
-    padding: 4.5px;
+    padding: .5rem;
     width: fit-content;
     color: #536E63;
     font-family: 'Montserrat', sans-serif;
