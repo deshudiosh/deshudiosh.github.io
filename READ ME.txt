@@ -1,0 +1,5 @@
+run:
+exec jekyll serve --livereload --host 0.0.0.0
+
+goto:
+http://127.0.0.1:4000/
