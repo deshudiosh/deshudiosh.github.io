@@ -161,7 +161,7 @@ figcaption {
     gap:1rem;
 }
 
-figure > img, a {
+figure > img, a, video {
     cursor: zoom-in;
 }
 
