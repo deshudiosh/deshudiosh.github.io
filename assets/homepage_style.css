@@ -65,8 +65,8 @@ p{
     padding-bottom: 3rem;
     justify-content: center;
     align-items: center;
+    gap:1rem;
 
-    border: red 2px;
     background-color: #536E63;
 }
 

@@ -57,7 +57,7 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1024px;
     margin:0 auto;
 }
 
@@ -161,7 +161,7 @@ figcaption {
     gap:1rem;
 }
 
-figure > img, a, video {
+figure > img, a {
     cursor: zoom-in;
 }
 
