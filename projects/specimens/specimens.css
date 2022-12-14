@@ -1,11 +1,39 @@
-html {
-    font-family: 'Libre Franklin', sans-serif;
-    font-size: 19px;
+.m-top-0 {
+    margin-top: 0rem;
+}
+
+.m-bottom-0 {
+    margin-bottom: 0rem;
+}
+
+.m-top-mid {
+    margin-top: 1.75rem;
+}
+
+.m-top-big {
+    margin-top: 2.5rem;
+}
+
+.col-darkgreen {
+    background-color: #101C19;
+}
+
+.col-green {
+    background-color: #052721;
+}
+
+.col-violet {
+    background-color: #1D0F1C;
 }
 
 * {
     border: 0;
     margin: 0;
+}
+
+html {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 19px;
 }
 
 a, a:hover, a:focus, a:active {
@@ -25,48 +53,65 @@ body {
     background-color: #3a3635;
     color: #feefe0;
     text-align:center;
+    font-family: 'Nunito', sans-serif;
 }
 
-.box{
-    background-color: hsl(12, 5%, 30%);
-    border-radius: .5rem;
-    padding-left: 1rem;
-    padding-top: .5rem;
-    padding-bottom: .5rem;
+.bgbox {
+    padding: 1.75rem 0 1.75rem 0;
+    width: 100%;
+    margin:0 auto;
 }
 
-.m-top-0 {
-    margin-top: 0rem;
+.title-thumb {
+    /* margin:0 auto; */
+    /* flex-basis: 25rem; */
+    display: grid;
 }
 
-.m-bottom-0 {
-    margin-bottom: 0rem;
+.title-thumb > video, div {
+    width: 100%;
+    height: 100%;
+    grid-row: 1;
+    grid-column: 1;
+    /* background-color: aqua; */
 }
 
-.m-top-mid {
-    margin-top: 1.75rem;
+.title-name {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .5);
 }
 
-.m-top-big {
-    margin-top: 2.5rem;
+.title-name > p {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 0 5px .3rem black, 0 0 .5rem black, 0 0 .5rem black;
+    letter-spacing: .1rem;
+    font-weight: 200;
 }
 
-#thankyou {
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-}
-
-.container {
+.textbox, .mediabox{
     max-width: 1024px;
     margin:0 auto;
+    /* padding: 0 2rem 0 2rem; */
+}
+
+.mediabox {
+    max-width: 1280px;
+}
+
+.quotebox{
+    padding: .75rem 0 .75rem 0;
 }
 
 p, ul, ol {
     text-align:left;
-    font-family: 'Libre Franklin', sans-serif;
     font-size: 1rem;
     line-height: 1.5rem;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
+    padding: 0 1rem 0 1rem;
 }
 
 .p_italic {
@@ -74,70 +119,19 @@ p, ul, ol {
     font-style: italic;
 }
 
-.p-bigger {
-    font-size: 1.25rem;
-    /* font-weight: bold; */
-    padding-top: .2rem;
-    padding-bottom: .2rem;
-}
-
-#dict_definition{
-    font-family: 'Libre Franklin', sans-serif;
-    font-weight: 200;
-    font-style: italic;
-}
-
-.title{
-    font-size: 3rem;
-    letter-spacing: .5rem;
-    font-weight: 100;
-    text-shadow: 3px 3px 6px black;
-    margin-top: 1.15rem;
-    font-family: 'Josefin Sans', sans-serif;
-}
-
-h2, h3 {
-    font-family: 'Merriweather Sans', sans-serif;
-    margin-top: 2.5rem;
-}
-
-h3 {
-    text-align: left;
-}
-
-#thankyou{
-
-}
-
-/* h4 {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    font-weight: 100;
-    font-family: 'Merriweather Sans', sans-serif;
+/* h1, h2, h3 {
+    
 } */
 
-.section {
-    font-size: 2rem;
-    font-weight: 100;
-    background-color: #feefe0;
-    color: #3a3635;
-    padding-top: .25rem;
-    padding-bottom: .25rem;
-    /* margin-bottom: 1rem; */
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 .italic {
     /* font-weight: 500; */
     font-style: italic;
 }
-
-ul, ol {
-    margin: 0;
-    padding-left: 2rem;
-}
-
-/* FIGURE START */
 
 figure{
     margin-top: 1rem;
@@ -174,28 +168,6 @@ img {
     width: 100%;
     height: 100%; 
     object-fit: contain;
-}
-
-/* FIGURE END */
-
-.loader {
-    width: 6rem;
-    margin-top: 3rem;
-}
-
-hr {
-    /* background-color: #feefe0; */
-    /* background-color: ; */
-    /* border-top: 1px dashed ; */
-    /* width: 30%; */
-    height: 1px;
-    background-image: linear-gradient(to right, hsl(30, 20%, 60%) 33%, rgba(0, 0, 0, 0) 0%);
-    background-position: bottom;
-    background-size: 15px 2px;
-    background-repeat: repeat-x;
-    margin: auto;
-    margin-top: 2.5rem;
-    margin-bottom: 2rem;
 }
 
 video {
