@@ -1,7 +1,7 @@
 ---
 permalink: /specimens
-root: ./projects/specimens/
-assets: ./projects/specimens/assets/
+root: ./projects/specimens
+assets: ./projects/specimens/assets
 ---
 <!DOCTYPE html>
 <html>
@@ -37,6 +37,7 @@ assets: ./projects/specimens/assets/
         <title>Specimens by Paweł Grzelak</title>
     </head>
     <body>
+
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
         <script src="{{page.root}}/specimens.js"></script>
 
@@ -86,8 +87,8 @@ assets: ./projects/specimens/assets/
                 <h2>Specimen A:</h2>
 
                 <figure>
-                    <video autoplay muted controls loop poster="{{page.root}}/assets/spec_A_poster.jpg">
-                        <source src="{{page.root}}/assets/spec_A.mp4" type="video/mp4"/>
+                    <video id="videoA" autoplay muted controls loop data-file="{{page.assets}}/spec_A">
+                        <!-- <source src="{{page.root}}/assets/spec_A.mp4" type="video/mp4"/> -->
                     </video>
                 </figure>
 
@@ -104,7 +105,7 @@ assets: ./projects/specimens/assets/
                 </div>
             </div>
         </div>
-        <div class="bgbox col-violet">
+        <!-- <div class="bgbox col-violet">
             <div class="mediabox">
                 <h2>Specimen E:</h2>
 
@@ -123,9 +124,35 @@ assets: ./projects/specimens/assets/
                     </figure>
                 </div>
             </div>
-        </div>
+        </div> -->
+
+        <script>
+            function addVideoSource(video, src, type) {
+                var source = document.createElement('source');
+                source.src = src;
+                source.type = "video/" + type;
+                video.appendChild(source);
+            }
+
+            let videoA = document.querySelector('#videoA');
+            // console.log(document.documentElement.clientWidth);
+
+            let onMobile = window.matchMedia('(max-width: 640px)').matches;
+
+            // POSTER
+
+            if (onMobile){
+                addVideoSource(videoA, `${videoA.dataset.file}_vid_square.webm`, 'webm');
+                addVideoSource(videoA, `${videoA.dataset.file}_vid_square.mp4`, 'mp4');
+                videoA.setAttribute('poster', `${videoA.dataset.file}_poster_square.jpg`)
+            }else{
+                addVideoSource(videoA, `${videoA.dataset.file}_vid.webm`, 'webm');
+                addVideoSource(videoA, `${videoA.dataset.file}_vid.mp4`, 'mp4');
+                videoA.setAttribute('poster', `${videoA.dataset.file}_poster.jpg`)
+            }
+        </script>
         
-        <div class="bgbox col-green">
+        <!-- <div class="bgbox col-green">
             <div class="mediabox">
                 <h2>Specimen C:</h2>
 
@@ -172,7 +199,7 @@ assets: ./projects/specimens/assets/
                 </figure>
 
             </div>
-        </div>
+        </div> -->
 
         <!-- <h2 class="section">How:</h2> -->
 
