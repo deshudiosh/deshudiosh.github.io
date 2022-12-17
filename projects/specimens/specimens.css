@@ -57,7 +57,7 @@ body {
 }
 
 .bgbox {
-    padding: 1.75rem 0 1.75rem 0;
+    padding: 2vw 0 2vw 0;
     width: 100%;
     margin:0 auto;
 }
@@ -92,14 +92,19 @@ body {
     font-weight: 200;
 }
 
-.textbox, .mediabox{
-    max-width: 1024px;
+.titlebox{
+    max-width: 1280p;
     margin:0 auto;
-    /* padding: 0 2rem 0 2rem; */
+}
+
+.textbox{
+    max-width: min(86vw, 1024px);
+    margin:0 auto;
 }
 
 .mediabox {
-    max-width: 1280px;
+    max-width: min(94vw, 1280px);
+    margin:0 auto;
 }
 
 .quotebox{
@@ -134,7 +139,7 @@ h2 {
 }
 
 figure{
-    margin-top: 1rem;
+    margin-top: 2vw;
     /* margin-bottom: 2rem; */
 }
 
@@ -152,16 +157,11 @@ figcaption {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap:1rem;
+    gap:2vw;
 }
 
 figure > img, a {
     cursor: zoom-in;
-}
-
-figure > iframe {
-    width: 100%;
-    aspect-ratio: 16/9;
 }
 
 img {
