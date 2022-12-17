@@ -88,7 +88,6 @@ assets: ./projects/specimens/assets
 
                 <figure>
                     <video id="videoA" autoplay muted controls loop data-file="{{page.assets}}/spec_A">
-                        <!-- <source src="{{page.root}}/assets/spec_A.mp4" type="video/mp4"/> -->
                     </video>
                 </figure>
 
@@ -105,13 +104,12 @@ assets: ./projects/specimens/assets
                 </div>
             </div>
         </div>
-        <!-- <div class="bgbox col-violet">
+        <div class="bgbox col-violet">
             <div class="mediabox">
                 <h2>Specimen E:</h2>
 
                 <figure>            
-                    <video poster="{{page.root}}/assets/spec_E_poster.jpg" loop="true" autoplay muted>
-                        <source src="{{page.root}}/assets/spec_E.mp4" type="video/mp4"/>
+                    <video id="videoE" autoplay muted controls loop data-file="{{page.assets}}/spec_E">
                     </video>
                 </figure>
 
@@ -124,7 +122,7 @@ assets: ./projects/specimens/assets
                     </figure>
                 </div>
             </div>
-        </div> -->
+        </div>
 
         <script>
             function addVideoSource(video, src, type) {
@@ -135,6 +133,7 @@ assets: ./projects/specimens/assets
             }
 
             let videoA = document.querySelector('#videoA');
+            let videoE = document.querySelector('#videoE');
             // console.log(document.documentElement.clientWidth);
 
             let onMobile = window.matchMedia('(max-width: 640px)').matches;
@@ -144,11 +143,19 @@ assets: ./projects/specimens/assets
             if (onMobile){
                 addVideoSource(videoA, `${videoA.dataset.file}_vid_square.webm`, 'webm');
                 addVideoSource(videoA, `${videoA.dataset.file}_vid_square.mp4`, 'mp4');
-                videoA.setAttribute('poster', `${videoA.dataset.file}_poster_square.jpg`)
+                videoA.setAttribute('poster', `${videoA.dataset.file}_vid_square_poster.jpg`);
+
+                addVideoSource(videoE, `${videoE.dataset.file}_vid_square.webm`, 'webm');
+                addVideoSource(videoE, `${videoE.dataset.file}_vid_square.mp4`, 'mp4');
+                videoE.setAttribute('poster', `${videoE.dataset.file}_vid_square_poster.jpg`);
             }else{
                 addVideoSource(videoA, `${videoA.dataset.file}_vid.webm`, 'webm');
                 addVideoSource(videoA, `${videoA.dataset.file}_vid.mp4`, 'mp4');
-                videoA.setAttribute('poster', `${videoA.dataset.file}_poster.jpg`)
+                videoA.setAttribute('poster', `${videoA.dataset.file}_vid_poster.jpg`);
+
+                addVideoSource(videoE, `${videoE.dataset.file}_vid.webm`, 'webm');
+                addVideoSource(videoE, `${videoE.dataset.file}_vid.mp4`, 'mp4');
+                videoE.setAttribute('poster', `${videoE.dataset.file}_vid_poster.jpg`);
             }
         </script>
         
