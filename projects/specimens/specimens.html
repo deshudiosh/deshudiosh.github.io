@@ -70,14 +70,14 @@ assets: ./projects/specimens/assets
             </div>
 
             <div class="textbox">
-                <div class="quotebox m-top-big col-green">
+                <div class="quotebox m-top-mid col-green">
                     <p class="p_italic">For the first time in history, a human expedition reached the Mariana Trench ocean floor at a depth of 10,916 metres in 1960. Scientists assumed that no multicellular organisms would be able to live in these harsh environments. But there was life, and it was abundant. Many species are still awaiting to be discovered 60 years later.</p>
                 </div>
 
-                <p class="m-top-big"><b>Specimens</b> is a collection of five procedurally generated and animated imaginary creatures.</p>
+                <p class="m-top-mid"><b>Specimens</b> is a collection of five procedurally generated and animated imaginary creatures.</p>
                 <p>Combination of deep-sea organisms' patterns, behaviours, and structures with the peculiar appearance of microscopic imaging, retsults in the creation of new, digital living forms.</p> 
 
-                <p class="m-top">See project at <a href="https://opensea.io/collection/specimen-by-pawel-grzelak"> OpenSea.io</a></p>
+                <p class="m-bottom-mid">See project at <a href="https://opensea.io/collection/specimen-by-pawel-grzelak"> OpenSea.io</a></p>
             </div>
 
             
@@ -87,19 +87,19 @@ assets: ./projects/specimens/assets
                 <h2>Specimen A:</h2>
 
                 <figure>
-                    <video id="videoA" autoplay muted controls loop data-file="{{page.assets}}/spec_A">
+                    <video id="videoA" autoplay muted controls loop data-file="{{page.assets}}/spec_A/spec_A">
                     </video>
                 </figure>
 
                 <div class="figureContainer">
                     <figure>
-                        <img src="{{page.root}}/assets/spec_A_snap1.jpg" data-fancybox="A">
+                        <img src="{{page.assets}}/spec_A/spec_A_snap1.jpg" data-fancybox="A">
                     </figure>
                     <figure>
-                        <img src="{{page.root}}/assets/spec_A_snap3.jpg" data-fancybox="A">
+                        <img src="{{page.assets}}/spec_A/spec_A_snap3.jpg" data-fancybox="A">
                     </figure>
                     <figure>
-                        <img src="{{page.root}}/assets/spec_A_snap2.jpg" data-fancybox="A">
+                        <img src="{{page.assets}}/spec_A/spec_A_snap2.jpg" data-fancybox="A">
                     </figure>
                 </div>
             </div>
@@ -109,18 +109,64 @@ assets: ./projects/specimens/assets
                 <h2>Specimen E:</h2>
 
                 <figure>            
-                    <video id="videoE" autoplay muted controls loop data-file="{{page.assets}}/spec_E">
+                    <video id="videoE" autoplay muted controls loop data-file="{{page.assets}}/spec_E/spec_E">
                     </video>
                 </figure>
 
                 <div class="figureContainer">
                     <figure>
-                        <img src="{{page.root}}/assets/spec_E_snap1.jpg" data-fancybox="E">
+                        <img src="{{page.assets}}/spec_E/spec_E_snap1.jpg" data-fancybox="E">
                     </figure>
                     <figure>
-                        <img src="{{page.root}}/assets/spec_E_snap2.jpg" data-fancybox="E">
+                        <img src="{{page.assets}}/spec_E/spec_E_snap2.jpg" data-fancybox="E">
                     </figure>
                 </div>
+            </div>
+        </div>
+
+        <div class="bgbox col-green">
+            <div class="mediabox">
+                <h2>Specimen C:</h2>
+
+                <figure>            
+                    <video id="videoC" autoplay muted controls loop data-file="{{page.assets}}/spec_C/spec_C">
+                    </video>
+                </figure>
+
+                <!-- <div class="figureContainer">
+                    <figure>
+                        <img src="{{page.assets}}/spec_C/spec_C_snap1.jpg" data-fancybox="C">
+                    </figure>
+                    <figure>
+                        <img src="{{page.assets}}/spec_C/spec_C_snap2.jpg" data-fancybox="C">
+                    </figure>
+                </div> -->
+            </div>
+        </div>
+
+        <div class="bgbox col-darkgreen">
+            <div class="mediabox">
+
+                <h2>Specimen D:</h2>
+
+                <figure>            
+                    <video id="videoD" autoplay muted controls loop data-file="{{page.assets}}/spec_D/spec_D">
+                    </video>
+                </figure>
+
+            </div>
+        </div>
+
+        <div class="bgbox col-green">
+            <div class="mediabox">
+
+                <h2>Specimen B:</h2>
+
+                <figure>            
+                    <video id="videoB" autoplay muted controls loop data-file="{{page.assets}}/spec_B/spec_B">
+                    </video>
+                </figure>
+
             </div>
         </div>
 
@@ -132,81 +178,28 @@ assets: ./projects/specimens/assets
                 video.appendChild(source);
             }
 
-            let videoA = document.querySelector('#videoA');
-            let videoE = document.querySelector('#videoE');
-            // console.log(document.documentElement.clientWidth);
+            /** Add webm and mp4 sources to video tag*/
+            function addWebmMp4(video, file){
+                addVideoSource(video, `${file}.webm`, 'webm');
+                addVideoSource(video, `${file}.mp4`, 'mp4');
+            }
+
+            function setPoster(video, file){
+                video.setAttribute('poster', `${file}.jpg`);
+            }
 
             let onMobile = window.matchMedia('(max-width: 640px)').matches;
 
-            // POSTER
+            ["#videoA", "#videoB", "#videoC", "#videoD", "#videoE"].forEach(vid => {
+                vid = document.querySelector(vid);
+            
+                let file = vid.dataset.file;
+                addWebmMp4(vid, onMobile ? `${file}_vid_square` : `${file}_vid`);
+                setPoster(vid, onMobile ? `${file}_vid_square_poster` : `${file}_vid_poster`);
+            });
 
-            if (onMobile){
-                addVideoSource(videoA, `${videoA.dataset.file}_vid_square.webm`, 'webm');
-                addVideoSource(videoA, `${videoA.dataset.file}_vid_square.mp4`, 'mp4');
-                videoA.setAttribute('poster', `${videoA.dataset.file}_vid_square_poster.jpg`);
-
-                addVideoSource(videoE, `${videoE.dataset.file}_vid_square.webm`, 'webm');
-                addVideoSource(videoE, `${videoE.dataset.file}_vid_square.mp4`, 'mp4');
-                videoE.setAttribute('poster', `${videoE.dataset.file}_vid_square_poster.jpg`);
-            }else{
-                addVideoSource(videoA, `${videoA.dataset.file}_vid.webm`, 'webm');
-                addVideoSource(videoA, `${videoA.dataset.file}_vid.mp4`, 'mp4');
-                videoA.setAttribute('poster', `${videoA.dataset.file}_vid_poster.jpg`);
-
-                addVideoSource(videoE, `${videoE.dataset.file}_vid.webm`, 'webm');
-                addVideoSource(videoE, `${videoE.dataset.file}_vid.mp4`, 'mp4');
-                videoE.setAttribute('poster', `${videoE.dataset.file}_vid_poster.jpg`);
-            }
         </script>
-        
-        <!-- <div class="bgbox col-green">
-            <div class="mediabox">
-                <h2>Specimen C:</h2>
-
-                <figure>            
-                    <video poster="{{page.root}}/assets/spec_C_poster.jpg" loop="true" autoplay muted>
-                        <source src="{{page.root}}/assets/spec_C.mp4" type="video/mp4"/>
-                    </video>
-                </figure>
-
-                <div class="figureContainer">
-                    <figure>
-                        <img src="{{page.root}}/assets/spec_C_snap1.jpg" data-fancybox="C">
-                    </figure>
-                    <figure>
-                        <img src="{{page.root}}/assets/spec_C_snap2.jpg" data-fancybox="C">
-                    </figure>
-                </div>
-            </div>
-        </div>
-
-        <div class="bgbox col-darkgreen">
-            <div class="mediabox">
-
-                <h2>Specimen D:</h2>
-
-                <figure>            
-                    <video poster="{{page.root}}/assets/spec_D_poster.jpg" loop="true" autoplay muted>
-                        <source src="{{page.root}}/assets/spec_D.mp4" type="video/mp4"/>
-                    </video>
-                </figure>
-
-            </div>
-        </div>
-
-        <div class="bgbox col-green">
-            <div class="mediabox">
-
-                <h3>Specimen B:</h3>
-
-                <figure>            
-                    <video poster="{{page.root}}/assets/spec_B_poster.jpg" loop="true" autoplay muted>
-                        <source src="{{page.root}}/assets/spec_B.mp4" type="video/mp4"/>
-                    </video>
-                </figure>
-
-            </div>
-        </div> -->
+    
 
         <!-- <h2 class="section">How:</h2> -->
 

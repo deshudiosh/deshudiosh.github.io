@@ -2,16 +2,24 @@
     margin-top: 0rem;
 }
 
-.m-bottom-0 {
-    margin-bottom: 0rem;
-}
-
 .m-top-mid {
     margin-top: 1.75rem;
 }
 
 .m-top-big {
     margin-top: 2.5rem;
+}
+
+.m-bottom-0 {
+    margin-bottom: 0rem;
+}
+
+.m-bottom-mid {
+    margin-bottom: 1.75rem;
+}
+
+.m-bottom-big {
+    margin-bottom: 2.5rem;
 }
 
 .col-darkgreen {
@@ -57,9 +65,13 @@ body {
 }
 
 .bgbox {
-    padding: 2vw 0 2vw 0;
+    padding: 1rem 0 1rem 0;
     width: 100%;
     margin:0 auto;
+}
+
+.bgbox:first-of-type {
+    padding-top: 0;
 }
 
 .title-thumb {
@@ -93,7 +105,7 @@ body {
 }
 
 .titlebox{
-    max-width: 1280p;
+    max-width: 1280px;
     margin:0 auto;
 }
 
