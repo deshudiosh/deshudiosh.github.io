@@ -34,6 +34,10 @@
     background-color: #1D0F1C;
 }
 
+.col-brown {
+    background-color: #230D0B;
+}
+
 * {
     border: 0;
     margin: 0;
@@ -151,7 +155,7 @@ h2 {
 }
 
 figure{
-    margin-top: 2vw;
+    margin-top: 1rem;
     /* margin-bottom: 2rem; */
 }
 

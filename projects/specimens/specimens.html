@@ -60,8 +60,9 @@ assets: ./projects/specimens/assets
         <div class="bgbox col-darkgreen">
             <div class="titlebox">
                 <div class="title-thumb">
-                    <video poster="{{page.assets}}/Specimens_Trailer_1280x320.jpg" loop="true" autoplay muted>
-                        <source src="{{page.assets}}/Specimens_Trailer_180x320.mp4" type="video/mp4"/>
+                    <video poster="{{page.assets}}/baner_1280x320.jpg" loop="true" autoplay muted>
+                        <source src="{{page.assets}}/baner_1280x320.webm" type="video/webm"/>
+                        <source src="{{page.assets}}/baner_1280x320.mp4" type="video/mp4"/>
                     </video>
                     <div class="title-name">
                         <p>Specimens</p>
@@ -124,7 +125,7 @@ assets: ./projects/specimens/assets
             </div>
         </div>
 
-        <div class="bgbox col-green">
+        <div class="bgbox col-brown">
             <div class="mediabox">
                 <h2>Specimen C:</h2>
 
@@ -170,6 +171,23 @@ assets: ./projects/specimens/assets
             </div>
         </div>
 
+        <div class="bgbox col-darkgreen">
+            <div class="mediabox">
+
+                <h2 class="m-top-big">Behind the scenes:</h2>
+
+                <div class="textbox ">   
+                    <p class="m-top-mid">Simulation is made in several steps. First the general movement is achieved. High quality mesh with wrinkles and secondary motion is later derived.</p> 
+                </div>
+
+                <figure>            
+                    <video id="wrinklesVid" autoplay muted controls loop data-file="{{page.assets}}/makingof/wrinkles">
+                    </video>
+                </figure>
+
+            </div>
+        </div>
+
         <script>
             function addVideoSource(video, src, type) {
                 var source = document.createElement('source');
@@ -190,7 +208,7 @@ assets: ./projects/specimens/assets
 
             let onMobile = window.matchMedia('(max-width: 640px)').matches;
 
-            ["#videoA", "#videoB", "#videoC", "#videoD", "#videoE"].forEach(vid => {
+            ["#videoA", "#videoB", "#videoC", "#videoD", "#videoE", "#wrinklesVid"].forEach(vid => {
                 vid = document.querySelector(vid);
             
                 let file = vid.dataset.file;
