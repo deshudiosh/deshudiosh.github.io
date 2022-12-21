@@ -48,7 +48,7 @@ html {
     font-size: 19px;
 }
 
-a, a:hover, a:focus, a:active {
+main a, a:hover, a:focus, a:active {
     text-decoration: none;
     border-bottom: 1px solid;
     color: inherit;    
@@ -56,12 +56,12 @@ a, a:hover, a:focus, a:active {
     cursor: pointer;
 }
 
-a:hover {
+main a:hover {
     color:red;
     font-weight: bold;
 }
 
-body {
+main {
     background-color: #3a3635;
     color: #feefe0;
     text-align:center;
@@ -100,7 +100,7 @@ body {
     background-color: rgba(0, 0, 0, .5);
 }
 
-.title-name > p {
+.title-name p {
     font-size: 3rem;
     color: white;
     text-shadow: 0 5px .3rem black, 0 0 .5rem black, 0 0 .5rem black;
@@ -127,7 +127,7 @@ body {
     padding: .75rem 0 .75rem 0;
 }
 
-p, ul, ol {
+main p, ul, ol {
     text-align:left;
     font-size: 1rem;
     line-height: 1.5rem;
@@ -135,7 +135,7 @@ p, ul, ol {
     padding: 0 1rem 0 1rem;
 }
 
-.p_italic {
+.italic {
     font-weight: 200;
     font-style: italic;
 }
@@ -147,11 +147,6 @@ p, ul, ol {
 h2 {
     font-size: 1.5rem;
     font-weight: 700;
-}
-
-.italic {
-    /* font-weight: 500; */
-    font-style: italic;
 }
 
 figure{

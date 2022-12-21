@@ -20,18 +20,22 @@ assets: ./projects/specimens/assets
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,700;0,900;1,200&display=swap" rel="stylesheet">
 
-        <!-- <link rel="apple-touch-icon" sizes="180x180" href="{{page.root}}/favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="{{page.root}}/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="{{page.root}}/favicon/favicon-16x16.png">
-        <link rel="manifest" href="{{page.root}}/favicon/site.webmanifest"> -->
+        <!-- FAVICONS -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+        <link rel="manifest" href="/favicon/site.webmanifest">
+        <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="/favicon/favicon.ico">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
 
         <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css">
         
-        <link type="text/css" rel="stylesheet" href="../../assets/header.css"/>
+        <link type="text/css" rel="stylesheet" href="../../assets/subpage_header_footer.css"/>
         <link type="text/css" rel="stylesheet" href="{{page.root}}/specimens.css"/>
 
         <title>Specimens by Paweł Grzelak</title>
@@ -41,208 +45,196 @@ assets: ./projects/specimens/assets
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
         <script src="{{page.root}}/specimens.js"></script>
 
-        <!-- <div id="header">
+        <div id="header">
             <div id="head_bar">
                 <div id="head_content">
                     <div class="head_div" id="head_left_flex" onclick="location.href='https://pawelgrzelak.com';">
                         <img id="head_logo" src="../assets/logo.png"></img>
-                        <p id="head_backto">pawelgrzelak.com</p>
+                        <p class="enlarge" id="head_backto">pawelgrzelak.com</p>
                     </div>
-                    <div class="head_div" id="head_right_flex" onclick="location.href='https://pawelgrzelak.com/contact';">
-                        <p id="head_contact">pawelgrzelak.3d@gmail.com</p>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-        <!--  /////////////////////    -->
-
-        <div class="bgbox col-darkgreen">
-            <div class="titlebox">
-                <div class="title-thumb">
-                    <video poster="{{page.assets}}/baner_1280x320.jpg" loop="true" autoplay muted>
-                        <source src="{{page.assets}}/baner_1280x320.webm" type="video/webm"/>
-                        <source src="{{page.assets}}/baner_1280x320.mp4" type="video/mp4"/>
-                    </video>
-                    <div class="title-name">
-                        <p>Specimens</p>
+                    <div class="head_div" id="head_right_flex"">
+                        <a class="enlarge" id="head_contact" href="mailto:pawelgrzelak.3d@gmail.com">pawelgrzelak.3d@gmail.com</a>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="textbox">
-                <div class="quotebox m-top-mid col-green">
-                    <p class="p_italic">For the first time in history, a human expedition reached the Mariana Trench ocean floor at a depth of 10,916 metres in 1960. Scientists assumed that no multicellular organisms would be able to live in these harsh environments. But there was life, and it was abundant. Many species are still awaiting to be discovered 60 years later.</p>
+        <main>
+            <div class="bgbox col-darkgreen">
+                <div class="titlebox">
+                    <div class="title-thumb">
+                        <video poster="{{page.assets}}/baner_1280x320.jpg" loop="true" autoplay muted>
+                            <source src="{{page.assets}}/baner_1280x320.webm" type="video/webm"/>
+                            <source src="{{page.assets}}/baner_1280x320.mp4" type="video/mp4"/>
+                        </video>
+                        <div class="title-name">
+                            <p>Specimens</p>
+                        </div>
+                    </div>
                 </div>
 
-                <p class="m-top-mid"><b>Specimens</b> is a collection of five procedurally generated and animated imaginary creatures.</p>
-                <p>Combination of deep-sea organisms' patterns, behaviours, and structures with the peculiar appearance of microscopic imaging, retsults in the creation of new, digital living forms.</p> 
+                <div class="textbox">
+                    <div class="quotebox m-top-mid col-green">
+                        <p class="italic">For the first time in history, a human expedition reached the Mariana Trench ocean floor at a depth of 10,916 metres in 1960. Scientists assumed that no multicellular organisms would be able to live in these harsh environments. But there was life, and it was abundant. Many species are still awaiting to be discovered 60 years later.</p>
+                    </div>
 
-                <p class="m-bottom-mid">See project at <a href="https://opensea.io/collection/specimen-by-pawel-grzelak"> OpenSea.io</a></p>
-            </div>
+                    <p class="m-top-mid"><b>Specimens</b> is a collection of five procedurally generated and animated imaginary creatures.</p>
+                    <p>Combination of deep-sea organisms' patterns, behaviours, and structures with the peculiar appearance of microscopic imaging, retsults in the creation of new, digital living forms.</p> 
 
-            
-        </div>
-        <div class="bgbox col-green">
-            <div class="mediabox">
-                <h2>Specimen A:</h2>
-
-                <figure>
-                    <video id="videoA" autoplay muted controls loop data-file="{{page.assets}}/spec_A/spec_A">
-                    </video>
-                </figure>
-
-                <div class="figureContainer">
-                    <figure>
-                        <img src="{{page.assets}}/spec_A/spec_A_snap1.jpg" data-fancybox="A">
-                    </figure>
-                    <figure>
-                        <img src="{{page.assets}}/spec_A/spec_A_snap3.jpg" data-fancybox="A">
-                    </figure>
-                    <figure>
-                        <img src="{{page.assets}}/spec_A/spec_A_snap2.jpg" data-fancybox="A">
-                    </figure>
-                </div>
-            </div>
-        </div>
-        <div class="bgbox col-violet">
-            <div class="mediabox">
-                <h2>Specimen E:</h2>
-
-                <figure>            
-                    <video id="videoE" autoplay muted controls loop data-file="{{page.assets}}/spec_E/spec_E">
-                    </video>
-                </figure>
-
-                <div class="figureContainer">
-                    <figure>
-                        <img src="{{page.assets}}/spec_E/spec_E_snap1.jpg" data-fancybox="E">
-                    </figure>
-                    <figure>
-                        <img src="{{page.assets}}/spec_E/spec_E_snap2.jpg" data-fancybox="E">
-                    </figure>
-                </div>
-            </div>
-        </div>
-
-        <div class="bgbox col-brown">
-            <div class="mediabox">
-                <h2>Specimen C:</h2>
-
-                <figure>            
-                    <video id="videoC" autoplay muted controls loop data-file="{{page.assets}}/spec_C/spec_C">
-                    </video>
-                </figure>
-
-                <!-- <div class="figureContainer">
-                    <figure>
-                        <img src="{{page.assets}}/spec_C/spec_C_snap1.jpg" data-fancybox="C">
-                    </figure>
-                    <figure>
-                        <img src="{{page.assets}}/spec_C/spec_C_snap2.jpg" data-fancybox="C">
-                    </figure>
-                </div> -->
-            </div>
-        </div>
-
-        <div class="bgbox col-darkgreen">
-            <div class="mediabox">
-
-                <h2>Specimen D:</h2>
-
-                <figure>            
-                    <video id="videoD" autoplay muted controls loop data-file="{{page.assets}}/spec_D/spec_D">
-                    </video>
-                </figure>
-
-            </div>
-        </div>
-
-        <div class="bgbox col-green">
-            <div class="mediabox">
-
-                <h2>Specimen B:</h2>
-
-                <figure>            
-                    <video id="videoB" autoplay muted controls loop data-file="{{page.assets}}/spec_B/spec_B">
-                    </video>
-                </figure>
-
-            </div>
-        </div>
-
-        <div class="bgbox col-darkgreen">
-            <div class="mediabox">
-
-                <h2 class="m-top-big">Behind the scenes:</h2>
-
-                <div class="textbox ">   
-                    <p class="m-top-mid">Simulation is made in several steps. First the general movement is achieved. High quality mesh with wrinkles and secondary motion is later derived.</p> 
+                    <p class="m-top-mid m-bottom-mid">Specimens was a part of <a href="https://verse.works/exhibitions/reconciliation-with-the-living">Reconciliation with the Living</a> exhibition organized by Verse Works and Museum Week.
+                    You can see the project at <a href="https://opensea.io/collection/specimen-by-pawel-grzelak"> OpenSea.io</a> too.</p>
                 </div>
 
-                <figure>            
-                    <video id="wrinklesVid" autoplay muted controls loop data-file="{{page.assets}}/makingof/wrinkles">
-                    </video>
-                </figure>
-
+                
             </div>
-        </div>
+            <div class="bgbox col-green">
+                <div class="mediabox">
+                    <h2>Specimen A:</h2>
 
-        <script>
-            function addVideoSource(video, src, type) {
-                var source = document.createElement('source');
-                source.src = src;
-                source.type = "video/" + type;
-                video.appendChild(source);
-            }
+                    <figure>
+                        <video id="videoA" autoplay muted controls loop data-file="{{page.assets}}/spec_A/spec_A">
+                        </video>
+                    </figure>
 
-            /** Add webm and mp4 sources to video tag*/
-            function addWebmMp4(video, file){
-                addVideoSource(video, `${file}.webm`, 'webm');
-                addVideoSource(video, `${file}.mp4`, 'mp4');
-            }
+                    <div class="figureContainer">
+                        <figure>
+                            <img src="{{page.assets}}/spec_A/spec_A_snap1.jpg" data-fancybox="A">
+                        </figure>
+                        <figure>
+                            <img src="{{page.assets}}/spec_A/spec_A_snap3.jpg" data-fancybox="A">
+                        </figure>
+                        <figure>
+                            <img src="{{page.assets}}/spec_A/spec_A_snap2.jpg" data-fancybox="A">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <div class="bgbox col-violet">
+                <div class="mediabox">
+                    <h2>Specimen E:</h2>
 
-            function setPoster(video, file){
-                video.setAttribute('poster', `${file}.jpg`);
-            }
+                    <figure>            
+                        <video id="videoE" autoplay muted controls loop data-file="{{page.assets}}/spec_E/spec_E">
+                        </video>
+                    </figure>
 
-            let onMobile = window.matchMedia('(max-width: 640px)').matches;
+                    <div class="figureContainer">
+                        <figure>
+                            <img src="{{page.assets}}/spec_E/spec_E_snap1.jpg" data-fancybox="E">
+                        </figure>
+                        <figure>
+                            <img src="{{page.assets}}/spec_E/spec_E_snap2.jpg" data-fancybox="E">
+                        </figure>
+                    </div>
+                </div>
+            </div>
 
-            ["#videoA", "#videoB", "#videoC", "#videoD", "#videoE", "#wrinklesVid"].forEach(vid => {
-                vid = document.querySelector(vid);
-            
-                let file = vid.dataset.file;
-                addWebmMp4(vid, onMobile ? `${file}_vid_square` : `${file}_vid`);
-                setPoster(vid, onMobile ? `${file}_vid_square_poster` : `${file}_vid_poster`);
-            });
+            <div class="bgbox col-brown">
+                <div class="mediabox">
+                    <h2>Specimen C:</h2>
 
-        </script>
-    
+                    <figure>            
+                        <video id="videoC" autoplay muted controls loop data-file="{{page.assets}}/spec_C/spec_C">
+                        </video>
+                    </figure>
 
-        <!-- <h2 class="section">How:</h2> -->
+                    <!-- <div class="figureContainer">
+                        <figure>
+                            <img src="{{page.assets}}/spec_C/spec_C_snap1.jpg" data-fancybox="C">
+                        </figure>
+                        <figure>
+                            <img src="{{page.assets}}/spec_C/spec_C_snap2.jpg" data-fancybox="C">
+                        </figure>
+                    </div> -->
+                </div>
+            </div>
 
-        <!-- <h3>Light</h3>
-        <p>One of the main randomized properties is light direction.<br>
-        It affects nearly every aspect of the image:</p>
-        <ul>
-            <li>which side of the planet is lit</li>
-            <li>shadow position under the orb</li>
-            <li>if city is at daytime or nighttime</li>
-            <li>which side of the buildings should be brighter</li>
-            <li>gradient on the background</li>
-        </ul> -->
+            <div class="bgbox col-darkgreen">
+                <div class="mediabox">
 
-        <!-- <hr>
+                    <h2>Specimen D:</h2>
 
-        <h3>Background</h3>
-        <p>Background is simple: gradient corresponds with light direction;
-        colors are darkened swatches extracted from the biggest orb;
-        stars are little randomly scattered grayscale images.
-        There is also a high chance of falling star appearing.</p>
-        -->
+                    <figure>            
+                        <video id="videoD" autoplay muted controls loop data-file="{{page.assets}}/spec_D/spec_D">
+                        </video>
+                    </figure>
 
-        <h2 id="thankyou">...</h3>
-        <div style="height: 15rem;"></div>
+                </div>
+            </div>
+
+            <div class="bgbox col-green">
+                <div class="mediabox">
+
+                    <h2>Specimen B:</h2>
+
+                    <figure>            
+                        <video id="videoB" autoplay muted controls loop data-file="{{page.assets}}/spec_B/spec_B">
+                        </video>
+                    </figure>
+
+                </div>
+            </div>
+
+            <div class="bgbox col-darkgreen">
+                <div class="mediabox">
+
+                    <h2 class="m-top-big">Behind the scenes:</h2>
+
+                    <div class="textbox ">   
+                        <p class="m-top-mid">Simulation is made in several steps. First the general movement is achieved. High quality mesh with wrinkles and secondary motion is later derived:</p> 
+                    </div>
+
+                    <figure>            
+                        <video id="wrinklesVid" autoplay muted controls loop data-file="{{page.assets}}/makingof/wrinkles">
+                        </video>
+                    </figure>
+
+                    <div class="textbox">   
+                        <p class="m-top-big">Each model is generated procedurally, meaning that new, similar, yet different specimens are easy to prepare:</p> 
+                    </div>
+
+                    <figure>            
+                        <video id="procgenVid" autoplay muted controls loop data-file="{{page.assets}}/makingof/procgen">
+                        </video>
+                    </figure>
+
+                </div>
+            </div>
+
+            <script>
+                function addVideoSource(video, src, type) {
+                    var source = document.createElement('source');
+                    source.src = src;
+                    source.type = "video/" + type;
+                    video.appendChild(source);
+                }
+
+                /** Add webm and mp4 sources to video tag*/
+                function addWebmMp4(video, file){
+                    addVideoSource(video, `${file}.webm`, 'webm');
+                    addVideoSource(video, `${file}.mp4`, 'mp4');
+                }
+
+                function setPoster(video, file){
+                    video.setAttribute('poster', `${file}.jpg`);
+                }
+
+                let onMobile = window.matchMedia('(max-width: 640px)').matches;
+
+                ["#videoA", "#videoB", "#videoC", "#videoD", "#videoE", "#wrinklesVid", "#procgenVid"]
+                .forEach(vid => {
+                    vid = document.querySelector(vid);
+                
+                    let file = vid.dataset.file;
+                    addWebmMp4(vid, onMobile ? `${file}_vid_square` : `${file}_vid`);
+                    setPoster(vid, onMobile ? `${file}_vid_square_poster` : `${file}_vid_poster`);
+                });
+
+            </script>
+
+            <h2 id="thankyou">...</h3>
+            <div style="height: 15rem;"></div>
+        </main>       
                        
     </body>
 </html>
