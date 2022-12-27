@@ -203,8 +203,8 @@ main {
     align-items: center;
     justify-content: flex-end;
 
-    padding-inline: 3rem 1rem;
-    font-size: 2rem;
+    padding-inline: 2rem 1rem;
+    font-size: 1.3rem;
     font-weight: var(--fw-bold);
 
     height: 100%;
