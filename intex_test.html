@@ -39,53 +39,59 @@ assets: ./assets
     <title>Pawel Grzelak</title>
 </head>
     <body>
-        <main>
-            <nav class="nav-desktop only-on-desktop">
-                <div class="logo-desktop">
+        <div class="wrapper">
+            <nav class="desktop-nav">
+                <div class="desktop-nav__logo">
                     <img src="{{page.assets}}/logo2.png">
                     <p>Paweł Grzelak</p>
                 </div>
             </nav>
-            <div class="scrollable">
-                <div class="side-by-side">
-                    <div class="logo-mobile">
+            <main>
+                <div class="desktop-art-work-bar">
+                    <div><p>my art</p></div>
+                    <div><p>client work</p></div>
+                </div>
+                <div class="scrollable">
+                    <div class="mobile-top-logo">
                         <img src="{{page.assets}}/logo2.png">
                         <p>Paweł Grzelak</p>
                     </div>
-                    <div class="thumb-feed" id="art">
-                        <p>my art</p>
-                        <div class="thumb">
-                            <img src="{{page.thumbs}}/specimens.jpg">
+                    <div class="rows-or-columns">
+                        <div class="feed">
+                            <p>my art</p>
+                            <div class="thumb">
+                                <img src="{{page.thumbs}}/specimens.jpg">
+                            </div>
+                            <div class="thumb">
+                                <img src="{{page.thumbs}}/monstera.jpg">
+                            </div>
+                            <div class="thumb">
+                                <img src="{{page.thumbs}}/padina.jpg">
+                            </div>
+                            <div class="thumb">
+                                <img src="{{page.thumbs}}/microbes.jpg">
+                            </div>
                         </div>
-                        <div class="thumb">
-                            <img src="{{page.thumbs}}/monstera.jpg">
+                        <div class="feed">
+                            <p>client work</p>
+                            <div class="thumb">
+                                <img src="{{page.thumbs}}/mimosa.jpg">
+                            </div>
+                            <div class="thumb">
+                                <img src="{{page.thumbs}}/lostforms.jpg">
+                            </div>
+                            <div class="thumb">
+                                <img src="{{page.thumbs}}/andere.jpg">
+                            </div>                    
                         </div>
-                        <div class="thumb">
-                            <img src="{{page.thumbs}}/padina.jpg">
-                        </div>
-                        <div class="thumb">
-                            <img src="{{page.thumbs}}/microbes.jpg">
-                        </div>
-                    </div>
-                    <div class="thumb-feed" id="work">
-                        <p>client work</p>
-                        <div class="thumb">
-                            <img src="{{page.thumbs}}/mimosa.jpg">
-                        </div>
-                        <div class="thumb">
-                            <img src="{{page.thumbs}}/lostforms.jpg">
-                        </div>
-                        <div class="thumb">
-                            <img src="{{page.thumbs}}/andere.jpg">
-                        </div>                    
                     </div>
                 </div>
-            </div>
-            <nav class="only-on-mobile">
+            </main>
+            <nav class="mobile-nav">
                 <a id="menu-btn"></a>
                 <a id="scroll-btn"></a>
             </nav>
-        </main>
+        </div>
     </body>
 </html>
 
