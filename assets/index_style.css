@@ -6,9 +6,10 @@
     --col-beige: #B3AA92;
     --col-primary-900: black;
 
-    --ff-primary: 'Nunito', sans-serif;
+    --ff-primary: 'Nunito Sans', sans-serif;
     --fw-extra-light: 200;
     --fw-regular: 400;
+    --fw-semi-bold: 600;
     --fw-bold: 700;
     --fw-black: 900;
 
@@ -273,6 +274,10 @@ main {
 @media screen and (max-aspect-ratio: 3/4) {
     [class^="desktop-"] {
         display: none;
+    }
+
+    .feed:last-child {
+        padding-bottom: 10rem;
     }
 }
 
