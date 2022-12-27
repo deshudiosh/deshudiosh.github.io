@@ -1,0 +1,91 @@
+---
+permalink: /test 
+thumbs: ./assets/thumbs/
+assets: ./assets
+---
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6SBZH6ZRR8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-6SBZH6ZRR8');
+    </script>
+
+    <!-- GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,700;0,900;1,200&display=swap" rel="stylesheet">
+
+    <!-- FAVICONS -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="./assets/index_style.css">
+
+    <title>Pawel Grzelak</title>
+</head>
+    <body>
+        <main>
+            <nav class="nav-desktop only-on-desktop">
+                <div class="logo-desktop">
+                    <img src="{{page.assets}}/logo2.png">
+                    <p>Paweł Grzelak</p>
+                </div>
+            </nav>
+            <div class="scrollable">
+                <div class="side-by-side">
+                    <div class="logo-mobile">
+                        <img src="{{page.assets}}/logo2.png">
+                        <p>Paweł Grzelak</p>
+                    </div>
+                    <div class="thumb-feed" id="art">
+                        <p>my art</p>
+                        <div class="thumb">
+                            <img src="{{page.thumbs}}/specimens.jpg">
+                        </div>
+                        <div class="thumb">
+                            <img src="{{page.thumbs}}/monstera.jpg">
+                        </div>
+                        <div class="thumb">
+                            <img src="{{page.thumbs}}/padina.jpg">
+                        </div>
+                        <div class="thumb">
+                            <img src="{{page.thumbs}}/orbicular.jpg">
+                        </div>
+                    </div>
+                    <div class="thumb-feed" id="work">
+                        <p>client work</p>
+                        <div class="thumb">
+                            <img src="{{page.thumbs}}/mimosa.jpg">
+                        </div>
+                        <div class="thumb">
+                            <img src="{{page.thumbs}}/lostforms.jpg">
+                        </div>
+                        <div class="thumb">
+                            <img src="{{page.thumbs}}/andere.jpg">
+                        </div>                    
+                    </div>
+                </div>
+            </div>
+            <nav class="only-on-mobile">
+                <a id="menu-btn"></a>
+                <a id="scroll-btn"></a>
+            </nav>
+        </main>
+    </body>
+</html>
+
