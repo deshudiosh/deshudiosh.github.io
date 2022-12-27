@@ -59,7 +59,6 @@ select {
 }
 
 /* ------------------------------ */
-
 body {
     font-family: var(--ff-primary);
     font-weight: var(--fw-regular);
@@ -193,24 +192,40 @@ main {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    overflow: hidden;
     
     background-color: var(--col-green-dark);
     padding: 1rem;
 }
 
-.mobile-nav > a {
+.mobile-nav__btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    padding-inline: 3rem 1rem;
+    font-size: 2rem;
+    font-weight: var(--fw-bold);
+
     height: 100%;
+    
     border-radius: 8rem;
+
+    color: var(--col-gray-light);
     background-color: var(--col-green-mid);
 }
 
-.mobile-nav > :nth-child(1) {
+.mobile-nav__btn span {
+    font-size: 2em;
+}
+
+/* .mobile-nav > :nth-child(1) {
     width: 30%;
 }
 
 .mobile-nav > :nth-child(2) {
     width: 50%;
-}
+} */
 
 @media screen and (min-aspect-ratio: 3/4) {
 
