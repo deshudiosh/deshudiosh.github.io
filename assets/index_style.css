@@ -12,7 +12,6 @@
     --fw-semi-bold: 600;
     --fw-bold: 700;
     --fw-black: 900;
-
 }
 
 /* CSS reset
@@ -61,11 +60,21 @@ select {
 
 /* ------------------------------ */
 body {
+    --padding: 1.5rem;
+    --padding-min: 1rem;
+    
     font-family: var(--ff-primary);
     font-weight: var(--fw-regular);
+    background-color: var(--col-green-bright);
+    
+    /* display: grid; */
+    /* overflow-y: auto; */
+    /* align-content: center; */
 }
 
 .wrapper {
+    max-width: 1920px;
+    margin: 0 auto;
     height: 100%;
     display: grid;
     grid-template-columns: 1fr;
@@ -81,7 +90,7 @@ body {
     /* justify-content: space-between; */
     
     background-color: var(--col-green-dark);
-    padding: 1em;
+    padding: var(--padding);
     color: var(--col-gray-light);
     text-align: center;
 }
@@ -214,7 +223,6 @@ body {
     /* justify-item: flex-end; */
 }
 
-
 main {
     display: flex;
     flex-direction: column;
@@ -234,7 +242,7 @@ main {
 
 .desktop-art-work-bar > div {
     width: 100%;
-    padding: 1.5vw 1.5vw 0;
+    padding: var(--padding-min) var(--padding) 0;
 
     background-color: var(--col-green-dark);
     color: var(--col-gray-light);
@@ -350,7 +358,7 @@ main {
 @media screen and (min-aspect-ratio: 3/4) {
 
     .wrapper {
-        grid-template-columns: 12rem 1fr;
+        grid-template-columns: 14rem 1fr;
         grid-template-rows: none;
     }
 
@@ -367,8 +375,9 @@ main {
     .feed {
         align-items: center;
         min-height: 100%;
-        gap: 1.5vw;
-        padding: 1.5vw;
+        gap: var(--padding);
+        padding: var(--padding);
+        padding-top: var(--padding-min);
     }
 
     .feed > p {
