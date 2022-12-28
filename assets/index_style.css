@@ -305,10 +305,20 @@ main {
 
 .thumb {
     width: 100%;
-    box-shadow: 0 0 1vh rgb(0 0 0 / .5);
+    box-shadow: 0 0 1vh rgb(0 0 0 / .2);
     height: auto;
     aspect-ratio: 2;
     overflow: hidden;
+
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+
+    transition: all 150ms;
+}
+
+.thumb:hover {
+    box-shadow: 0 0 1vh rgb(0 0 0 / .35);
 }
 
 .thumb > img {
