@@ -2,6 +2,7 @@
 permalink: /test 
 thumbs: ./assets/thumbs/
 assets: ./assets
+icons: ./assets/icons/
 ---
 <!DOCTYPE html>
 <html>
@@ -24,6 +25,9 @@ assets: ./assets
     <!-- GOOGLE ICONS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,200,0,0" />
 
+    <!-- FONTAWESOME -->
+    <script src="https://kit.fontawesome.com/eb11795756.js" crossorigin="anonymous"></script>
+
     <!-- FAVICONS -->
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
@@ -37,17 +41,44 @@ assets: ./assets
 
     <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <link rel="stylesheet" href="./assets/index_style.css?v=3">
+    <link rel="stylesheet" href="./assets/index_style.css?v=4">
 
     <title>Pawel Grzelak</title>
 </head>
     <body>
         <div class="wrapper">
             <nav class="desktop-nav">
-                <div class="desktop-nav__logo">
-                    <img src="{{page.assets}}/logo2.png">
-                    <p>Paweł Grzelak</p>
+                <div>
+                    <div class="desktop-nav__logo">
+                        <img src="{{page.assets}}/logo2.png">
+                        <p>Paweł Grzelak</p>
+                    </div>
+                    <button id="about">about me</button>
+                    <button id="about">tutorials<br><span>and cgi assets</span></button>
                 </div>
+                <div class="desktop-nav__socials">
+                    <button id="email">
+                        <p>email</p>
+                        <i class="fa-solid fa-envelope"></i>
+                    </button>
+                    <button id="insta">
+                        <p>instagram</p>
+                        <i class="fa-brands fa-instagram"></i>
+                    </button>
+                    <button id="twitter">
+                        <p>twitter</p>
+                        <i class="fa-brands fa-twitter"></i>
+                    </button>
+                    <button id="youtube">
+                        <p>youtube</p>
+                        <i class="fa-brands fa-youtube"></i>
+                    </button>
+                    <button id="behance">
+                        <p>behance</p>
+                        <i class="fa-brands fa-behance"></i>
+                    </button>
+                </div>
+                <p>Paweł Grzelak 2023<br>All rights reserved</p>
             </nav>
             <main>
                 <div class="desktop-art-work-bar">
