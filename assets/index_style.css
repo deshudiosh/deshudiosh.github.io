@@ -65,7 +65,7 @@ body {
     
     font-family: var(--ff-primary);
     font-weight: var(--fw-regular);
-    background-color: var(--col-green-bright);
+    background-color: var(--col-green-dark);
     
     /* display: grid; */
     /* overflow-y: auto; */
@@ -234,13 +234,14 @@ main {
     font-weight: var(--fw-bold);
 }
 
-.desktop-art-work-bar {
+.desktop-top-text-bar {
     display: flex;
     font-weight: var(--fw-semi-bold);
     /* justify-content: center; */
+    text-align: center;
 }
 
-.desktop-art-work-bar > div {
+.desktop-top-text-bar > div {
     width: 100%;
     padding: var(--padding-min) var(--padding) 0;
 
@@ -248,10 +249,9 @@ main {
     color: var(--col-gray-light);
 }
 
-.desktop-art-work-bar > div:first-of-type {
+.desktop-top-text-bar > div:first-of-type {
     color: var(--col-primary-900);
     background-color: var(--col-beige);
-    text-align: right;
 }
 
 .scrollable {
