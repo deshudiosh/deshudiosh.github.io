@@ -17,20 +17,28 @@ root: ./projects/fossil/
       }
 
 			.center {
+        /* width: 100%;
+        height: 100%; */
 				position: absolute;
-        background: #601414;
-        background-color: #601414;
+        /* background-color: #601414; */
 				left: 50%;
 				top: 50%;
 				transform: translate(-50%, -50%);
 			}
 
+      #my_canvas {
+        inline-size: 100vw;
+        /* block-size: 100vh; */
+      }
+
 		</style>
-    <script type="module" crossorigin src="{{page.root}}/assets/index-U7hlTbQR.js"></script>
+    <script type="module" crossorigin src="{{page.root}}/assets/index-BIK1YOl-.js"></script>
   </head>
   <!-- <body id="body" style="display:none"> -->
   <body>
-    <div id="wrapper" class="center"></div>
+    <div id="wrapper" class="center">
+      <canvas id="my_canvas" ></canvas>
+    </div>
   </body>
 </html>
 
