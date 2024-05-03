@@ -10,7 +10,7 @@ root: ./projects/fossil/
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <title>Fossil</title>
    
-    <style>
+    <!-- <style>
 			body {
         background-color: #141414;
         margin: 0;
@@ -24,17 +24,33 @@ root: ./projects/fossil/
       }
 
 			#wrapper {
-        /* display: block; */
-				/* position: absolute;
-				left: 50%;
-				top: 50%;
-				transform: translate(-50%, -50%); */
 			}
 
       #my_canvas {
         width: 100%;
+      }
+		</style> -->
+    
+    <style>
+			body {
+        margin: 0; 
+        background-color: #141414;
+				height: 100%;
+      }
+
+			.center {
+        width: 100%;
         /* height: 100%; */
-        /* aspect-ratio: 700 / 1000; */
+				position: absolute;
+        /* background-color: #601414; */
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+      #my_canvas {
+        inline-size: 100vw;
+        /* block-size: 100vh; */
       }
 
 		</style>
