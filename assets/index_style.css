@@ -3,7 +3,7 @@
     --col-green-mid: #214038;
     --col-green-bright: #2D453F;
     --col-gray-light: #E6E6E6;
-    --col-beige: #B3AA92;
+    --col-beige: #C9C3B2;
     --col-primary-900: black;
 
     --ff-primary: 'Nunito Sans', sans-serif;
@@ -60,8 +60,8 @@ select {
 
 /* ------------------------------ */
 body {
-    --padding: 1.5rem;
-    --padding-min: 1rem;
+    --padding: 2vw;
+    --padding-min: 1.5vw;
     
     font-family: var(--ff-primary);
     font-weight: var(--fw-regular);
@@ -291,9 +291,8 @@ main {
 .feed {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-
+    gap: 3vw;
+    padding: 3vw;
     background-color: var(--col-beige);
     color: var(--col-primary-900);
 }
