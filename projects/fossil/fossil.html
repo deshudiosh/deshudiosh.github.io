@@ -9,34 +9,40 @@ root: ./projects/fossil/
     <link rel="icon" type="image/svg+xml" href="{{page.root}}/vite.svg" />
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <title>Fossil</title>
+   
     <style>
 			body {
-        margin: 0; 
         background-color: #141414;
-				height: 100%;
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
-			.center {
-        /* width: 100%;
-        height: 100%; */
-				position: absolute;
-        /* background-color: #601414; */
+			#wrapper {
+        /* display: block; */
+				/* position: absolute;
 				left: 50%;
 				top: 50%;
-				transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%); */
 			}
 
       #my_canvas {
-        inline-size: 100vw;
-        /* block-size: 100vh; */
+        width: 100%;
+        /* height: 100%; */
+        /* aspect-ratio: 700 / 1000; */
       }
 
 		</style>
-    <script type="module" crossorigin src="{{page.root}}/assets/index-BIK1YOl-.js"></script>
+    <script type="module" crossorigin src="{{page.root}}/assets/index-BuQ49xfn.js"></script>
   </head>
   <!-- <body id="body" style="display:none"> -->
   <body>
-    <div id="wrapper" class="center">
+    <div id="wrapper">
       <canvas id="my_canvas" ></canvas>
     </div>
   </body>
