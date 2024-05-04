@@ -9,27 +9,6 @@ root: ./projects/fossil/
     <link rel="icon" type="image/svg+xml" href="{{page.root}}/vite.svg" />
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <title>Fossil</title>
-   
-    <!-- <style>
-			body {
-        background-color: #141414;
-        margin: 0;
-        padding: 0;
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-			#wrapper {
-			}
-
-      #my_canvas {
-        width: 100%;
-      }
-		</style> -->
     
     <style>
 			body {
@@ -38,9 +17,8 @@ root: ./projects/fossil/
 				height: 100%;
       }
 
-			.center {
+			#wrapper {
         width: 100%;
-        /* height: 100%; */
 				position: absolute;
         /* background-color: #601414; */
 				left: 50%;
@@ -50,25 +28,14 @@ root: ./projects/fossil/
 
       #my_canvas {
         inline-size: 100vw;
-        /* block-size: 100vh; */
       }
 
 		</style>
-    <script type="module" crossorigin src="{{page.root}}/assets/index-BuQ49xfn.js"></script>
+    <script type="module" crossorigin src="{{page.root}}/assets/index.js"></script>
   </head>
-  <!-- <body id="body" style="display:none"> -->
   <body>
     <div id="wrapper">
       <canvas id="my_canvas" ></canvas>
     </div>
   </body>
 </html>
-
-<!-- WHITE FLASH ON RELOAD HACK -->
-<!-- <script type="text/javascript">
-  window.onload = function () {
-      setTimeout(function() {
-          document.getElementById("body").style.display = "";        
-      }, 300);
-  }
-</script> -->
