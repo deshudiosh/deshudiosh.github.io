@@ -53,6 +53,14 @@ root: ./projects/fossil/
         color: #DFDEDF;
       }
 
+      p {
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+        left: 200px;
+        text-align: right;
+      }
+
 		</style>
     <script type="module" crossorigin src="{{page.root}}/index.js"></script>
   </head>
@@ -63,5 +71,6 @@ root: ./projects/fossil/
     <button id="reloadBtn">⟳</button>
     <button id="debugBtn" style="left: 60px;">Deb</button>
     <button id="colorsBtn" style="left: 110px;">Col</button>
+    <p id="debugText">test test test</p>
   </body>
 </html>
