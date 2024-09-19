@@ -51,14 +51,20 @@ root: ./projects/fossil/
         border: none;
         background: #6E6D70;
         color: #DFDEDF;
+        user-select: none;
+        font-size: 16px;
       }
 
       p {
         position: absolute;
-        bottom: 10px;
+        top: 10px;
         right: 20px;
-        left: 200px;
+        margin-left: 10px;
         text-align: right;
+        color: white;
+        text-shadow: black 2px 2px 2px;
+        background-color: #00000060;
+        user-select: none;
       }
 
 		</style>
@@ -68,9 +74,11 @@ root: ./projects/fossil/
     <div id="wrapper">
       <canvas id="my_canvas" ></canvas>
     </div>
-    <button id="reloadBtn">⟳</button>
-    <button id="debugBtn" style="left: 60px;">Deb</button>
-    <button id="colorsBtn" style="left: 110px;">Col</button>
-    <p id="debugText">test test test</p>
+    <button id="prevBtn" style="font-size: 24px; padding-bottom: 4px;">⇇</button>
+    <button id="nextBtn" style="font-size: 24px; padding-bottom: 4px; left: 60px;">⇉</button>
+    <button id="debugBtn" style="left: 110px;">Deb</button>
+    <button id="colorsBtn" style="left: 160px;">Col</button>
+    <button id="soloBtn" style="left: 210px;">Solo</button>
+    <p id="debugText">debug data</p>
   </body>
 </html>
